@@ -1,8 +1,10 @@
 local composer = require("composer")
+local widget = require("widget")
+local C = require("constants")
 
 
 
--- Constants
+-- Levels
 
 local minigamesLevels = {
 	[1] = {
@@ -26,9 +28,11 @@ local minigamesLevels = {
 		},
 	}
 }
-local buttonInterval = 20
-local buttonSize = 44
-local buttonColor = 0.75, 0.78, 1
+
+
+
+-- Constants
+
 local firstButtonY = 10
 
 
@@ -37,20 +41,27 @@ local firstButtonY = 10
 
 local scene = composer.newScene()
 scene:addEventListener("create", function(event)
+	local background = display.newImageRect(scene.view, C.menuBackgroundImage, display.contentWidth, display.contentHeight)
+	background.x = display.contentCenterX
+	background.y = display.contentCenterY
+
 	levels = minigamesLevels[event.params.minigameId]
-	local currentY = firstButtonY
+	local currentY = C.menuButtonHeight / 2 + firstButtonY
 	for i = 1, #levels do
-		local button = display.newText(scene.view, levels[i].name, display.contentCenterX, currentY, native.systemFont, buttonSize)
-    	button:setFillColor(buttonColor)
-    	button:addEventListener("tap", function ()
-    		composer.gotoScene("scenes.level", {
-    			params = {
-    				minigameId = event.params.minigameId,
-    				levelId = levels[i].id
-    			}
-    		})
-    	end)
-    	currentY = currentY + buttonSize + buttonInterval
+		local button = widget.newButton(C.menuButtonOptions(
+			currentY, 
+			levels[i].name,
+			function ()
+	    		composer.gotoScene("scenes.level", {
+	    			params = {
+	    				minigameId = event.params.minigameId,
+	    				levelId = levels[i].id
+	    			}
+	    		})
+	    	end
+		))
+		scene.view:insert(button)
+    	currentY = currentY + C.menuButtonHeight + C.menuButtonInterval
     end
 end)
 return scene

@@ -1,4 +1,6 @@
 local composer = require("composer")
+local widget = require("widget")
+local C = require("constants")
 
 
 
@@ -27,10 +29,7 @@ local buttons = {
 
 -- Constants
 
-local buttonInterval = 20
-local buttonSize = 44
-local buttonColor = 0.75, 0.78, 1
-local menuHeight = #buttons * buttonSize + (#buttons - 1) * buttonInterval
+local menuHeight = #buttons * C.menuButtonHeight + (#buttons - 1) * C.menuButtonInterval
 local firstButtonY = (display.contentHeight - menuHeight) / 2
 
 
@@ -38,16 +37,16 @@ local firstButtonY = (display.contentHeight - menuHeight) / 2
 -- The scene
 
 local scene = composer.newScene()
-function scene:create(event)
-	local sceneGroup = self.view
+scene:addEventListener("create", function (event)
+	local background = display.newImageRect(scene.view, C.menuBackgroundImage, display.contentWidth, display.contentHeight)
+	background.x = display.contentCenterX
+	background.y = display.contentCenterY
 	
-	local currentY = firstButtonY
+	local currentY = C.menuButtonHeight / 2 + firstButtonY
 	for i = 1, #buttons do
-		local button = display.newText(sceneGroup, buttons[i].text, display.contentCenterX, currentY, native.systemFont, buttonSize)
-    	button:setFillColor(buttonColor)
-    	button:addEventListener("tap", buttons[i].func)
-    	currentY = currentY + buttonSize + buttonInterval
+		local button = widget.newButton(C.menuButtonOptions(currentY, buttons[i].text, buttons[i].func))
+		scene.view:insert(button)
+    	currentY = currentY + C.menuButtonHeight + C.menuButtonInterval
     end
-end
-scene:addEventListener("create", scene)
+end)
 return scene
