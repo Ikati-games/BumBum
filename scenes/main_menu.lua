@@ -28,7 +28,4 @@ local buttons = {
 	},
 }
 
-local menuHeight = #buttons * C.menuButtonHeight + (#buttons - 1) * C.menuButtonInterval
-local firstButtonY = (display.contentHeight - menuHeight) / 2
-
-return scene_getter(function() return buttons end, firstButtonY)
+return scene_getter(function() return buttons end)

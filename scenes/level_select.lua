@@ -1,5 +1,6 @@
 local C = require("constants")
 local composer = require("composer")
+local lfs = require("lfs")
 local scene_getter = require("scenes.menu_scene_getter")
 
 
@@ -15,37 +16,22 @@ end
 
 
 
-local minigamesLevels = {
-	[1] = {
-		{
-			img = "sprites/button/button_reach.png",
-			imgPressed = "sprites/button/button_reach_pressed.png",
-			func = function() gotoLevel(1, 1) end,
-		},
-		{
-			img = "sprites/button/button_reach.png",
-			imgPressed = "sprites/button/button_reach_pressed.png",
-			func = function() gotoLevel(1, 2) end,
-		},
-	},
-	[2] = {
-		{
-			img = "sprites/button/button_reach.png",
-			imgPressed = "sprites/button/button_reach_pressed.png",
-			func = function() gotoLevel(2, 1) end,
-		},
-		{
-			img = "sprites/button/button_reach.png",
-			imgPressed = "sprites/button/button_reach_pressed.png",
-			func = function() gotoLevel(2, 2) end,
-		},
-	}
-}
-
-function getMinigames(params)
-	return minigamesLevels[params.minigameId]
+function getLevels(params)
+	local levels = {}
+	local i = 1
+	lfs.chdir(system.pathForFile("levels/"..params.minigameId, system.ResourcesDirectory))
+	while lfs.attributes(i..".lua", "mode") == "file" do
+		local levelId = i;
+		table.insert(levels, {
+			img = "sprites/button/button_sound.png",
+			imgPressed = "sprites/button/button_music.png",
+			func = function() gotoLevel(params.minigameId, levelId) end,
+		})
+		i = i + 1
+	end
+	return levels
 end
 
 
 
-return scene_getter(getMinigames, 10)
+return scene_getter(getLevels)

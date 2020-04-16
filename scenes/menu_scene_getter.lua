@@ -11,6 +11,9 @@ return function (buttonsGetter, firstButtonY)
 		background.x = display.contentCenterX
 		background.y = display.contentCenterY
 
+
+		local menuHeight = #buttons * C.menuButtonHeight + (#buttons - 1) * C.menuButtonInterval
+		local firstButtonY = (display.contentHeight - menuHeight) / 2
 		local currentY = C.menuButtonHeight / 2 + firstButtonY
 		for i = 1, #buttons do
 			local button = widget.newButton({
