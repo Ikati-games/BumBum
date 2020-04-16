@@ -1,6 +1,6 @@
 return {
   version = "1.2",
-  luaversion = "5.1",
+  -- luaversion = "5.1",
   tiledversion = "1.3.4",
   orientation = "orthogonal",
   renderorder = "left-up",
@@ -15,7 +15,7 @@ return {
     {
       name = "TileCollection",
       firstgid = 1,
-      filename = "../TiledFiles/TileCollection.tsx",
+      filename = "TiledFiles/TileCollection.tsx",
       tilewidth = 16,
       tileheight = 16,
       spacing = 0,
@@ -36,25 +36,25 @@ return {
       tiles = {
         {
           id = 0,
-          image = "../sprites/background/bg_tile_1_1.png",
+          image = "sprites/background/bg_tile_1_1.png",
           width = 16,
           height = 16
         },
         {
           id = 1,
-          image = "../sprites/wall/wall.png",
+          image = "sprites/wall/wall.png",
           width = 16,
           height = 16
         },
         {
           id = 2,
-          image = "../sprites/trashcan/trashcan.png",
+          image = "sprites/trashcan/trashcan.png",
           width = 16,
           height = 16
         },
         {
           id = 4,
-          image = "../sprites/bum/bum.gif",
+          image = "sprites/bum/bum.gif",
           width = 16,
           height = 16
         }
