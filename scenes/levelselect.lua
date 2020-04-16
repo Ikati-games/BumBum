@@ -9,21 +9,25 @@ local C = require("constants")
 local minigamesLevels = {
 	[1] = {
 		{
-			name = "Level 1",
+			img = "sprites/button/button_reach.png",
+			imgPressed = "sprites/button/button_reach_pressed.png",
 			id = 1
 		},
 		{
-			name = "Level 2",
+			img = "sprites/button/button_reach.png",
+			imgPressed = "sprites/button/button_reach_pressed.png",
 			id = 2
 		},
 	},
 	[2] = {
 		{
-			name = "Level 1",
+			img = "sprites/button/button_reach.png",
+			imgPressed = "sprites/button/button_reach_pressed.png",
 			id = 1
 		},
 		{
-			name = "Level 2",
+			img = "sprites/button/button_reach.png",
+			imgPressed = "sprites/button/button_reach_pressed.png",
 			id = 2
 		},
 	}
@@ -50,7 +54,8 @@ scene:addEventListener("create", function(event)
 	for i = 1, #levels do
 		local button = widget.newButton(C.menuButtonOptions(
 			currentY, 
-			levels[i].name,
+			levels[i].img, 
+			levels[i].imgPressed,
 			function ()
 	    		composer.gotoScene("scenes.level", {
 	    			params = {

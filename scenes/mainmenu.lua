@@ -12,16 +12,19 @@ end
 
 local buttons = {
 	{
-		text = "Continue",
-		func = continueGame
+		img = "sprites/button/button_play.png",
+		imgPressed = "sprites/button/button_play_pressed.png",
+		func = continueGame,
 	},
 	{
-		text = "Select level",
-		func = function() composer.gotoScene("scenes.minigameselect") end
+		img = "sprites/button/button_levels.png",
+		imgPressed = "sprites/button/button_levels_pressed.png",
+		func = function() composer.gotoScene("scenes.minigameselect") end,
 	},
 	{
-		text = "Settings",
-		func = function() composer.gotoScene("scenes.settings") end
+		img = "sprites/button/button_settings.png",
+		imgPressed = "sprites/button/button_settings_pressed.png",
+		func = function() composer.gotoScene("scenes.settings") end,
 	},
 }
 
@@ -44,7 +47,7 @@ scene:addEventListener("create", function (event)
 	
 	local currentY = C.menuButtonHeight / 2 + firstButtonY
 	for i = 1, #buttons do
-		local button = widget.newButton(C.menuButtonOptions(currentY, buttons[i].text, buttons[i].func))
+		local button = widget.newButton(C.menuButtonOptions(currentY, buttons[i].img, buttons[i].imgPressed, buttons[i].func))
 		scene.view:insert(button)
     	currentY = currentY + C.menuButtonHeight + C.menuButtonInterval
     end
