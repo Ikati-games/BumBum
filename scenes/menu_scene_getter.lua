@@ -13,12 +13,15 @@ return function (buttonsGetter, firstButtonY)
 
 		local currentY = C.menuButtonHeight / 2 + firstButtonY
 		for i = 1, #buttons do
-			local button = widget.newButton(C.menuButtonOptions(
-				currentY, 
-				buttons[i].img, 
-				buttons[i].imgPressed,
-				buttons[i].func
-			))
+			local button = widget.newButton({
+				x = display.contentCenterX, 
+				y = currentY,
+				width = C.menuButtonWidth,
+				height = C.menuButtonHeight,
+				defaultFile = buttons[i].img,
+				overFile = buttons[i].imgPressed,
+				onRelease = buttons[i].func,
+			})
 			scene.view:insert(button)
 	    	currentY = currentY + C.menuButtonHeight + C.menuButtonInterval
 	    end
