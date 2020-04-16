@@ -1,57 +1,34 @@
-local composer = require("composer")
-local widget = require("widget")
 local C = require("constants")
+local composer = require("composer")
+local scene_getter = require("scenes.menu_scene_getter")
 
 
 
--- Minigames
+function gotoLevelSelection(id)
+	print(id)
+	composer.gotoScene("scenes.level_select", {
+		params = {
+			minigameId = id
+		}
+	})
+end
+
+
 
 local minigames = {
 	{
 		img = "sprites/button/button_reach.png",
 		imgPressed = "sprites/button/button_reach_pressed.png",
-		id = 1
+		func = function() gotoLevelSelection(1) end,
 	},
 	{
 		img = "sprites/button/button_reach.png",
 		imgPressed = "sprites/button/button_reach_pressed.png",
-		id = 2
+		func = function() gotoLevelSelection(2) end,
 	},
 }
-
-
-
--- Constants
 
 local menuHeight = #minigames * C.menuButtonHeight + (#minigames - 1) * C.menuButtonInterval
 local firstButtonY = (display.contentHeight - menuHeight) / 2
 
-
-
--- The scene
-
-local scene = composer.newScene()
-scene:addEventListener("create", function()
-	local background = display.newImageRect(scene.view, C.menuBackgroundImage, display.contentWidth, display.contentHeight)
-	background.x = display.contentCenterX
-	background.y = display.contentCenterY
-
-	local currentY = C.menuButtonHeight / 2 + firstButtonY
-	for i = 1, #minigames do
-		local button = widget.newButton(C.menuButtonOptions(
-			currentY, 
-			minigames[i].img, 
-			minigames[i].imgPressed,
-			function ()
-	    		composer.gotoScene("scenes.level_select", {
-	    			params = {
-	    				minigameId = minigames[i].id
-	    			}
-	    		})
-	    	end
-		))
-		scene.view:insert(button)
-    	currentY = currentY + C.menuButtonHeight + C.menuButtonInterval
-    end
-end)
-return scene
+return scene_getter(function() return minigames end, firstButtonY)

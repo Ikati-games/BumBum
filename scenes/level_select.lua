@@ -1,72 +1,51 @@
-local composer = require("composer")
-local widget = require("widget")
 local C = require("constants")
+local composer = require("composer")
+local scene_getter = require("scenes.menu_scene_getter")
 
 
 
--- Levels
+function gotoLevel(minigameId, levelId)
+	composer.gotoScene("scenes.level", {
+		params = {
+			minigameId = minigameId,
+			levelId = levelId
+		}
+	})
+end
+
+
 
 local minigamesLevels = {
 	[1] = {
 		{
 			img = "sprites/button/button_reach.png",
 			imgPressed = "sprites/button/button_reach_pressed.png",
-			id = 1
+			func = function() gotoLevel(1, 1) end,
 		},
 		{
 			img = "sprites/button/button_reach.png",
 			imgPressed = "sprites/button/button_reach_pressed.png",
-			id = 2
+			func = function() gotoLevel(1, 2) end,
 		},
 	},
 	[2] = {
 		{
 			img = "sprites/button/button_reach.png",
 			imgPressed = "sprites/button/button_reach_pressed.png",
-			id = 1
+			func = function() gotoLevel(2, 1) end,
 		},
 		{
 			img = "sprites/button/button_reach.png",
 			imgPressed = "sprites/button/button_reach_pressed.png",
-			id = 2
+			func = function() gotoLevel(2, 2) end,
 		},
 	}
 }
 
-
-
--- Constants
-
-local firstButtonY = 10
+function getMinigames(params)
+	return minigamesLevels[params.minigameId]
+end
 
 
 
--- The scene
-
-local scene = composer.newScene()
-scene:addEventListener("create", function(event)
-	local background = display.newImageRect(scene.view, C.menuBackgroundImage, display.contentWidth, display.contentHeight)
-	background.x = display.contentCenterX
-	background.y = display.contentCenterY
-
-	levels = minigamesLevels[event.params.minigameId]
-	local currentY = C.menuButtonHeight / 2 + firstButtonY
-	for i = 1, #levels do
-		local button = widget.newButton(C.menuButtonOptions(
-			currentY, 
-			levels[i].img, 
-			levels[i].imgPressed,
-			function ()
-	    		composer.gotoScene("scenes.level", {
-	    			params = {
-	    				minigameId = event.params.minigameId,
-	    				levelId = levels[i].id
-	    			}
-	    		})
-	    	end
-		))
-		scene.view:insert(button)
-    	currentY = currentY + C.menuButtonHeight + C.menuButtonInterval
-    end
-end)
-return scene
+return scene_getter(getMinigames, 10)

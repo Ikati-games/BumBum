@@ -1,14 +1,14 @@
-local composer = require("composer")
-local widget = require("widget")
 local C = require("constants")
+local composer = require("composer")
+local scene_getter = require("scenes.menu_scene_getter")
 
 
-
--- Buttons
 
 function continueGame()
 
 end
+
+
 
 local buttons = {
 	{
@@ -28,28 +28,7 @@ local buttons = {
 	},
 }
 
-
-
--- Constants
-
 local menuHeight = #buttons * C.menuButtonHeight + (#buttons - 1) * C.menuButtonInterval
 local firstButtonY = (display.contentHeight - menuHeight) / 2
 
-
-
--- The scene
-
-local scene = composer.newScene()
-scene:addEventListener("create", function (event)
-	local background = display.newImageRect(scene.view, C.menuBackgroundImage, display.contentWidth, display.contentHeight)
-	background.x = display.contentCenterX
-	background.y = display.contentCenterY
-	
-	local currentY = C.menuButtonHeight / 2 + firstButtonY
-	for i = 1, #buttons do
-		local button = widget.newButton(C.menuButtonOptions(currentY, buttons[i].img, buttons[i].imgPressed, buttons[i].func))
-		scene.view:insert(button)
-    	currentY = currentY + C.menuButtonHeight + C.menuButtonInterval
-    end
-end)
-return scene
+return scene_getter(function() return buttons end, firstButtonY)
