@@ -43,7 +43,7 @@ scene:addEventListener("create", function()
 			minigames[i].img, 
 			minigames[i].imgPressed,
 			function ()
-	    		composer.gotoScene("scenes.levelselect", {
+	    		composer.gotoScene("scenes.level_select", {
 	    			params = {
 	    				minigameId = minigames[i].id
 	    			}

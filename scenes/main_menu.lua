@@ -19,7 +19,7 @@ local buttons = {
 	{
 		img = "sprites/button/button_levels.png",
 		imgPressed = "sprites/button/button_levels_pressed.png",
-		func = function() composer.gotoScene("scenes.minigameselect") end,
+		func = function() composer.gotoScene("scenes.minigame_select") end,
 	},
 	{
 		img = "sprites/button/button_settings.png",
