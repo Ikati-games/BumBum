@@ -17,7 +17,7 @@ end
 function getMinigames(params)
 	minigames = {}
 	for minigame in pairs(C.levelsAmount) do
-		local data = require("minigames."..minigame..".data")
+		local data = require("minigames."..minigame)
 		table.insert(minigames, {
 			img = data.img,
 			imgPressed = data.imgPressed,

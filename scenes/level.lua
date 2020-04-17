@@ -25,7 +25,7 @@ scene:addEventListener("create", function(event)
 
 	-- add minigame mechanics
 
-	local minigameMechanics = require("minigames."..event.params.minigameId..".mechanics")
+	local minigameMechanics = require("minigames."..event.params.minigameId)
 
 	Runtime:addEventListener("touch", function(event)
 		if (event.phase == "ended" and T.swipe) then

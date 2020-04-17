@@ -1,5 +1,8 @@
 T = {}
 
+T.img = "sprites/button/button_reach.png"
+T.imgPressed = "sprites/button/button_reach_pressed.png"
+
 T.swipe = function(map, dx, dy)
 	player = map:findObject("player")
 	walls = map:findLayer("walls")
