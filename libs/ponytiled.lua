@@ -1,15 +1,11 @@
 -- Project: PonyTiled a Corona Tiled Map Loader
 --
 -- Loads LUA saved map files from Tiled http://www.mapeditor.org/
-
-local physics = require "physics"
---local path = require "com.luapower.path" --optional to resolve relative paths on android
---local translate = require "com.ponywolf.translator" 
-local xml = require("com.coronalabs.xml").newParser()
-local json = require "json"
+--
+-- This file is redacted version of https://github.com/ponywolf/ponytiled library.
+-- It is redacted to work with specific format of levels for this game
 
 local M = {}
-local defaultExtensions = "com.ponywolf.plugins."
 
 local FlippedHorizontallyFlag   = 0x80000000
 local FlippedVerticallyFlag     = 0x40000000
@@ -173,7 +169,7 @@ function M.new(data, dir)
           if tileset.tiles then 
             for t = 1, #tileset.tiles do
               local tile = tileset.tiles[t]
-              if tile.animation and tile.id == (gid - firstgid + (data.luaversion and 1 or 0)) then 
+              if tile.animation and tile.id == (gid - firstgid) then 
                 sequenceData = {
                   name="imported",
                   frames= { },
@@ -190,7 +186,7 @@ function M.new(data, dir)
         else -- collection of images
           if not tileset.tiles[1] then
             for k,v in pairs(tileset.tiles) do
-              if tonumber(k) == (gid - firstgid + (data.luaversion and 1 or 0)) then
+              if tonumber(k) == (gid - firstgid) then
                 return v.image, flip -- may need updating with documents directory
               end
             end
@@ -198,7 +194,7 @@ function M.new(data, dir)
           -- newer tiled format is found here
           for t = 1, #tileset.tiles do
             local tile = tileset.tiles[t]
-            if tonumber(tile.id) == gid - firstgid  + (data.luaversion and 1 or 0) then
+            if tonumber(tile.id) == gid - firstgid then
               return tile.image, flip -- may need updating with documents directory
             end
           end
@@ -405,24 +401,6 @@ function M.new(data, dir)
     objectGroup.isVisible = layer.visible
     objectGroup.alpha = layer.opacity
     map:insert(objectGroup)  
-  end
-
-  function map:extend(...)
-    local extensions = arg or {}
-    -- each custom object above has its own ponywolf.plugin module
-    for t = 1, #extensions do 
-      -- load each module based on type
-      local plugin = require ((self.extensions or defaultExtensions) .. extensions[t])
-      -- find each type of tiled object
-      local images = self:listTypes(extensions[t])
-      if images then 
-        -- do we have at least one?
-        for i = 1, #images do
-          -- extend the display object with its own custom code
-          images[i] = plugin.new(images[i])
-        end
-      end  
-    end
   end
 
 -- return first display object with name

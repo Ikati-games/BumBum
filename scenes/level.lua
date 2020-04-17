@@ -1,12 +1,14 @@
 local composer = require("composer")
-local tiled = require "com.ponywolf.ponytiled"
+local tiled = require "libs.ponytiled"
 
 
 
 local scene = composer.newScene()
 scene:addEventListener("create", function(event)
-	local mapData = require("levels."..event.params.minigameId.."."..event.params.levelId)
-	local map = tiled.new(mapData)
+	local path = "levels/"..event.params.minigameId
+	local package_path = path:gsub("/", ".").."."..event.params.levelId
+	local mapData = require(package_path)
+	local map = tiled.new(mapData, path)
 	map.xScale = display.contentWidth / map.width
 	map.yScale = map.xScale
 	map.x = display.contentCenterX - map.width * map.xScale / 2
