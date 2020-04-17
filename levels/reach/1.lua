@@ -1,6 +1,6 @@
 return {
   version = "1.2",
-  -- luaversion = "5.1",
+  luaversion = "5.1",
   tiledversion = "1.3.4",
   orientation = "orthogonal",
   renderorder = "left-up",
@@ -8,14 +8,14 @@ return {
   height = 4,
   tilewidth = 16,
   tileheight = 16,
-  nextlayerid = 4,
+  nextlayerid = 5,
   nextobjectid = 4,
   properties = {},
   tilesets = {
     {
       name = "TileCollection",
       firstgid = 1,
-      filename = "TiledFiles/TileCollection.tsx",
+      filename = "../../../../TileCollection.tsx",
       tilewidth = 16,
       tileheight = 16,
       spacing = 0,
@@ -36,25 +36,25 @@ return {
       tiles = {
         {
           id = 0,
-          image = "sprites/background/bg_tile_1_1.png",
+          image = "../../sprites/background/bg_tile_1_1.png",
           width = 16,
           height = 16
         },
         {
           id = 1,
-          image = "sprites/wall/wall.png",
+          image = "../../sprites/wall/wall.png",
           width = 16,
           height = 16
         },
         {
           id = 2,
-          image = "sprites/trashcan/trashcan.png",
+          image = "../../sprites/trashcan/trashcan.png",
           width = 16,
           height = 16
         },
         {
           id = 4,
-          image = "sprites/bum/bum.gif",
+          image = "../../sprites/bum/bum.gif",
           width = 16,
           height = 16
         }
@@ -65,7 +65,28 @@ return {
     {
       type = "tilelayer",
       id = 1,
-      name = "tiles",
+      name = "floor",
+      x = 0,
+      y = 0,
+      width = 4,
+      height = 4,
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {},
+      encoding = "lua",
+      data = {
+        1, 1, 1, 1,
+        1, 1, 1, 1,
+        1, 1, 1, 1,
+        1, 1, 1, 1
+      }
+    },
+    {
+      type = "tilelayer",
+      id = 4,
+      name = "walls",
       x = 0,
       y = 0,
       width = 4,
@@ -78,8 +99,8 @@ return {
       encoding = "lua",
       data = {
         2, 2, 2, 2,
-        2, 1, 1, 2,
-        2, 2, 1, 2,
+        2, 0, 0, 2,
+        2, 2, 0, 2,
         2, 2, 2, 2
       }
     },
