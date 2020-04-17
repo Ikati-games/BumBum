@@ -8,4 +8,8 @@ T.settingsButtonWidth = T.menuButtonHeight*2
 
 T.minSwipeSize = 50
 
+T.levelsAmount = {
+	reach = 1,
+}
+
 return T

@@ -1,6 +1,5 @@
 local C = require("constants")
 local composer = require("composer")
-local lfs = require("lfs")
 local scene_getter = require("scenes.menu_scene_getter")
 
 
@@ -17,16 +16,13 @@ end
 
 function getMinigames(params)
 	minigames = {}
-	lfs.chdir(system.pathForFile("minigames", system.ResourcesDirectory))
-	for folder in lfs.dir(lfs.currentdir()) do
-		if lfs.attributes(folder, "mode") == "directory" and folder ~= "." and folder ~= ".." then
-			local data = require("minigames."..folder..".data")
-			table.insert(minigames, {
-				img = data.img,
-				imgPressed = data.imgPressed,
-				func = function() gotoLevelSelection(folder) end,
-			})
-		end
+	for minigame in pairs(C.levelsAmount) do
+		local data = require("minigames."..minigame..".data")
+		table.insert(minigames, {
+			img = data.img,
+			imgPressed = data.imgPressed,
+			func = function() gotoLevelSelection(minigame) end,
+		})
 	end
 	return minigames
 end
