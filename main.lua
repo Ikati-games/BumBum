@@ -1,5 +1,8 @@
-display.setDefault( "magTextureFilter", "nearest" )
-display.setDefault( "minTextureFilter", "nearest" )
+display.setDefault("magTextureFilter", "nearest")
+display.setDefault("minTextureFilter", "nearest")
 
-local composer = require("composer")
+composer = require("composer")
+C = require("constants")
+widget = require("widget")
+
 composer.gotoScene("scenes.main_menu")

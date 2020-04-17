@@ -1,7 +1,3 @@
-local composer = require("composer")
-local widget = require("widget")
-local C = require("constants")
-
 return function (buttonsGetter, firstButtonY)
 	local scene = composer.newScene()
 	scene:addEventListener("create", function(event)

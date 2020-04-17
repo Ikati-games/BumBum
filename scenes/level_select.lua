@@ -1,5 +1,3 @@
-local C = require("constants")
-local composer = require("composer")
 local scene_getter = require("scenes.menu_scene_getter")
 
 

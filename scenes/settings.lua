@@ -1,9 +1,3 @@
-local C = require("constants")
-local widget = require("widget")
-local composer = require("composer")
-
-
-
 function setSetting(settingName, value)
 	local s = {}
 	s[settingName] = value
@@ -18,6 +12,9 @@ local buttonImages = {
 	off = "sprites/button/button_off.png",
 	offPressed = "sprites/button/button_off_pressed.png",
 }
+
+
+
 local settings = {
 	{
 		img = "sprites/button/button_music.png",
@@ -30,6 +27,8 @@ local settings = {
 		default = true,
 	},
 }
+
+
 
 local scene = composer.newScene()
 scene:addEventListener("create", function(event)

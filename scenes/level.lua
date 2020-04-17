@@ -1,9 +1,4 @@
-local composer = require("composer")
-local C = require("constants")
-local tiled = require "libs.ponytiled"
-
-
-
+local tiled = require("libs.ponytiled")
 local scene = composer.newScene()
 scene:addEventListener("create", function(event)
 

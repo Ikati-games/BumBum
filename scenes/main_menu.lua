@@ -1,5 +1,3 @@
-local C = require("constants")
-local composer = require("composer")
 local scene_getter = require("scenes.menu_scene_getter")
 
 
@@ -27,5 +25,7 @@ local buttons = {
 		func = function() composer.gotoScene("scenes.settings") end,
 	},
 }
+
+
 
 return scene_getter(function() return buttons end)
