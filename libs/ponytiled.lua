@@ -209,14 +209,14 @@ function M.new(data, dir)
     layer.properties = layer.properties or {} -- make sure we have a properties table
     local objectGroup = display.newGroup()    
     if layer.type == "tilelayer" then
-      if layer.compression or layer.encoding then
-        print ("ERROR: Tile layer encoding/compression not supported. Choose CSV or XML in map options.")
-      end
+      objectGroup.tiles = {}
       local item = 0
       for ty=0, data.height-1 do
+        objectGroup.tiles[ty] = {}
         for tx=0, data.width-1 do
           item = 1 + (ty * data.width) + tx
           local tileNumber = layer.data[item] or 0
+          objectGroup.tiles[ty][tx] = tileNumber
           local gid, flip, sheet, animation = gidLookup(tileNumber)
           if gid then
             local image
@@ -400,7 +400,7 @@ function M.new(data, dir)
     objectGroup.name = layer.name
     objectGroup.isVisible = layer.visible
     objectGroup.alpha = layer.opacity
-    map:insert(objectGroup)  
+    map:insert(objectGroup)
   end
 
 -- return first display object with name
@@ -636,6 +636,7 @@ function M.new(data, dir)
 
 -- add helpful values to the map itself
   map.designedWidth, map.designedHeight = width, height
+  map.tileWidth, map.tileHeight = data.tilewidth, data.tileheight
 
 -- set the background color to the map background
   if data.backgroundcolor then
