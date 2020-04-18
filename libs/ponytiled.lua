@@ -74,6 +74,24 @@ local function unpackPoints(points, dx, dy)
 	return t
 end
 
+local function normalize(path)
+	path_components = {}
+	for path_component in string.gmatch(path, "([^/\\]+)") do
+		path_components[#path_components + 1] = path_component
+	end
+
+	normalized = {}
+	for i, comp in ipairs(path_components) do
+		if comp == ".." then
+			normalized[#normalized] = nil
+		elseif comp ~= "." then
+			normalized[#normalized + 1] = comp
+		end
+	end
+
+	return table.concat(normalized, "/")
+end
+
 local centerX, centerY = display.contentCenterX, display.contentCenterY
 
 function M.new(data, dir)
@@ -225,7 +243,7 @@ function M.new(data, dir)
 							image = display.newSprite(objectGroup, sheet, animation )
 							image:play("imported")
 						else
-							image = sheet and display.newImage(objectGroup, sheet, gid, 0, 0) or display.newImage(objectGroup, dir .. gid, 0, 0)
+							image = sheet and display.newImage(objectGroup, sheet, gid, 0, 0) or display.newImage(objectGroup,  normalize(dir .. gid), 0, 0)
 						end
 						image.anchorX, image.anchorY = 0,1
 						image.gid = tileNumber
@@ -266,7 +284,7 @@ function M.new(data, dir)
 							image:play("imported")
 						else
 							image = sheet and display.newImageRect(objectGroup, sheet, gid, object.width, object.height) or
-							display.newImageRect(objectGroup, path and path.normalize(dir .. gid) or (dir .. gid), object.width, object.height)
+							display.newImageRect(objectGroup, normalize(dir .. gid), object.width, object.height)
 						end
 						-- missing
 						if not image then -- placeholder
@@ -276,7 +294,7 @@ function M.new(data, dir)
 						-- name and type
 						image.name = object.name
 						image.type = object.type
-						image.filename = sheet and "none" or (dir .. gid)
+						image.filename = sheet and "none" or normalize(dir .. gid)
 						-- apply base properties
 						local anchorX, anchorY = object.properties.anchorX, object.properties.anchorY
 						object.properties.anchorX, object.properties.anchorY = nil, nil
@@ -298,7 +316,7 @@ function M.new(data, dir)
 						local autoShape = object.properties.autoShape
 						if autoShape then
 							if not sheet then
-								object.properties.outline = graphics.newOutline( autoShape, path and path.normalize(dir .. gid) or (dir .. gid))
+								object.properties.outline = graphics.newOutline( autoShape, normalize(dir .. gid))
 							else
 								object.properties.outline = graphics.newOutline( autoShape, sheet, gid)
 							end
