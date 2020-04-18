@@ -19,4 +19,7 @@ T.levelsAmount = {
 	reach = 4,
 }
 
+T.buttonPressSound = "sounds/button_press.wav"
+T.buttonReleaseSound = "sounds/button_release.wav"
+
 return T

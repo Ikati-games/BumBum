@@ -55,6 +55,9 @@ scene:addEventListener("create", function(event)
 			height = C.menuButtonHeight,
 			defaultFile = buttonImages.off,
 			overFile = buttonImages.offPressed,
+			onPress = function() 
+				audio.play(buttonPressSound)
+			end,
 		})
 		scene.view:insert(buttons[true])
 
@@ -66,16 +69,21 @@ scene:addEventListener("create", function(event)
 			height = C.menuButtonHeight,
 			defaultFile = buttonImages.on,
 			overFile = buttonImages.onPressed,
+			onPress = function() 
+				audio.play(buttonPressSound)
+			end,
 		})
 		scene.view:insert(buttons[false])
 
 		-- add click handlers
 		buttons[true]._view._onRelease = function()
+			audio.play(buttonReleaseSound)
 			setSetting(settings[i].settingName, true)
 			buttons[true].isVisible = false
 			buttons[false].isVisible = true
 		end
 		buttons[false]._view._onRelease = function()
+			audio.play(buttonReleaseSound)
 			setSetting(settings[i].settingName, false)
 			buttons[true].isVisible = true
 			buttons[false].isVisible = false

@@ -19,7 +19,13 @@ return function (buttonsGetter, firstButtonY)
 				height = C.menuButtonHeight,
 				defaultFile = buttons[i].img,
 				overFile = buttons[i].imgPressed,
-				onRelease = buttons[i].func,
+				onPress = function() 
+					audio.play(buttonPressSound)
+				end,
+				onRelease = function()
+					audio.play(buttonReleaseSound)
+					buttons[i].func()
+				end
 			})
 			scene.view:insert(button)
 	    	currentY = currentY + C.menuButtonHeight + C.menuButtonInterval
