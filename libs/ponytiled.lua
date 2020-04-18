@@ -244,11 +244,19 @@ function M.new(data, dir)
         end
       end
     elseif layer.type == "objectgroup" then
-      for j = 1, #layer.objects do
-        local object = layer.objects[j]
-        object.properties = object.properties or {} -- make sure we have a properties table
-        object.properties = tiledProperties(object.properties)
-        if object.gid then
+			for j = 1, #layer.objects do
+				local object = layer.objects[j]
+				object.properties = object.properties or {} -- make sure we have a properties table
+				-- add tile position of object's center
+				object.properties.tileX = math.floor((object.x + object.width / 2) / data.tilewidth)
+				object.properties.tileY = math.floor((object.y - object.width / 2) / data.tileheight)
+				-- add other useful properties
+				object.properties.width = object.width
+				object.properties.height = object.height
+				object.properties.objectGroup = objectGroup
+				-- make sure properties format is correct
+				object.properties = tiledProperties(object.properties)
+				if object.gid then
           local gid, flip, sheet, animation = gidLookup(object.gid)
           if gid then
             local image

@@ -16,7 +16,7 @@ T.winScreenHeight = 60*T.pixelSize
 T.minSwipeSize = 50
 
 T.levelsAmount = {
-	reach = 3,
+	reach = 4,
 }
 
 return T
