@@ -20,10 +20,14 @@ return function (buttonsGetter, firstButtonY)
 				defaultFile = buttons[i].img,
 				overFile = buttons[i].imgPressed,
 				onPress = function() 
-					audio.play(buttonPressSound)
+					if (system.getPreference("app", "sound", "boolean")) then
+						audio.play(buttonPressSound)
+					end
 				end,
 				onRelease = function()
-					audio.play(buttonReleaseSound)
+					if (system.getPreference("app", "sound", "boolean")) then
+						audio.play(buttonReleaseSound)
+					end
 					buttons[i].func()
 				end
 			})

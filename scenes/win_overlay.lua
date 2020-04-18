@@ -15,10 +15,14 @@ scene:addEventListener("create", function(event)
 		defaultFile = "sprites/button/button_repeat.png",
 		overFile = "sprites/button/button_repeat_pressed.png",
 		onPress = function() 
-			audio.play(buttonPressSound)
+			if (system.getPreference("app", "sound", "boolean")) then
+				audio.play(buttonPressSound)
+			end
 		end,
 		onRelease = function()
-			audio.play(buttonReleaseSound)
+			if (system.getPreference("app", "sound", "boolean")) then
+				audio.play(buttonReleaseSound)
+			end
 			composer.hideOverlay()
 			composer.removeScene("scenes.level")
 			composer.gotoScene("scenes.level", {
@@ -38,10 +42,14 @@ scene:addEventListener("create", function(event)
 			defaultFile = "sprites/button/button_menu.png",
 			overFile = "sprites/button/button_menu_pressed.png",
 			onPress = function() 
-				audio.play(buttonPressSound)
+				if (system.getPreference("app", "sound", "boolean")) then
+					audio.play(buttonPressSound)
+				end
 			end,
 			onRelease = function()
-				audio.play(buttonReleaseSound)
+				if (system.getPreference("app", "sound", "boolean")) then
+					audio.play(buttonReleaseSound)
+				end
 				composer.hideOverlay()
 				composer.removeScene("scenes.level")
 				composer.gotoScene("scenes.level_select", {
@@ -58,10 +66,14 @@ scene:addEventListener("create", function(event)
 			defaultFile = "sprites/button/button_next.png",
 			overFile = "sprites/button/button_next_pressed.png",
 			onPress = function() 
-				audio.play(buttonPressSound)
+				if (system.getPreference("app", "sound", "boolean")) then
+					audio.play(buttonPressSound)
+				end
 			end,
 			onRelease = function()
-				audio.play(buttonReleaseSound)
+				if (system.getPreference("app", "sound", "boolean")) then
+					audio.play(buttonReleaseSound)
+				end
 				composer.hideOverlay()
 				composer.removeScene("scenes.level", true)
 				composer.gotoScene("scenes.level", {

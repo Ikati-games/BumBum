@@ -56,7 +56,9 @@ scene:addEventListener("create", function(event)
 			defaultFile = buttonImages.off,
 			overFile = buttonImages.offPressed,
 			onPress = function() 
-				audio.play(buttonPressSound)
+				if (system.getPreference("app", "sound", "boolean")) then
+					audio.play(buttonPressSound)
+				end
 			end,
 		})
 		scene.view:insert(buttons[true])
@@ -70,29 +72,29 @@ scene:addEventListener("create", function(event)
 			defaultFile = buttonImages.on,
 			overFile = buttonImages.onPressed,
 			onPress = function() 
-				audio.play(buttonPressSound)
+				if (system.getPreference("app", "sound", "boolean")) then
+					audio.play(buttonPressSound)
+				end
 			end,
 		})
 		scene.view:insert(buttons[false])
 
 		-- add click handlers
 		buttons[true]._view._onRelease = function()
-			audio.play(buttonReleaseSound)
+			if (system.getPreference("app", "sound", "boolean")) then
+				audio.play(buttonReleaseSound)
+			end
 			setSetting(settings[i].settingName, true)
 			buttons[true].isVisible = false
 			buttons[false].isVisible = true
 		end
 		buttons[false]._view._onRelease = function()
-			audio.play(buttonReleaseSound)
+			if (system.getPreference("app", "sound", "boolean")) then
+				audio.play(buttonReleaseSound)
+			end
 			setSetting(settings[i].settingName, false)
 			buttons[true].isVisible = true
 			buttons[false].isVisible = false
-		end
-
-		-- if we could not get preference, set its default value
-		if (settingValue == nil) then
-			setSetting(settings[i].settingName, settings[i].default)
-			settingValue = settings[i].default
 		end
 
 		-- hide button which (enables, if already enabled / disables, if already disabled)

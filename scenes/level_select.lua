@@ -23,10 +23,14 @@ scene:addEventListener("create", function(event)
 			defaultFile = "sprites/button/button_"..i..".png",
 			overFile = "sprites/button/button_"..i.."_pressed.png",
 			onPress = function() 
-				audio.play(buttonPressSound)
+				if (system.getPreference("app", "sound", "boolean")) then
+					audio.play(buttonPressSound)
+				end
 			end,
 			onRelease = function()
-				audio.play(buttonReleaseSound)
+				if (system.getPreference("app", "sound", "boolean")) then
+					audio.play(buttonReleaseSound)
+				end
 				composer.gotoScene("scenes.level", {
 					params = {
 						minigameId = event.params.minigameId,
