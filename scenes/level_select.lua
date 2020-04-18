@@ -15,7 +15,6 @@ scene:addEventListener("create", function(event)
 	for i = 1, C.levelsAmount[event.params.minigameId] do
 		local levelId = i
 
-		print(xIndex, y)
 		button = widget.newButton({
 			x = display.contentCenterX + xIndex * (C.levelSelectInterval + C.menuButtonHeight), 
 			y = y,

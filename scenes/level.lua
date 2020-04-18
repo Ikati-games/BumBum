@@ -1,13 +1,36 @@
 local tiled = require("libs.ponytiled")
+
+
+
+function win(minigameId, levelId)
+	composer.showOverlay("scenes.win_overlay", {
+		isModal = true,
+		params = {
+			minigameId = minigameId,
+			levelId = levelId,
+		}
+	})
+end
+
+
+
 local scene = composer.newScene()
-scene:addEventListener("create", function(event)
+scene:addEventListener("show", function(event)
+
+	-- declare variables
+
+	local minigameId = event.params.minigameId
+	local levelId = event.params.levelId
+	local path = "levels/"..minigameId
+	local package_path = path:gsub("/", ".").."."..levelId
+
 
 	-- load and draw map
 
-	local path = "levels/"..event.params.minigameId
-	local package_path = path:gsub("/", ".").."."..event.params.levelId
+	display.newText(scene.view, string.format("%s-%d", minigameId, levelId), display.contentCenterX, C.menuButtonInterval)
 	local mapData = require(package_path)
 	local map = tiled.new(mapData, path)
+	scene.view:insert(map)
 
 
 	-- put map to center
@@ -20,9 +43,9 @@ scene:addEventListener("create", function(event)
 
 	-- add minigame mechanics
 
-	local minigameMechanics = require("minigames."..event.params.minigameId)
+	local minigameMechanics = require("minigames."..minigameId)
 
-	Runtime:addEventListener("touch", function(event)
+	map:addEventListener("touch", function(event)
 		if (event.phase == "ended" and T.swipe) then
 			local dx = event.x - event.xStart
 			local dy = event.y - event.yStart
@@ -34,8 +57,9 @@ scene:addEventListener("create", function(event)
 			local value = (math.abs(dx) > math.abs(dy)) and dx or dy
 			dCoords[direction] = (value > 0) and 1 or -1
 
-			minigameMechanics.swipe(map, dCoords.x, dCoords.y)
+			minigameMechanics.swipe(map, dCoords.x, dCoords.y, function() win(minigameId, levelId) end)
 		end
+		return true
 	end)
 
 end)
