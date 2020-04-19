@@ -25,7 +25,7 @@ T.swipe = function(map, dx, dy, win)
 				if (player.tileX + dx == trap.tileX and player.tileY + dy == trap.tileY or
 					player.tileX == trap.tileX and player.tileY == trap.tileY) then
 						if (dx == 0 and not trap.isVerticalAllowed or
-							dy == 0 and not trap.isHorisontalAllowed) then
+							dy == 0 and not trap.isHorizontalAllowed) then
 								-- can not pass through
 								return
 						end
@@ -47,7 +47,7 @@ T.swipe = function(map, dx, dy, win)
 						filename = "sprites/trap/trap_closed.png"
 					}
 					trap.isVerticalAllowed = false
-					trap.isHorisontalAllowed = false
+					trap.isHorizontalAllowed = false
 					break
 				end
 			end
