@@ -16,7 +16,7 @@ T.winScreenHeight = 60*T.pixelSize
 T.minSwipeSize = 50
 
 T.levelsAmount = {
-	reach = 4,
+	reach = 5,
 }
 
 T.buttonPressSound = "sounds/button_press.wav"
