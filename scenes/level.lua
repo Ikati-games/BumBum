@@ -2,6 +2,28 @@ local tiled = require("libs.ponytiled")
 
 
 
+local function goBack()
+	composer.showOverlay("scenes.confirmation_overlay", {
+		isModal = true,
+		params = {
+			onConfirm = function() 
+				backButton.isVisible = true
+				composer.removeScene(composer.getSceneName("current"))
+				composer.gotoScene("scenes.level_select")
+			end,
+		}
+	})
+end
+
+Runtime:addEventListener("key", function(event) 
+	if (event.keyName == "back" and event.phase == "up") then
+		goBack()
+		return true
+	end
+end)
+
+
+
 local function win(minigameId, levelId)
 	composer.showOverlay("scenes.win_overlay", {
 		isModal = true,
@@ -15,7 +37,7 @@ end
 
 
 local scene = composer.newScene()
-scene:addEventListener("show", function(event)
+scene:addEventListener("create", function(event)
 
 	-- declare variables
 
@@ -65,19 +87,11 @@ scene:addEventListener("show", function(event)
 				audio.play(buttonReleaseSound)
 			end
 			
-			composer.showOverlay("scenes.confirmation_overlay", {
-				isModal = true,
-				params = {
-					onConfirm = function() 
-						backButton.isVisible = true
-						composer.gotoScene("scenes.level_select")
-					end,
-				}
-			})
+			goBack()
 		end
 	})
 	scene.view:insert(levelSelectButton)
-
+ 
 	local repeatButton = widget.newButton({
 		top = C.pixelSize,
 		left = display.contentWidth - C.menuButtonHeight - C.pixelSize,
