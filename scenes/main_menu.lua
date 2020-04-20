@@ -2,7 +2,7 @@ local scene_getter = require("scenes.menu_scene_getter")
 
 
 
-function continueGame()
+local function continueGame()
 
 end
 

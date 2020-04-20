@@ -34,7 +34,7 @@ end
 
 -- back button
 
-function goBack()
+local function goBack()
 	local previousSceneName = composer.getScene(composer.getSceneName("current")).previousScene
 
 	if previousSceneName then

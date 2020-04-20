@@ -1,4 +1,4 @@
-function setSetting(settingName, value)
+local function setSetting(settingName, value)
 	local s = {}
 	s[settingName] = value
 	system.setPreferences("app", s)

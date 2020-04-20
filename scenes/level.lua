@@ -2,7 +2,7 @@ local tiled = require("libs.ponytiled")
 
 
 
-function win(minigameId, levelId)
+local function win(minigameId, levelId)
 	composer.showOverlay("scenes.win_overlay", {
 		isModal = true,
 		params = {
@@ -98,7 +98,7 @@ scene:addEventListener("show", function(event)
 			composer.showOverlay("scenes.confirmation_overlay", {
 				isModal = true,
 				params = {
-					onConfirm = function ()
+					onConfirm = function()
 						composer.hideOverlay()
 						composer.removeScene("scenes.level")
 						composer.gotoScene("scenes.level", {

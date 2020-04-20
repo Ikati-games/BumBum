@@ -1,8 +1,3 @@
-function gotoLevel(minigameId, levelId)
-end
-
-
-
 local scene = composer.newScene()
 scene:addEventListener("create", function(event)
 	local background = display.newImageRect(scene.view, C.menuBackgroundImage, display.contentWidth, display.contentHeight)

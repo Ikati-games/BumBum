@@ -2,7 +2,7 @@ local scene_getter = require("scenes.menu_scene_getter")
 
 
 
-function gotoLevelSelection(id)
+local function gotoLevelSelection(id)
 	composer.gotoScene("scenes.level_select", {
 		params = {
 			minigameId = id
@@ -12,7 +12,7 @@ end
 
 
 
-function getMinigames(params)
+local function getMinigames(params)
 	minigames = {}
 	for minigame in pairs(C.levelsAmount) do
 		local data = require("minigames."..minigame)
