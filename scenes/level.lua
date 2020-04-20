@@ -33,12 +33,13 @@ scene:addEventListener("show", function(event)
 	scene.view:insert(map)
 
 
-	-- put map to center
+	-- scale and place map to designated place
 
 	map.xScale = display.contentWidth / map.width
-	map.yScale = map.xScale
+	map.yScale = math.min(map.xScale, (display.contentHeight - C.topPanelHeight) / map.height)
+	map.xScale = map.yScale
 	map.x = display.contentCenterX - map.width * map.xScale / 2
-	map.y = display.contentCenterY - map.height * map.yScale / 2
+	map.y = display.contentCenterY - map.height * map.yScale / 2 + C.topPanelHeight / 2
 
 
 	-- add minigame mechanics
@@ -63,4 +64,5 @@ scene:addEventListener("show", function(event)
 	end)
 
 end)
+scene.previousScene = "scenes.level_select"
 return scene

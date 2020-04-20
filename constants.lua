@@ -9,9 +9,15 @@ T.menuButtonInterval = 20
 T.settingsButtonWidth = T.menuButtonHeight*2
 T.levelSelectInterval = T.menuButtonHeight/2
 
+T.topPanelHeight = T.menuButtonHeight + T.pixelSize * 2
+
 T.winOverlayImage = "sprites/background/win_screen.png"
 T.winScreenWidth = 54*T.pixelSize
 T.winScreenHeight = 60*T.pixelSize
+
+T.confirmationOverlayImage = "sprites/background/confirmation_screen.png"
+T.confirmationScreenWidth = 54*T.pixelSize
+T.confirmationScreenHeight = 34*T.pixelSize
 
 T.minSwipeSize = 50
 

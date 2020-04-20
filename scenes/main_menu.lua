@@ -28,4 +28,11 @@ local buttons = {
 
 
 
-return scene_getter(function() return buttons end)
+scene = scene_getter(function() return buttons end)
+scene:addEventListener("hide", function()
+	backButton.isVisible = true
+end)
+scene:addEventListener("show", function()
+	backButton.isVisible = false
+end)
+return scene

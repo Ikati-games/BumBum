@@ -11,6 +11,8 @@ local buttonImages = {
 	onPressed = "sprites/button/button_on_pressed.png",
 	off = "sprites/button/button_off.png",
 	offPressed = "sprites/button/button_off_pressed.png",
+	back = "sprites/button/button_off_pressed.png",
+	backPressed = "sprites/button/button_off_pressed.png",
 }
 
 
@@ -103,4 +105,5 @@ scene:addEventListener("create", function(event)
     	currentY = currentY + C.menuButtonHeight + C.menuButtonInterval
     end
 end)
+scene.previousScene = "scenes.main_menu"
 return scene

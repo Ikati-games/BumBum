@@ -10,7 +10,7 @@ scene:addEventListener("create", function(event)
 	background.y = display.contentCenterY
 
 	local xIndex = -1
-	local y = C.levelSelectInterval + C.menuButtonHeight / 2
+	local y = C.levelSelectInterval + C.menuButtonHeight / 2 + C.topPanelHeight
 
 	for i = 1, C.levelsAmount[event.params.minigameId] do
 		local levelId = i
@@ -48,4 +48,5 @@ scene:addEventListener("create", function(event)
 		end
 	end
 end)
+scene.previousScene = "scenes.minigame_select"
 return scene
