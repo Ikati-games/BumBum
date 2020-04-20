@@ -3,17 +3,17 @@ T = {}
 T.img = "sprites/button/button_reach.png"
 T.imgPressed = "sprites/button/button_reach_pressed.png"
 
-T.swipe = function(map, dx, dy, win)
-	local player = map:findObject("player")
-	local finish = map:findObject("finish")
-	local walls = map:findLayer("walls")
-	local traps = map:listTypes("trap")
+function T:swipe(dx, dy)
+	local player = self.map:findObject("player")
+	local finish = self.map:findObject("finish")
+	local walls = self.map:findLayer("walls")
+	local traps = self.map:listTypes("trap")
 
 	while true do
 
 		-- check for win
 		if (player.tileX == finish.tileX and player.tileY == finish.tileY) then
-			win()
+			self.win()
 			return
 		end
 
@@ -53,7 +53,7 @@ T.swipe = function(map, dx, dy, win)
 			end
 
 			-- move
-			player:translate(dx*map.tileWidth, dy*map.tileHeight)
+			player:translate(dx*self.map.tileWidth, dy*self.map.tileHeight)
 			player.tileX = player.tileX + dx
 			player.tileY = player.tileY + dy
 

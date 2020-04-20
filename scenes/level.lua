@@ -132,6 +132,8 @@ scene:addEventListener("create", function(event)
 	-- add minigame mechanics
 
 	local minigameMechanics = require("minigames."..minigameId)
+	minigameMechanics.map = map
+	minigameMechanics.win = function() win(minigameId, levelId) end
 
 	map:addEventListener("touch", function(event)
 		if (event.phase == "ended" and T.swipe) then
@@ -145,7 +147,7 @@ scene:addEventListener("create", function(event)
 			local value = (math.abs(dx) > math.abs(dy)) and dx or dy
 			dCoords[direction] = (value > 0) and 1 or -1
 
-			minigameMechanics.swipe(map, dCoords.x, dCoords.y, function() win(minigameId, levelId) end)
+			minigameMechanics:swipe(dCoords.x, dCoords.y)
 		end
 		return true
 	end)
