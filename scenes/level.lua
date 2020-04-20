@@ -27,7 +27,6 @@ scene:addEventListener("show", function(event)
 
 	-- load and draw map
 
-	display.newText(scene.view, string.format("%s-%d", minigameId, levelId), display.contentCenterX, C.menuButtonInterval)
 	local mapData = require(package_path)
 	local map = tiled.new(mapData, path)
 	scene.view:insert(map)
@@ -40,6 +39,80 @@ scene:addEventListener("show", function(event)
 	map.xScale = map.yScale
 	map.x = display.contentCenterX - map.width * map.xScale / 2
 	map.y = display.contentCenterY - map.height * map.yScale / 2 + C.topPanelHeight / 2
+
+
+	-- add top panel
+
+	-- used for debug
+	-- display.newText(scene.view, string.format("%s-%d", minigameId, levelId), display.contentCenterX, C.menuButtonInterval)
+
+	backButton.isVisible = false
+
+	local levelSelectButton = widget.newButton({
+		top = C.pixelSize,
+		left = C.pixelSize,
+		width = C.settingsButtonWidth,
+		height = C.menuButtonHeight,
+		defaultFile = "sprites/button/button_menu.png",
+		overFile = "sprites/button/button_menu_pressed.png",
+		onPress = function() 
+			if (system.getPreference("app", "sound", "boolean")) then
+				audio.play(buttonPressSound)
+			end
+		end,
+		onRelease = function()
+			if (system.getPreference("app", "sound", "boolean")) then
+				audio.play(buttonReleaseSound)
+			end
+			
+			composer.showOverlay("scenes.confirmation_overlay", {
+				isModal = true,
+				params = {
+					onConfirm = function() 
+						backButton.isVisible = true
+						composer.gotoScene("scenes.level_select")
+					end,
+				}
+			})
+		end
+	})
+	scene.view:insert(levelSelectButton)
+
+	local repeatButton = widget.newButton({
+		top = C.pixelSize,
+		left = display.contentWidth - C.menuButtonHeight - C.pixelSize,
+		width = C.menuButtonHeight,
+		height = C.menuButtonHeight,
+		defaultFile = "sprites/button/button_repeat.png",
+		overFile = "sprites/button/button_repeat_pressed.png",
+		onPress = function() 
+			if (system.getPreference("app", "sound", "boolean")) then
+				audio.play(buttonPressSound)
+			end
+		end,
+		onRelease = function()
+			if (system.getPreference("app", "sound", "boolean")) then
+				audio.play(buttonReleaseSound)
+			end
+			
+			composer.showOverlay("scenes.confirmation_overlay", {
+				isModal = true,
+				params = {
+					onConfirm = function ()
+						composer.hideOverlay()
+						composer.removeScene("scenes.level")
+						composer.gotoScene("scenes.level", {
+							params = {
+								minigameId = minigameId,
+								levelId = event.params.levelId,
+							}
+						})
+					end,
+				}
+			})
+		end
+	})
+	scene.view:insert(repeatButton)
 
 
 	-- add minigame mechanics
@@ -64,5 +137,4 @@ scene:addEventListener("show", function(event)
 	end)
 
 end)
-scene.previousScene = "scenes.level_select"
 return scene
