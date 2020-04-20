@@ -50,6 +50,7 @@ scene:addEventListener("create", function(event)
 				if (system.getPreference("app", "sound", "boolean")) then
 					audio.play(buttonReleaseSound)
 				end
+				backButton.isVisible = true
 				composer.hideOverlay()
 				composer.removeScene("scenes.level")
 				composer.gotoScene("scenes.level_select", {
