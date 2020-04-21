@@ -29,7 +29,6 @@ function T:swipe(dx, dy)
 								-- can not pass through
 								return
 						end
-						break
 				end
 			end
 
