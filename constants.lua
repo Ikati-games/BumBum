@@ -22,7 +22,7 @@ T.confirmationScreenHeight = 34*T.pixelSize
 T.minSwipeSize = 50
 
 T.levelsAmount = {
-	reach = 5,
+	reach = 6,
 }
 
 T.buttonPressSound = "sounds/button_press.wav"

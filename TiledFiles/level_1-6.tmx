@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="left-up" width="9" height="10" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="27">
+ <editorsettings>
+  <export target="../levels/reach/6.lua" format="lua"/>
+ </editorsettings>
+ <tileset firstgid="1" source="TileCollection.tsx"/>
+ <tileset firstgid="26" source="../../../TileCollection.tsx"/>
+ <layer id="1" name="floor" width="9" height="10">
+  <data encoding="csv">
+12,13,17,9,10,11,13,8,21,
+10,7,13,10,9,15,15,12,14,
+10,20,10,16,13,16,19,21,20,
+19,17,19,16,14,12,7,14,11,
+14,21,18,11,21,18,13,9,7,
+19,12,12,16,17,20,6,21,10,
+19,13,17,7,10,21,17,16,17,
+7,8,6,11,10,16,11,17,13,
+7,11,9,12,8,8,19,18,8,
+17,19,21,12,17,15,9,16,8
+</data>
+ </layer>
+ <layer id="2" name="walls" width="9" height="10">
+  <data encoding="csv">
+2,2,2,2,2,2,2,2,2,
+2,0,0,0,0,0,0,0,2,
+2,0,0,0,0,0,0,0,2,
+2,0,0,0,0,0,2,0,2,
+2,0,0,0,0,0,0,0,2,
+2,0,0,0,0,0,0,0,2,
+2,0,0,0,0,0,0,0,2,
+2,0,0,0,0,0,0,0,2,
+2,0,0,0,0,2,0,0,2,
+2,2,2,2,2,2,2,2,2
+</data>
+ </layer>
+ <objectgroup id="3" name="objects">
+  <object id="1" name="trap1" type="trap" gid="25" x="16" y="144" width="16" height="16">
+   <properties>
+    <property name="isHorizontalAllowed" type="bool" value="true"/>
+    <property name="isVerticalAllowed" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="2" name="trap2" type="trap" gid="25" x="80" y="128" width="16" height="16">
+   <properties>
+    <property name="isHorizontalAllowed" type="bool" value="true"/>
+    <property name="isVerticalAllowed" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="3" name="trap3" type="trap" gid="25" x="96" y="128" width="16" height="16">
+   <properties>
+    <property name="isHorizontalAllowed" type="bool" value="true"/>
+    <property name="isVerticalAllowed" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="4" name="trap4" type="trap" gid="25" x="112" y="128" width="16" height="16">
+   <properties>
+    <property name="isHorizontalAllowed" type="bool" value="true"/>
+    <property name="isVerticalAllowed" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="5" name="trap5" type="trap" gid="25" x="80" y="80" width="16" height="16">
+   <properties>
+    <property name="isHorizontalAllowed" type="bool" value="true"/>
+    <property name="isVerticalAllowed" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="6" name="trap6" type="trap" gid="25" x="64" y="80" width="16" height="16">
+   <properties>
+    <property name="isHorizontalAllowed" type="bool" value="true"/>
+    <property name="isVerticalAllowed" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="7" name="trap7" type="trap" gid="25" x="16" y="80" width="16" height="16">
+   <properties>
+    <property name="isHorizontalAllowed" type="bool" value="true"/>
+    <property name="isVerticalAllowed" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="9" name="trap9" type="trap" gid="24" x="80" y="112" width="16" height="16">
+   <properties>
+    <property name="isHorizontalAllowed" type="bool" value="false"/>
+    <property name="isVerticalAllowed" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="10" name="trap10" type="trap" gid="24" x="32" y="96" width="16" height="16">
+   <properties>
+    <property name="isHorizontalAllowed" type="bool" value="false"/>
+    <property name="isVerticalAllowed" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="11" name="trap11" type="trap" gid="24" x="96" y="96" width="16" height="16">
+   <properties>
+    <property name="isHorizontalAllowed" type="bool" value="false"/>
+    <property name="isVerticalAllowed" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="12" name="trap12" type="trap" gid="24" x="64" y="64" width="16" height="16">
+   <properties>
+    <property name="isHorizontalAllowed" type="bool" value="false"/>
+    <property name="isVerticalAllowed" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="13" name="trap13" type="trap" gid="24" x="112" y="96" width="16" height="16">
+   <properties>
+    <property name="isHorizontalAllowed" type="bool" value="false"/>
+    <property name="isVerticalAllowed" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="14" name="trap14" type="trap" gid="24" x="80" y="64" width="16" height="16">
+   <properties>
+    <property name="isHorizontalAllowed" type="bool" value="false"/>
+    <property name="isVerticalAllowed" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="15" name="trap15" type="trap" gid="24" x="80" y="48" width="16" height="16">
+   <properties>
+    <property name="isHorizontalAllowed" type="bool" value="false"/>
+    <property name="isVerticalAllowed" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="16" name="trap16" type="trap" gid="23" x="48" y="112" width="16" height="16">
+   <properties>
+    <property name="isHorizontalAllowed" type="bool" value="true"/>
+    <property name="isVerticalAllowed" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="17" name="trap17" type="trap" gid="23" x="64" y="96" width="16" height="16">
+   <properties>
+    <property name="isHorizontalAllowed" type="bool" value="true"/>
+    <property name="isVerticalAllowed" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="21" name="trap18" type="trap" gid="23" x="48" y="80" width="16" height="16">
+   <properties>
+    <property name="isHorizontalAllowed" type="bool" value="true"/>
+    <property name="isVerticalAllowed" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="23" name="trap17" type="trap" gid="23" x="32" y="32" width="16" height="16">
+   <properties>
+    <property name="isHorizontalAllowed" type="bool" value="true"/>
+    <property name="isVerticalAllowed" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="24" name="player" gid="5" x="32" y="112" width="16" height="16"/>
+  <object id="25" name="finish" gid="3" x="48" y="96" width="16" height="16"/>
+  <object id="26" name="trap20" type="trap" gid="24" x="16" y="64" width="16" height="16">
+   <properties>
+    <property name="isHorizontalAllowed" type="bool" value="false"/>
+    <property name="isVerticalAllowed" type="bool" value="true"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
