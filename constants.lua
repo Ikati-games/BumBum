@@ -22,7 +22,7 @@ T.confirmationScreenHeight = 34*T.pixelSize
 T.minSwipeSize = 50
 
 T.levelsAmount = {
-	reach = 45,
+	reach = 7,
 }
 T.collectibles = {
 	reach = {5}

@@ -6,9 +6,22 @@ scene:addEventListener("create", function(event)
 	background.x = display.contentCenterX
 	background.y = display.contentCenterY
 
-	local xIndex = -1
-	local y = C.levelSelectInterval + C.menuButtonHeight / 2 + C.topPanelHeight
+	-- allow scrolling
+	scrollView = widget.newScrollView({
+		top = C.topPanelHeight,
+		left = 0,
+		width = display.contentWidth,
+		height = display.contentHeight - C.topPanelHeight,
+		horizontalScrollDisabled = true,
+		hideBackground = true,
+		topPadding = C.levelSelectInterval,
+		bottomPadding = C.levelSelectInterval,
+	})
+	scene.view:insert(scrollView)
 
+	-- for each level
+	local xIndex = -1
+	local y = C.menuButtonHeight / 2
 	for i = 1, C.levelsAmount[event.params.minigameId] do
 		local levelId = i
 
@@ -37,7 +50,7 @@ scene:addEventListener("create", function(event)
 				})
 			end
 		})
-		scene.view:insert(button)
+		scrollView:insert(button)
 
 		-- collectible indicator
 		for _, levelWithCollectible in pairs(C.collectibles[event.params.minigameId]) do
@@ -46,8 +59,9 @@ scene:addEventListener("create", function(event)
 				local collectibleIndicator = display.newImageRect(scene.view, collectibleIndicatorImage, C.menuButtonHeight / 2, C.menuButtonHeight / 2)
 				collectibleIndicator.x = button.x + C.menuButtonHeight / 2.5
 				collectibleIndicator.y = button.y + C.menuButtonHeight / 2.5
-				scene.view:insert(collectibleIndicator)
+				scrollView:insert(collectibleIndicator)
 				scene.collectibleIndicators[i] = collectibleIndicator
+				break
 			end
 		end
 
