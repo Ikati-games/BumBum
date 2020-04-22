@@ -20,7 +20,7 @@ scene:addEventListener("create", function(event)
 	end
 
 	-- repeat button
-	repeatButton = widget.newButton({
+	local repeatButton = widget.newButton({
 		x = display.contentCenterX - C.winScreenWidth / 2 + C.menuButtonHeight / 2 + 3 * C.pixelSize,
 		y = display.contentCenterY + C.winScreenHeight / 2 - C.menuButtonHeight / 2 - 2 * C.pixelSize,
 		width = C.menuButtonHeight,
@@ -49,6 +49,7 @@ scene:addEventListener("create", function(event)
 	scene.view:insert(repeatButton)
 
 	-- the second button
+	local nextLevelButton
 	if (levelId + 1 > C.levelsAmount[minigameId]) then
 		-- no more levels, "to the level select" button
 		nextLevelButton = widget.newButton({

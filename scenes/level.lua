@@ -27,14 +27,14 @@ end)
 local function win(minigameId, levelId, minigame)
 	if (minigame.collectibleCollected and not system.getPreference("app", "collectibleCollected_"..minigameId.."_"..levelId, "boolean")) then
 		-- collected for the first time
-		pref = {points = system.getPreference("app", "points", "number") + 1} -- add point
+		local pref = {points = system.getPreference("app", "points", "number") + 1} -- add point
 		pref["collectibleCollected_"..minigameId.."_"..levelId] = true -- remember that it is collected
 		system.setPreferences("app", pref)
 	end
 
 	-- remember that leves was completed
 	local lastLevelOpened = system.getPreference("app", "lastLevelOpened_"..minigameId, "number") or 1
-	pref = {}
+	local pref = {}
 	pref["lastLevelOpened_"..minigameId] = math.max(lastLevelOpened, levelId+1)
 	system.setPreferences("app", pref)
 
