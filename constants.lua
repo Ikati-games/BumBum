@@ -25,7 +25,7 @@ T.levelsAmount = {
 	reach = 6,
 }
 T.collectibles = {
-	reach = {1, 2, 4}
+	reach = {5}
 }
 
 T.buttonPressSound = "sounds/button_press.wav"

@@ -9,7 +9,7 @@ return {
   tilewidth = 16,
   tileheight = 16,
   nextlayerid = 4,
-  nextobjectid = 8,
+  nextobjectid = 9,
   properties = {},
   tilesets = {
     {
@@ -32,7 +32,7 @@ return {
       },
       properties = {},
       terrains = {},
-      tilecount = 22,
+      tilecount = 25,
       tiles = {
         {
           id = 1,
@@ -163,6 +163,34 @@ return {
         {
           id = 23,
           image = "../../sprites/trap/trap_vertical.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 24,
+          image = "../../sprites/trap/trap_both.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 29,
+          image = "../../sprites/change/change_f1.png",
+          width = 16,
+          height = 16,
+          animation = {
+            {
+              tileid = 29,
+              duration = 250
+            },
+            {
+              tileid = 30,
+              duration = 250
+            }
+          }
+        },
+        {
+          id = 30,
+          image = "../../sprites/change/change_f2.png",
           width = 16,
           height = 16
         }
@@ -355,6 +383,20 @@ return {
             ["isHorizontalAllowed"] = false,
             ["isVerticalAllowed"] = true
           }
+        },
+        {
+          id = 8,
+          name = "collectible",
+          type = "",
+          shape = "rectangle",
+          x = 128,
+          y = 32,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {}
         }
       }
     }
