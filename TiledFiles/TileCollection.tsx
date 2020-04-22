@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.2" tiledversion="1.3.4" name="TileCollection" tilewidth="16" tileheight="16" tilecount="26" columns="0">
+<tileset version="1.2" tiledversion="1.3.4" name="TileCollection" tilewidth="16" tileheight="16" tilecount="22" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="1">
   <image width="16" height="16" source="../sprites/wall/wall.png"/>
@@ -66,25 +66,5 @@
  </tile>
  <tile id="24">
   <image width="16" height="16" source="../sprites/trap/trap_both.png"/>
- </tile>
- <tile id="29">
-  <image width="16" height="16" source="../sprites/change/change_f1.png"/>
-  <animation>
-   <frame tileid="29" duration="250"/>
-   <frame tileid="30" duration="250"/>
-  </animation>
- </tile>
- <tile id="30">
-  <image width="16" height="16" source="../sprites/change/change_f2.png"/>
- </tile>
- <tile id="32">
-  <image width="16" height="16" source="../sprites/bum/bum_f1.png"/>
-  <animation>
-   <frame tileid="32" duration="250"/>
-   <frame tileid="33" duration="250"/>
-  </animation>
- </tile>
- <tile id="33">
-  <image width="16" height="16" source="../sprites/bum/bum_f2.png"/>
  </tile>
 </tileset>

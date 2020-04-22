@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="left-up" width="11" height="14" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="4">
+<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="left-up" width="11" height="14" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="5">
  <editorsettings>
   <export target="../levels/reach/3.lua" format="lua"/>
  </editorsettings>
  <tileset firstgid="1" source="TileCollection.tsx"/>
+ <tileset firstgid="35" source="bum.tsx"/>
  <layer id="1" name="floor" width="11" height="14">
   <data encoding="csv">
 15,19,6,14,21,14,16,7,15,14,19,
@@ -42,6 +43,6 @@
  </layer>
  <objectgroup id="3" name="objects">
   <object id="2" name="finish" gid="3" x="128" y="208" width="16" height="16"/>
-  <object id="3" name="player" gid="33" x="64" y="160" width="16" height="16"/>
+  <object id="4" name="player" gid="35" x="64" y="160" width="16" height="16"/>
  </objectgroup>
 </map>

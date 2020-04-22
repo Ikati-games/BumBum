@@ -9,7 +9,7 @@ return {
   tilewidth = 16,
   tileheight = 16,
   nextlayerid = 4,
-  nextobjectid = 10,
+  nextobjectid = 12,
   properties = {},
   tilesets = {
     {
@@ -211,6 +211,86 @@ return {
           height = 16
         }
       }
+    },
+    {
+      name = "bum",
+      firstgid = 35,
+      filename = "../../TiledFiles/bum.tsx",
+      tilewidth = 16,
+      tileheight = 16,
+      spacing = 0,
+      margin = 0,
+      columns = 2,
+      image = "../../sprites/bum/bum.png",
+      imagewidth = 32,
+      imageheight = 16,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 16,
+        height = 16
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 2,
+      tiles = {
+        {
+          id = 0,
+          animation = {
+            {
+              tileid = 0,
+              duration = 250
+            },
+            {
+              tileid = 1,
+              duration = 250
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "change",
+      firstgid = 37,
+      filename = "../../TiledFiles/change.tsx",
+      tilewidth = 16,
+      tileheight = 16,
+      spacing = 0,
+      margin = 0,
+      columns = 2,
+      image = "../../sprites/change/change.png",
+      imagewidth = 32,
+      imageheight = 16,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 16,
+        height = 16
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 2,
+      tiles = {
+        {
+          id = 0,
+          animation = {
+            {
+              tileid = 0,
+              duration = 250
+            },
+            {
+              tileid = 1,
+              duration = 250
+            }
+          }
+        }
+      }
     }
   },
   layers = {
@@ -381,21 +461,7 @@ return {
           }
         },
         {
-          id = 8,
-          name = "collectible",
-          type = "",
-          shape = "rectangle",
-          x = 112,
-          y = 16,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 30,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 9,
+          id = 10,
           name = "player",
           type = "",
           shape = "rectangle",
@@ -404,7 +470,21 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 33,
+          gid = 35,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 11,
+          name = "collectible",
+          type = "",
+          shape = "rectangle",
+          x = 112,
+          y = 16,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 37,
           visible = true,
           properties = {}
         }

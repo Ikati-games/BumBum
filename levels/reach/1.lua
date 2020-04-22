@@ -9,7 +9,7 @@ return {
   tilewidth = 16,
   tileheight = 16,
   nextlayerid = 5,
-  nextobjectid = 6,
+  nextobjectid = 7,
   properties = {},
   tilesets = {
     {
@@ -259,6 +259,46 @@ return {
           height = 16
         }
       }
+    },
+    {
+      name = "bum",
+      firstgid = 40,
+      filename = "../../TiledFiles/bum.tsx",
+      tilewidth = 16,
+      tileheight = 16,
+      spacing = 0,
+      margin = 0,
+      columns = 2,
+      image = "../../sprites/bum/bum.png",
+      imagewidth = 32,
+      imageheight = 16,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 16,
+        height = 16
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 2,
+      tiles = {
+        {
+          id = 0,
+          animation = {
+            {
+              tileid = 0,
+              duration = 250
+            },
+            {
+              tileid = 1,
+              duration = 250
+            }
+          }
+        }
+      }
     }
   },
   layers = {
@@ -330,16 +370,16 @@ return {
           properties = {}
         },
         {
-          id = 5,
+          id = 6,
           name = "player",
           type = "",
           shape = "rectangle",
-          x = -3.55271e-15,
+          x = 0,
           y = 48,
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 38,
+          gid = 40,
           visible = true,
           properties = {}
         }
