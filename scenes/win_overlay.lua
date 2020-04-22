@@ -5,8 +5,21 @@ scene:addEventListener("create", function(event)
 	background.y = display.contentCenterY
 
 	local minigameId = event.params.minigameId
-	local nextLevelId = event.params.levelId+1
+	local levelId = event.params.levelId
 
+	-- collectible
+	for _, levelWithCollectible in pairs(C.collectibles[event.params.minigameId]) do
+		if (levelId == levelWithCollectible) then
+			local collectibleIndicatorImage = (system.getPreference("app", "collectibleCollected_"..minigameId.."_"..levelId, "boolean")) and "sprites/trashcan/trashcan_open.png" or "sprites/trashcan/trashcan.png"
+			local collectibleIndicator = display.newImageRect(scene.view, collectibleIndicatorImage, C.menuButtonHeight, C.menuButtonHeight)
+			collectibleIndicator.x = display.contentCenterX
+			collectibleIndicator.y = display.contentCenterY
+			scene.view:insert(collectibleIndicator)
+			break
+		end
+	end
+
+	-- repeat button
 	repeatButton = widget.newButton({
 		x = display.contentCenterX - C.winScreenWidth / 2 + C.menuButtonHeight / 2 + 3 * C.pixelSize,
 		y = display.contentCenterY + C.winScreenHeight / 2 - C.menuButtonHeight / 2 - 2 * C.pixelSize,
@@ -28,14 +41,16 @@ scene:addEventListener("create", function(event)
 			composer.gotoScene("scenes.level", {
 				params = {
 					minigameId = minigameId,
-					levelId = event.params.levelId,
+					levelId = levelId,
 				}
 			})
 		end
 	})
 	scene.view:insert(repeatButton)
 
-	if (nextLevelId > C.levelsAmount[minigameId]) then
+	-- the second button
+	if (levelId + 1 > C.levelsAmount[minigameId]) then
+		-- no more levels, "to the level select" button
 		nextLevelButton = widget.newButton({
 			width = C.settingsButtonWidth,
 			height = C.menuButtonHeight,
@@ -61,6 +76,7 @@ scene:addEventListener("create", function(event)
 			end
 		})
 	else
+		-- next level
 		nextLevelButton = widget.newButton({
 			width = C.settingsButtonWidth,
 			height = C.menuButtonHeight,
@@ -80,7 +96,7 @@ scene:addEventListener("create", function(event)
 				composer.gotoScene("scenes.level", {
 					params = {
 						minigameId = minigameId,
-						levelId = nextLevelId,
+						levelId = levelId + 1,
 					}
 				})
 			end

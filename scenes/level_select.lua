@@ -1,5 +1,7 @@
 local scene = composer.newScene()
+scene.collectibleIndicators = {}
 scene:addEventListener("create", function(event)
+	-- background
 	local background = display.newImageRect(scene.view, C.menuBackgroundImage, display.contentWidth, display.contentHeight)
 	background.x = display.contentCenterX
 	background.y = display.contentCenterY
@@ -10,7 +12,8 @@ scene:addEventListener("create", function(event)
 	for i = 1, C.levelsAmount[event.params.minigameId] do
 		local levelId = i
 
-		button = widget.newButton({
+		-- button to go to level
+		local button = widget.newButton({
 			x = display.contentCenterX + xIndex * (C.levelSelectInterval + C.menuButtonHeight), 
 			y = y,
 			width = C.menuButtonHeight,
@@ -36,10 +39,23 @@ scene:addEventListener("create", function(event)
 		})
 		scene.view:insert(button)
 
-		xIndex = xIndex + 1
-		if (xIndex > 1) then
+		-- collectible indicator
+		for _, levelWithCollectible in pairs(C.collectibles[event.params.minigameId]) do
+			if (i == levelWithCollectible) then
+				local collectibleIndicatorImage = (system.getPreference("app", "collectibleCollected_"..event.params.minigameId.."_"..levelId, "boolean")) and "sprites/trashcan/trashcan_open.png" or "sprites/trashcan/trashcan.png"
+				local collectibleIndicator = display.newImageRect(scene.view, collectibleIndicatorImage, C.menuButtonHeight / 2, C.menuButtonHeight / 2)
+				collectibleIndicator.x = button.x + C.menuButtonHeight / 2.5
+				collectibleIndicator.y = button.y + C.menuButtonHeight / 2.5
+				scene.view:insert(collectibleIndicator)
+				scene.collectibleIndicators[i] = collectibleIndicator
+			end
+		end
+
+		if (xIndex >= 1) then
 			xIndex = -1
 			y = y + C.levelSelectInterval + C.menuButtonHeight
+		else
+			xIndex = xIndex + 1
 		end
 	end
 end)

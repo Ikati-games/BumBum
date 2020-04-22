@@ -24,6 +24,9 @@ T.minSwipeSize = 50
 T.levelsAmount = {
 	reach = 6,
 }
+T.collectibles = {
+	reach = {1, 2, 4}
+}
 
 T.buttonPressSound = "sounds/button_press.wav"
 T.buttonReleaseSound = "sounds/button_release.wav"

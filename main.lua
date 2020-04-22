@@ -27,6 +27,7 @@ if not system.getPreference("app", "hasAppRunBefore", "boolean") then
 		hasAppRunBefore = true,
 		sound = true,
 		music = true,
+		points = 0,
 	})
 end
 

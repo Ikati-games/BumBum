@@ -8,14 +8,24 @@ function T:swipe(dx, dy)
 	local finish = self.map:findObject("finish")
 	local walls = self.map:findLayer("walls")
 	local traps = self.map:listTypes("trap")
+	local collectible = self.map:findObject("collectible")
 
 	while true do
 
-		-- check for win
-		if (player.tileX == finish.tileX and player.tileY == finish.tileY) then
-			self.win()
-			return
-		end
+		-- look at current cell
+
+			-- check for collectible
+			if (collectible and player.tileX == collectible.tileX and player.tileY == collectible.tileY) then
+				self.collectibleCollected = true
+				collectible:removeSelf()
+				collectible = nil
+			end
+
+			-- check for win
+			if (player.tileX == finish.tileX and player.tileY == finish.tileY) then
+				self.win()
+				return
+			end
 
 
 		-- check for barrier ahead

@@ -24,7 +24,18 @@ end)
 
 
 
-local function win(minigameId, levelId)
+local function win(minigameId, levelId, minigame)
+	if (minigame.collectibleCollected and not system.getPreference("app", "collectibleCollected_"..minigameId.."_"..levelId, "boolean")) then
+		-- collected for the first time
+		pref = {points = system.getPreference("app", "points", "number") + 1} -- add point
+		pref["collectibleCollected_"..minigameId.."_"..levelId] = true -- remember that it is collected
+		system.setPreferences("app", pref)
+		composer.getScene("scenes.level_select").collectibleIndicators[levelId].fill = { -- reflect change on level select scene
+			type = "image",
+			filename = "sprites/trashcan/trashcan_open.png"
+		}
+	end
+
 	composer.showOverlay("scenes.win_overlay", {
 		isModal = true,
 		params = {
@@ -131,9 +142,9 @@ scene:addEventListener("create", function(event)
 
 	-- add minigame mechanics
 
-	local minigameMechanics = require("minigames."..minigameId)
-	minigameMechanics.map = map
-	minigameMechanics.win = function() win(minigameId, levelId) end
+	local minigame = require("minigames."..minigameId)
+	minigame.map = map
+	minigame.win = function() win(minigameId, levelId, minigame) end
 
 	map:addEventListener("touch", function(event)
 		if (event.phase == "ended" and T.swipe) then
@@ -147,7 +158,7 @@ scene:addEventListener("create", function(event)
 			local value = (math.abs(dx) > math.abs(dy)) and dx or dy
 			dCoords[direction] = (value > 0) and 1 or -1
 
-			minigameMechanics:swipe(dCoords.x, dCoords.y)
+			minigame:swipe(dCoords.x, dCoords.y)
 		end
 		return true
 	end)
