@@ -9,7 +9,7 @@ return {
   tilewidth = 16,
   tileheight = 16,
   nextlayerid = 4,
-  nextobjectid = 27,
+  nextobjectid = 28,
   properties = {},
   tilesets = {
     {
@@ -32,7 +32,7 @@ return {
       },
       properties = {},
       terrains = {},
-      tilecount = 23,
+      tilecount = 26,
       tiles = {
         {
           id = 1,
@@ -43,12 +43,6 @@ return {
         {
           id = 2,
           image = "../../sprites/trashcan/trashcan.png",
-          width = 16,
-          height = 16
-        },
-        {
-          id = 4,
-          image = "../../sprites/bum/bum.gif",
           width = 16,
           height = 16
         },
@@ -171,12 +165,56 @@ return {
           image = "../../sprites/trap/trap_both.png",
           width = 16,
           height = 16
+        },
+        {
+          id = 29,
+          image = "../../sprites/change/change_f1.png",
+          width = 16,
+          height = 16,
+          animation = {
+            {
+              tileid = 29,
+              duration = 250
+            },
+            {
+              tileid = 30,
+              duration = 250
+            }
+          }
+        },
+        {
+          id = 30,
+          image = "../../sprites/change/change_f2.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 32,
+          image = "../../sprites/bum/bum_f1.png",
+          width = 16,
+          height = 16,
+          animation = {
+            {
+              tileid = 32,
+              duration = 250
+            },
+            {
+              tileid = 33,
+              duration = 250
+            }
+          }
+        },
+        {
+          id = 33,
+          image = "../../sprites/bum/bum_f2.png",
+          width = 16,
+          height = 16
         }
       }
     },
     {
       name = "TileCollection",
-      firstgid = 26,
+      firstgid = 35,
       filename = "../../../../TileCollection.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -596,20 +634,6 @@ return {
           }
         },
         {
-          id = 24,
-          name = "player",
-          type = "",
-          shape = "rectangle",
-          x = 32,
-          y = 112,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 5,
-          visible = true,
-          properties = {}
-        },
-        {
           id = 25,
           name = "finish",
           type = "",
@@ -639,6 +663,20 @@ return {
             ["isHorizontalAllowed"] = false,
             ["isVerticalAllowed"] = true
           }
+        },
+        {
+          id = 27,
+          name = "player",
+          type = "",
+          shape = "rectangle",
+          x = 32,
+          y = 112,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 33,
+          visible = true,
+          properties = {}
         }
       }
     }

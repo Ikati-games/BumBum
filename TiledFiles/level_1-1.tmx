@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="left-up" width="6" height="6" tilewidth="16" tileheight="16" infinite="0" nextlayerid="5" nextobjectid="4">
+<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="left-up" width="6" height="6" tilewidth="16" tileheight="16" infinite="0" nextlayerid="5" nextobjectid="6">
  <editorsettings>
   <export target="../levels/reach/1.lua" format="lua"/>
  </editorsettings>
@@ -26,7 +26,7 @@
 </data>
  </layer>
  <objectgroup id="2" name="objects" offsetx="1.77636e-15" offsety="0">
-  <object id="2" name="player" gid="5" x="16" y="64" width="16" height="16"/>
   <object id="3" name="finish" gid="3" x="32" y="80" width="16" height="16"/>
+  <object id="5" name="player" gid="38" x="16" y="64" width="16" height="16"/>
  </objectgroup>
 </map>

@@ -9,7 +9,7 @@ return {
   tilewidth = 16,
   tileheight = 16,
   nextlayerid = 4,
-  nextobjectid = 4,
+  nextobjectid = 5,
   properties = {},
   tilesets = {
     {
@@ -32,7 +32,7 @@ return {
       },
       properties = {},
       terrains = {},
-      tilecount = 22,
+      tilecount = 26,
       tiles = {
         {
           id = 1,
@@ -43,12 +43,6 @@ return {
         {
           id = 2,
           image = "../../sprites/trashcan/trashcan.png",
-          width = 16,
-          height = 16
-        },
-        {
-          id = 4,
-          image = "../../sprites/bum/bum.gif",
           width = 16,
           height = 16
         },
@@ -165,6 +159,56 @@ return {
           image = "../../sprites/trap/trap_vertical.png",
           width = 16,
           height = 16
+        },
+        {
+          id = 24,
+          image = "../../sprites/trap/trap_both.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 29,
+          image = "../../sprites/change/change_f1.png",
+          width = 16,
+          height = 16,
+          animation = {
+            {
+              tileid = 29,
+              duration = 250
+            },
+            {
+              tileid = 30,
+              duration = 250
+            }
+          }
+        },
+        {
+          id = 30,
+          image = "../../sprites/change/change_f2.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 32,
+          image = "../../sprites/bum/bum_f1.png",
+          width = 16,
+          height = 16,
+          animation = {
+            {
+              tileid = 32,
+              duration = 250
+            },
+            {
+              tileid = 33,
+              duration = 250
+            }
+          }
+        },
+        {
+          id = 33,
+          image = "../../sprites/bum/bum_f2.png",
+          width = 16,
+          height = 16
         }
       }
     }
@@ -236,20 +280,6 @@ return {
       properties = {},
       objects = {
         {
-          id = 1,
-          name = "player",
-          type = "",
-          shape = "rectangle",
-          x = 80,
-          y = 96,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 5,
-          visible = true,
-          properties = {}
-        },
-        {
           id = 2,
           name = "vertical_trap",
           type = "trap",
@@ -277,6 +307,20 @@ return {
           height = 16,
           rotation = 0,
           gid = 3,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 4,
+          name = "player",
+          type = "",
+          shape = "rectangle",
+          x = 80,
+          y = 96,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 33,
           visible = true,
           properties = {}
         }

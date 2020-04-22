@@ -9,7 +9,7 @@ return {
   tilewidth = 16,
   tileheight = 16,
   nextlayerid = 4,
-  nextobjectid = 9,
+  nextobjectid = 10,
   properties = {},
   tilesets = {
     {
@@ -32,7 +32,7 @@ return {
       },
       properties = {},
       terrains = {},
-      tilecount = 25,
+      tilecount = 26,
       tiles = {
         {
           id = 1,
@@ -43,12 +43,6 @@ return {
         {
           id = 2,
           image = "../../sprites/trashcan/trashcan.png",
-          width = 16,
-          height = 16
-        },
-        {
-          id = 4,
-          image = "../../sprites/bum/bum.gif",
           width = 16,
           height = 16
         },
@@ -193,6 +187,28 @@ return {
           image = "../../sprites/change/change_f2.png",
           width = 16,
           height = 16
+        },
+        {
+          id = 32,
+          image = "../../sprites/bum/bum_f1.png",
+          width = 16,
+          height = 16,
+          animation = {
+            {
+              tileid = 32,
+              duration = 250
+            },
+            {
+              tileid = 33,
+              duration = 250
+            }
+          }
+        },
+        {
+          id = 33,
+          image = "../../sprites/bum/bum_f2.png",
+          width = 16,
+          height = 16
         }
       }
     }
@@ -271,20 +287,6 @@ return {
       draworder = "topdown",
       properties = {},
       objects = {
-        {
-          id = 1,
-          name = "player",
-          type = "",
-          shape = "rectangle",
-          x = 80,
-          y = 176,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 5,
-          visible = true,
-          properties = {}
-        },
         {
           id = 2,
           name = "finish",
@@ -395,6 +397,20 @@ return {
           height = 16,
           rotation = 0,
           gid = 30,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 9,
+          name = "player",
+          type = "",
+          shape = "rectangle",
+          x = 80,
+          y = 176,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 33,
           visible = true,
           properties = {}
         }
