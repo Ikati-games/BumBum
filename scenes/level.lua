@@ -143,6 +143,7 @@ scene:addEventListener("create", function(event)
 	-- add minigame mechanics
 
 	local minigame = require("minigames."..minigameId)
+	minigame.collectibleCollected = false
 	minigame.map = map
 	minigame.win = function() win(minigameId, levelId, minigame) end
 
