@@ -43,7 +43,7 @@ function T:swipe(dx, dy)
 			end
 
 			-- check for walls
-			if (walls.tiles[player.tileY + dy][player.tileX + dx] ~= 0) then return end
+			if (walls.tiles[player.tileY + dy] == nil or walls.tiles[player.tileY + dy][player.tileX + dx] ~= 0) then return end
 
 
 		-- no barriers, can move now
