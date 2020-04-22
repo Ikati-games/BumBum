@@ -33,6 +33,14 @@ end
 
 
 
+-- top panel
+
+topPanel = display.newImageRect("sprites/background/top_panel.png", C.topPanelImageWidth, C.topPanelImageHeight)
+topPanel.x = display.contentCenterX
+topPanel.y = -C.topPanelImageHeight / 2 + C.topPanelHeight
+
+
+
 -- back button
 
 local function goBack()
@@ -46,7 +54,7 @@ end
 
 backButton = widget.newButton({
 	top = C.pixelSize,
-	left = C.pixelSize,
+	left = 3*C.pixelSize,
 	width = C.settingsButtonWidth,
 	height = C.menuButtonHeight,
 	defaultFile = "sprites/button/button_back.png",

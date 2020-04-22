@@ -9,7 +9,9 @@ T.menuButtonInterval = 20
 T.settingsButtonWidth = T.menuButtonHeight*2
 T.levelSelectInterval = T.menuButtonHeight/2
 
-T.topPanelHeight = T.menuButtonHeight + T.pixelSize * 2
+T.topPanelHeight = T.menuButtonHeight + T.pixelSize * 3
+T.topPanelImageWidth = 100*T.pixelSize
+T.topPanelImageHeight = 150*T.pixelSize
 
 T.winOverlayImage = "sprites/background/win_screen.png"
 T.winScreenWidth = 54*T.pixelSize

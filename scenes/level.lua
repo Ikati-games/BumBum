@@ -79,13 +79,14 @@ scene:addEventListener("create", function(event)
 	-- used for debug
 	-- display.newText(scene.view, string.format("%s-%d", minigameId, levelId), display.contentCenterX, C.menuButtonInterval)
 
+	topPanel:toBack()
 	backButton.isVisible = false
 
 	local levelSelectButton = widget.newButton({
-		top = C.pixelSize,
-		left = C.pixelSize,
-		width = C.settingsButtonWidth,
-		height = C.menuButtonHeight,
+		x = backButton.x,
+		y = backButton.y,
+		width = backButton.width,
+		height = backButton.height,
 		defaultFile = "sprites/button/button_menu.png",
 		overFile = "sprites/button/button_menu_pressed.png",
 		onPress = function() 
@@ -105,7 +106,7 @@ scene:addEventListener("create", function(event)
  
 	local repeatButton = widget.newButton({
 		top = C.pixelSize,
-		left = display.contentWidth - C.menuButtonHeight - C.pixelSize,
+		left = display.contentWidth - C.menuButtonHeight - 2*C.pixelSize,
 		width = C.menuButtonHeight,
 		height = C.menuButtonHeight,
 		defaultFile = "sprites/button/button_repeat.png",
@@ -165,4 +166,10 @@ scene:addEventListener("create", function(event)
 	end)
 
 end)
+
+scene:addEventListener("destroy", function(event)
+	topPanel:toFront()
+	backButton:toFront()
+end)
+
 return scene
