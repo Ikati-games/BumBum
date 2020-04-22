@@ -32,7 +32,7 @@ local function win(minigameId, levelId, minigame)
 		system.setPreferences("app", pref)
 		composer.getScene("scenes.level_select").collectibleIndicators[levelId].fill = { -- reflect change on level select scene
 			type = "image",
-			filename = "sprites/trashcan/trashcan_open.png"
+			filename = C.collectibleCollectedImage
 		}
 	end
 

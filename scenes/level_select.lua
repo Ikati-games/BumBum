@@ -55,7 +55,7 @@ scene:addEventListener("create", function(event)
 		-- collectible indicator
 		for _, levelWithCollectible in pairs(C.collectibles[event.params.minigameId]) do
 			if (i == levelWithCollectible) then
-				local collectibleIndicatorImage = (system.getPreference("app", "collectibleCollected_"..event.params.minigameId.."_"..levelId, "boolean")) and "sprites/trashcan/trashcan_open.png" or "sprites/trashcan/trashcan.png"
+				local collectibleIndicatorImage = (system.getPreference("app", "collectibleCollected_"..event.params.minigameId.."_"..levelId, "boolean")) and C.collectibleCollectedImage or C.collectibleUncollectedImage
 				local collectibleIndicator = display.newImageRect(scene.view, collectibleIndicatorImage, C.menuButtonHeight / 2, C.menuButtonHeight / 2)
 				collectibleIndicator.x = button.x + C.menuButtonHeight / 2.5
 				collectibleIndicator.y = button.y + C.menuButtonHeight / 2.5

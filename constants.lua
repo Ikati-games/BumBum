@@ -26,9 +26,12 @@ T.minSwipeSize = 50
 T.levelsAmount = {
 	reach = 7,
 }
+
 T.collectibles = {
 	reach = {5}
 }
+T.collectibleCollectedImage = "sprites/change/change_f1.png"
+T.collectibleUncollectedImage = "sprites/change/change_uncollected.png"
 
 T.buttonPressSound = "sounds/button_press.wav"
 T.buttonReleaseSound = "sounds/button_release.wav"
