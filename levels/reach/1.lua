@@ -4,8 +4,8 @@ return {
   tiledversion = "1.3.4",
   orientation = "orthogonal",
   renderorder = "left-up",
-  width = 6,
-  height = 6,
+  width = 4,
+  height = 4,
   tilewidth = 16,
   tileheight = 16,
   nextlayerid = 5,
@@ -268,8 +268,8 @@ return {
       name = "floor",
       x = 0,
       y = 0,
-      width = 6,
-      height = 6,
+      width = 4,
+      height = 4,
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -277,12 +277,10 @@ return {
       properties = {},
       encoding = "lua",
       data = {
-        25, 25, 11, 25, 12, 23,
-        1, 16, 20, 26, 19, 23,
-        1, 25, 26, 22, 14, 15,
-        19, 16, 18, 23, 12, 24,
-        22, 11, 22, 19, 18, 14,
-        21, 12, 19, 12, 18, 23
+        16, 20, 26, 19,
+        25, 26, 22, 14,
+        16, 18, 23, 12,
+        11, 22, 19, 18
       }
     },
     {
@@ -291,8 +289,8 @@ return {
       name = "walls",
       x = 0,
       y = 0,
-      width = 6,
-      height = 6,
+      width = 4,
+      height = 4,
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -300,12 +298,10 @@ return {
       properties = {},
       encoding = "lua",
       data = {
-        2, 2, 2, 2, 2, 2,
-        2, 2, 0, 0, 0, 2,
-        2, 2, 0, 2, 0, 2,
-        2, 0, 0, 0, 0, 2,
-        2, 2, 0, 2, 2, 2,
-        2, 2, 2, 2, 2, 2
+        2, 0, 0, 0,
+        2, 0, 2, 0,
+        0, 0, 0, 0,
+        2, 0, 2, 2
       }
     },
     {
@@ -324,8 +320,8 @@ return {
           name = "finish",
           type = "",
           shape = "rectangle",
-          x = 32,
-          y = 80,
+          x = 16,
+          y = 64,
           width = 16,
           height = 16,
           rotation = 0,
@@ -338,8 +334,8 @@ return {
           name = "player",
           type = "",
           shape = "rectangle",
-          x = 16,
-          y = 64,
+          x = -3.55271e-15,
+          y = 48,
           width = 16,
           height = 16,
           rotation = 0,

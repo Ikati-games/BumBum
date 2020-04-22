@@ -1,39 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="left-up" width="14" height="10" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="4">
+<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="left-up" width="12" height="8" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="4">
  <editorsettings>
   <export target="../levels/reach/2.lua" format="lua"/>
  </editorsettings>
  <tileset firstgid="1" source="TileCollection.tsx"/>
- <layer id="1" name="floor" width="14" height="10">
+ <layer id="1" name="floor" width="12" height="8">
   <data encoding="csv">
-7,6,13,18,7,18,8,18,10,20,13,17,21,8,
-21,10,17,13,16,6,6,10,7,10,17,17,13,13,
-18,21,10,17,19,11,17,13,12,12,19,16,21,6,
-10,10,7,20,15,16,9,21,8,15,19,18,13,10,
-8,11,16,15,11,16,18,8,12,9,10,19,13,9,
-12,15,16,17,13,14,13,15,9,10,16,19,19,7,
-14,15,18,7,12,18,6,20,12,21,17,17,16,10,
-14,12,18,17,18,18,20,16,15,12,6,11,19,9,
-15,18,12,8,19,10,19,8,16,7,17,10,14,20,
-17,6,19,13,9,14,11,10,10,14,8,17,6,15
+10,17,13,16,6,6,10,7,10,17,17,13,
+21,10,17,19,11,17,13,12,12,19,16,21,
+10,7,20,15,16,9,21,8,15,19,18,13,
+11,16,15,11,16,18,8,12,9,10,19,13,
+15,16,17,13,14,13,15,9,10,16,19,19,
+15,18,7,12,18,6,20,12,21,17,17,16,
+12,18,17,18,18,20,16,15,12,6,11,19,
+18,12,8,19,10,19,8,16,7,17,10,14
 </data>
  </layer>
- <layer id="2" name="walls" width="14" height="10">
+ <layer id="2" name="walls" width="12" height="8">
   <data encoding="csv">
-2,2,2,2,2,2,2,2,2,2,2,2,2,2,
-2,0,0,0,0,0,0,0,0,0,0,0,0,2,
-2,0,0,0,0,0,0,0,2,0,0,0,0,2,
-2,0,0,2,0,0,0,0,0,0,0,0,0,2,
-2,0,2,0,0,0,0,0,0,0,2,0,0,2,
-2,0,0,0,2,0,0,0,0,2,0,0,0,2,
-2,0,0,0,0,0,0,0,0,0,0,2,0,2,
-2,0,0,2,0,0,0,0,0,0,0,0,0,2,
-2,0,0,0,0,0,0,0,0,0,0,0,0,2,
-2,2,2,2,2,2,2,2,2,2,2,2,2,2
+0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,2,0,0,0,0,
+0,0,2,0,0,0,0,0,0,0,0,0,
+0,2,0,0,0,0,0,0,0,2,0,0,
+0,0,0,2,0,0,0,0,2,0,0,0,
+0,0,0,0,0,0,0,0,0,0,2,0,
+0,0,2,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
  <objectgroup id="3" name="objects">
-  <object id="2" name="finish" gid="3" x="176" y="96" width="16" height="16"/>
-  <object id="3" name="player" gid="33" x="80" y="96" width="16" height="16"/>
+  <object id="2" name="finish" gid="3" x="160" y="80" width="16" height="16"/>
+  <object id="3" name="player" gid="33" x="64" y="80" width="16" height="16"/>
  </objectgroup>
 </map>

@@ -1,45 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="left-up" width="9" height="10" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="5">
+<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="left-up" width="5" height="8" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="5">
  <editorsettings>
   <export target="../levels/reach/4.lua" format="lua"/>
  </editorsettings>
  <tileset firstgid="1" source="TileCollection.tsx"/>
- <layer id="1" name="floor" width="9" height="10">
+ <layer id="1" name="floor" width="5" height="8">
   <data encoding="csv">
-15,21,21,18,18,14,11,0,0,
-14,21,14,12,18,18,10,0,0,
-20,12,9,9,9,15,18,0,0,
-13,8,21,19,20,11,10,0,0,
-14,10,19,6,21,14,17,0,0,
-9,15,17,8,8,7,6,0,0,
-14,13,14,11,16,15,8,0,0,
-6,11,17,19,20,12,6,0,0,
-19,21,13,17,11,19,9,0,0,
-10,20,17,19,15,19,7,0,0
+21,14,12,18,18,
+12,9,9,9,15,
+8,21,19,20,11,
+10,19,6,21,14,
+15,17,8,8,7,
+13,14,11,16,15,
+11,17,19,20,12,
+21,13,17,11,19
 </data>
  </layer>
- <layer id="2" name="walls" width="9" height="10">
+ <layer id="2" name="walls" width="5" height="8">
   <data encoding="csv">
-2,2,2,2,2,2,2,0,0,
-2,0,0,0,0,0,2,0,0,
-2,0,0,2,0,0,2,0,0,
-2,0,0,0,0,0,2,0,0,
-2,0,0,0,0,0,2,0,0,
-2,0,0,0,0,0,2,0,0,
-2,0,2,0,0,0,2,0,0,
-2,0,0,0,2,0,2,0,0,
-2,0,0,0,0,0,2,0,0,
-2,2,2,2,2,2,2,0,0
+0,0,0,0,0,
+0,0,2,0,0,
+0,0,0,0,0,
+0,0,0,0,0,
+0,0,0,0,0,
+0,2,0,0,0,
+0,0,0,2,0,
+0,0,0,0,0
 </data>
  </layer>
  <objectgroup id="3" name="objects">
-  <object id="2" name="vertical_trap" type="trap" gid="24" x="48" y="96" width="16" height="16">
+  <object id="2" name="vertical_trap" type="trap" gid="24" x="32" y="80" width="16" height="16">
    <properties>
     <property name="isHorizontalAllowed" type="bool" value="false"/>
     <property name="isVerticalAllowed" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="3" name="finish" gid="3" x="32" y="80" width="16" height="16"/>
-  <object id="4" name="player" gid="33" x="80" y="96" width="16" height="16"/>
+  <object id="3" name="finish" gid="3" x="16" y="64" width="16" height="16"/>
+  <object id="4" name="player" gid="33" x="64" y="80" width="16" height="16"/>
  </objectgroup>
 </map>
