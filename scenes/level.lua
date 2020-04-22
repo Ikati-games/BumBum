@@ -30,12 +30,15 @@ local function win(minigameId, levelId, minigame)
 		pref = {points = system.getPreference("app", "points", "number") + 1} -- add point
 		pref["collectibleCollected_"..minigameId.."_"..levelId] = true -- remember that it is collected
 		system.setPreferences("app", pref)
-		composer.getScene("scenes.level_select").collectibleIndicators[levelId].fill = { -- reflect change on level select scene
-			type = "image",
-			filename = C.collectibleCollectedImage
-		}
 	end
 
+	-- remember that leves was completed
+	local lastLevelOpened = system.getPreference("app", "lastLevelOpened_"..minigameId, "number") or 1
+	pref = {}
+	pref["lastLevelOpened_"..minigameId] = math.max(lastLevelOpened, levelId+1)
+	system.setPreferences("app", pref)
+
+	-- show win overlay
 	composer.showOverlay("scenes.win_overlay", {
 		isModal = true,
 		params = {

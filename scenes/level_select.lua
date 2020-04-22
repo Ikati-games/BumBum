@@ -1,6 +1,9 @@
 local scene = composer.newScene()
 scene.collectibleIndicators = {}
 scene:addEventListener("create", function(event)
+	scene.params = event.params
+end)
+scene:addEventListener("show", function(event)
 	-- background
 	local background = display.newImageRect(scene.view, C.menuBackgroundImage, display.contentWidth, display.contentHeight)
 	background.x = display.contentCenterX
@@ -19,46 +22,61 @@ scene:addEventListener("create", function(event)
 	})
 	scene.view:insert(scrollView)
 
+	-- manage open/closed levels
+	local lastLevelOpened = system.getPreference("app", "lastLevelOpened_"..scene.params.minigameId, "number") or 1
+
 	-- for each level
 	local xIndex = -1
 	local y = C.menuButtonHeight / 2
-	for i = 1, C.levelsAmount[event.params.minigameId] do
+	for i = 1, C.levelsAmount[scene.params.minigameId] do
 		local levelId = i
 
-		-- button to go to level
-		local button = widget.newButton({
-			x = display.contentCenterX + xIndex * (C.levelSelectInterval + C.menuButtonHeight), 
-			y = y,
-			width = C.menuButtonHeight,
-			height = C.menuButtonHeight,
-			defaultFile = "sprites/button/button_"..i..".png",
-			overFile = "sprites/button/button_"..i.."_pressed.png",
-			onPress = function() 
-				if (system.getPreference("app", "sound", "boolean")) then
-					audio.play(buttonPressSound)
+		local button
+		if (levelId <= lastLevelOpened) then
+			-- button to go to level
+			button = widget.newButton({
+				width = C.menuButtonHeight,
+				height = C.menuButtonHeight,
+				defaultFile = "sprites/button/button_"..i..".png",
+				overFile = "sprites/button/button_"..i.."_pressed.png",
+				onPress = function() 
+					if (system.getPreference("app", "sound", "boolean")) then
+						audio.play(buttonPressSound)
+					end
+				end,
+				onRelease = function()
+					if (system.getPreference("app", "sound", "boolean")) then
+						audio.play(buttonReleaseSound)
+					end
+					composer.gotoScene("scenes.level", {
+						params = {
+							minigameId = scene.params.minigameId,
+							levelId = levelId
+						}
+					})
 				end
-			end,
-			onRelease = function()
-				if (system.getPreference("app", "sound", "boolean")) then
-					audio.play(buttonReleaseSound)
-				end
-				composer.gotoScene("scenes.level", {
-					params = {
-						minigameId = event.params.minigameId,
-						levelId = levelId
-					}
-				})
-			end
-		})
+			})
+		else
+			-- static image for closed levels
+			button = display.newImageRect(scene.view, "sprites/button/button_"..i..".png", C.menuButtonHeight, C.menuButtonHeight)
+			button.fill.effect = "filter.desaturate"
+			button.fill.effect.intensity = 0.9
+		end
+		button.x = display.contentCenterX + xIndex * (C.levelSelectInterval + C.menuButtonHeight)
+		button.y = y
 		scrollView:insert(button)
 
 		-- collectible indicator
-		for _, levelWithCollectible in pairs(C.collectibles[event.params.minigameId]) do
+		for _, levelWithCollectible in pairs(C.collectibles[scene.params.minigameId]) do
 			if (i == levelWithCollectible) then
-				local collectibleIndicatorImage = (system.getPreference("app", "collectibleCollected_"..event.params.minigameId.."_"..levelId, "boolean")) and C.collectibleCollectedImage or C.collectibleUncollectedImage
+				local collectibleIndicatorImage = (system.getPreference("app", "collectibleCollected_"..scene.params.minigameId.."_"..levelId, "boolean")) and C.collectibleCollectedImage or C.collectibleUncollectedImage
 				local collectibleIndicator = display.newImageRect(scene.view, collectibleIndicatorImage, C.menuButtonHeight / 2, C.menuButtonHeight / 2)
 				collectibleIndicator.x = button.x + C.menuButtonHeight / 2.5
 				collectibleIndicator.y = button.y + C.menuButtonHeight / 2.5
+				if (levelId > lastLevelOpened) then
+					collectibleIndicator.fill.effect = "filter.desaturate"
+					collectibleIndicator.fill.effect.intensity = 0.9
+				end
 				scrollView:insert(collectibleIndicator)
 				scene.collectibleIndicators[i] = collectibleIndicator
 				break
