@@ -6,6 +6,7 @@ scene:addEventListener("create", function(event)
 
 	local minigameId = event.params.minigameId
 	local levelId = event.params.levelId
+	local randomMode = event.params.randomMode
 
 	-- collectible
 	for _, levelWithCollectible in pairs(C.collectibles[event.params.minigameId]) do
@@ -42,15 +43,27 @@ scene:addEventListener("create", function(event)
 				params = {
 					minigameId = minigameId,
 					levelId = levelId,
+					randomMode = randomMode,
 				}
 			})
 		end
 	})
 	scene.view:insert(repeatButton)
 
+	-- "no more levels" condotion
+	local noMoreLevels, nextMinigameId, nextLevelId
+	if (randomMode) then
+		nextMinigameId, nextLevelId = getRandomLevel()
+		noMoreLevels = (not minigameId or not levelId)
+	else
+		nextMinigameId = minigameId
+		nextLevelId = levelId + 1
+		noMoreLevels = nextLevelId > C.levelsAmount[minigameId]
+	end
+
 	-- the second button
 	local nextLevelButton
-	if (levelId + 1 > C.levelsAmount[minigameId]) then
+	if (noMoreLevels) then
 		-- no more levels, "to the level select" button
 		nextLevelButton = widget.newButton({
 			width = C.settingsButtonWidth,
@@ -69,11 +82,15 @@ scene:addEventListener("create", function(event)
 				backButton.isVisible = true
 				composer.hideOverlay()
 				composer.removeScene("scenes.level")
-				composer.gotoScene("scenes.level_select", {
-					params = {
-						minigameId = minigameId,
-					}
-				})
+				if (randomMode) then
+					composer.gotoScene("scenes.main_menu")
+				else
+					composer.gotoScene("scenes.level_select", {
+						params = {
+							minigameId = minigameId,
+						}
+					})
+				end
 			end
 		})
 	else
@@ -96,8 +113,9 @@ scene:addEventListener("create", function(event)
 				composer.removeScene("scenes.level", true)
 				composer.gotoScene("scenes.level", {
 					params = {
-						minigameId = minigameId,
-						levelId = levelId + 1,
+						minigameId = nextMinigameId,
+						levelId = nextLevelId,
+						randomMode = randomMode,
 					}
 				})
 			end

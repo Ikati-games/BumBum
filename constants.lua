@@ -28,7 +28,7 @@ T.levelsAmount = {
 }
 
 T.collectibles = {
-	reach = {5}
+	reach = {5, 9}
 }
 T.collectibleCollectedImage = "sprites/change/change_f1.png"
 T.collectibleUncollectedImage = "sprites/change/change_uncollected.png"

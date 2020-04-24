@@ -2,29 +2,26 @@ local tiled = require("libs.ponytiled")
 
 
 
-local function goBack()
+local function goBack(minigameId)
 	composer.showOverlay("scenes.confirmation_overlay", {
 		isModal = true,
 		params = {
 			onConfirm = function() 
 				backButton.isVisible = true
 				composer.removeScene(composer.getSceneName("current"))
-				composer.gotoScene("scenes.level_select")
+				composer.gotoScene("scenes.level_select", {
+					params = {
+						minigameId = minigameId,
+					},
+				})
 			end,
 		}
 	})
 end
 
-Runtime:addEventListener("key", function(event) 
-	if (event.keyName == "back" and event.phase == "up") then
-		goBack()
-		return true
-	end
-end)
 
 
-
-local function win(minigameId, levelId, minigame)
+local function win(minigameId, levelId, randomMode, minigame)
 	if (minigame.collectibleCollected and not system.getPreference("app", "collectibleCollected_"..minigameId.."_"..levelId, "boolean")) then
 		-- collected for the first time
 		local pref = {points = system.getPreference("app", "points", "number") + 1} -- add point
@@ -44,6 +41,7 @@ local function win(minigameId, levelId, minigame)
 		params = {
 			minigameId = minigameId,
 			levelId = levelId,
+			randomMode = randomMode,
 		}
 	})
 end
@@ -56,6 +54,7 @@ scene:addEventListener("create", function(event)
 	-- declare variables
 
 	local minigameId = event.params.minigameId
+	scene.minigameId = minigameId
 	local levelId = event.params.levelId
 	local path = "levels/"..minigameId
 	local package_path = path:gsub("/", ".").."."..levelId
@@ -102,7 +101,7 @@ scene:addEventListener("create", function(event)
 				audio.play(buttonReleaseSound)
 			end
 			
-			goBack()
+			goBack(minigameId)
 		end
 	})
 	scene.view:insert(levelSelectButton)
@@ -134,6 +133,7 @@ scene:addEventListener("create", function(event)
 							params = {
 								minigameId = minigameId,
 								levelId = event.params.levelId,
+								randomMode = randomMode,
 							}
 						})
 					end,
@@ -149,7 +149,7 @@ scene:addEventListener("create", function(event)
 	local minigame = require("minigames."..minigameId)
 	minigame.collectibleCollected = false
 	minigame.map = map
-	minigame.win = function() win(minigameId, levelId, minigame) end
+	minigame.win = function() win(minigameId, levelId, event.params.randomMode, minigame) end
 
 	map:addEventListener("touch", function(event)
 		if (event.phase == "ended" and T.swipe) then
@@ -173,6 +173,18 @@ end)
 scene:addEventListener("destroy", function(event)
 	topPanel:toFront()
 	backButton:toFront()
+end)
+
+scene:addEventListener("show", function(event)
+	topPanel:toBack()
+	backButton.isVisible = false
+end)
+
+Runtime:addEventListener("key", function(event) 
+	if (event.keyName == "back" and event.phase == "up") then
+		goBack(scene.minigameId)
+		return true
+	end
 end)
 
 return scene

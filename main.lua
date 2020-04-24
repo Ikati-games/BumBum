@@ -81,6 +81,28 @@ end)
 
 
 
+-- just helper functions
+
+function getRandomLevel()
+	local minigames = {}
+	for minigame in pairs(C.levelsAmount) do
+		local lastLevelOpened = system.getPreference("app", "lastLevelOpened_"..minigame, "number") or 1
+		if lastLevelOpened <= C.levelsAmount[minigame] then
+			minigames[#minigames + 1] = minigame
+		end
+	end
+	for _, v in pairs(minigames) do print(v) end
+	if #minigames > 0 then
+		local minigameId = minigames[math.random(#minigames)]
+		local levelId = system.getPreference("app", "lastLevelOpened_"..minigameId, "number") or 1
+		return minigameId, levelId
+	else
+		return false
+	end
+end
+
+
+
 -- starting
 
 composer.gotoScene("scenes.main_menu")
