@@ -1153,23 +1153,6 @@ return {
           }
         },
         {
-          id = 50,
-          name = "",
-          type = "trap",
-          shape = "rectangle",
-          x = 48,
-          y = 80,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 30,
-          visible = true,
-          properties = {
-            ["isHorizontalAllowed"] = true,
-            ["isVerticalAllowed"] = true
-          }
-        },
-        {
           id = 51,
           name = "",
           type = "trap",
