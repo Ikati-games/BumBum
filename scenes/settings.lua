@@ -34,9 +34,8 @@ local settings = {
 
 local scene = composer.newScene()
 scene:addEventListener("create", function(event)
-	local background = display.newImageRect(scene.view, C.menuBackgroundImage, display.contentWidth, display.contentHeight)
-	background.x = display.contentCenterX
-	background.y = display.contentCenterY
+	drawBackground(scene.view)
+	drawTopPanel(scene.view)
 
 	local menuHeight = #settings * C.menuButtonHeight + (#settings - 1) * C.menuButtonInterval
 	local firstButtonY = (display.contentHeight - menuHeight) / 2

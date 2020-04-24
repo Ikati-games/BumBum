@@ -27,6 +27,6 @@ end
 
 
 
-scene = scene_getter(getMinigames)
+local scene = scene_getter(getMinigames)
 scene.previousScene = "scenes.main_menu"
 return scene

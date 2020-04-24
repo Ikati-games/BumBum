@@ -7,7 +7,6 @@ local function goBack(minigameId)
 		isModal = true,
 		params = {
 			onConfirm = function() 
-				backButton.isVisible = true
 				composer.removeScene(composer.getSceneName("current"))
 				composer.gotoScene("scenes.level_select", {
 					params = {
@@ -81,8 +80,7 @@ scene:addEventListener("create", function(event)
 	-- used for debug
 	-- display.newText(scene.view, string.format("%s-%d", minigameId, levelId), display.contentCenterX, C.menuButtonInterval)
 
-	topPanel:toBack()
-	backButton.isVisible = false
+	drawTopPanel(scene.view)
 
 	local levelSelectButton = widget.newButton({
 		x = backButton.x,
@@ -170,14 +168,12 @@ scene:addEventListener("create", function(event)
 
 end)
 
-scene:addEventListener("destroy", function(event)
-	topPanel:toFront()
-	backButton:toFront()
+scene:addEventListener("show", function(event)
+	backButton.isVisible = false
 end)
 
-scene:addEventListener("show", function(event)
-	topPanel:toBack()
-	backButton.isVisible = false
+scene:addEventListener("destroy", function(event)
+	backButton.isVisible = true
 end)
 
 Runtime:addEventListener("key", function(event) 

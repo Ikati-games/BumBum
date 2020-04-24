@@ -33,14 +33,6 @@ end
 
 
 
--- top panel
-
-topPanel = display.newImageRect("sprites/background/top_panel.png", C.topPanelImageWidth, C.topPanelImageHeight)
-topPanel.x = display.contentCenterX
-topPanel.y = -C.topPanelImageHeight / 2 + C.topPanelHeight
-
-
-
 -- back button
 
 local function goBack()
@@ -99,6 +91,23 @@ function getRandomLevel()
 	else
 		return false
 	end
+end
+
+function drawTopPanel(view) 
+	local topPanel = display.newImageRect("sprites/background/top_panel.png", C.topPanelImageWidth, C.topPanelImageHeight)
+	topPanel.x = display.contentCenterX
+	topPanel.y = -C.topPanelImageHeight / 2 + C.topPanelHeight
+	view:insert(topPanel)
+end
+
+function drawBackground(view)
+
+-- other background (TODO)
+local background = display.newImageRect(view, C.menuBackgroundImage, display.contentWidth, display.contentHeight)
+background.x = display.contentCenterX
+background.y = display.contentCenterY
+view:insert(background)
+
 end
 
 

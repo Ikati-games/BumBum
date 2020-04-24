@@ -3,10 +3,8 @@ return function (buttonsGetter, firstButtonY)
 	scene:addEventListener("create", function(event)
 		scene.buttons = buttonsGetter(event.params)
 
-		local background = display.newImageRect(scene.view, C.menuBackgroundImage, display.contentWidth, display.contentHeight)
-		background.x = display.contentCenterX
-		background.y = display.contentCenterY
-
+		drawBackground(scene.view)
+		drawTopPanel(scene.view)
 
 		local menuHeight = #scene.buttons * C.menuButtonHeight + (#scene.buttons - 1) * C.menuButtonInterval
 		local firstButtonY = (display.contentHeight - menuHeight) / 2

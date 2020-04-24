@@ -4,10 +4,8 @@ scene:addEventListener("create", function(event)
 	scene.params = event.params
 end)
 scene:addEventListener("show", function(event)
-	-- background
-	local background = display.newImageRect(scene.view, C.menuBackgroundImage, display.contentWidth, display.contentHeight)
-	background.x = display.contentCenterX
-	background.y = display.contentCenterY
+	drawBackground(scene.view)
+	drawTopPanel(scene.view)
 
 	-- allow scrolling
 	scrollView = widget.newScrollView({
