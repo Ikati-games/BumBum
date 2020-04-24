@@ -101,13 +101,34 @@ function drawTopPanel(view)
 end
 
 function drawBackground(view)
+	local sky = display.newRect(
+		view,
+		display.contentCenterX,
+		display.contentCenterY,
+		display.contentWidth,
+		display.contentHeight
+	)
+	sky:setFillColor(0, 1, 1) -- the most background color
 
--- other background (TODO)
-local background = display.newImageRect(view, C.menuBackgroundImage, display.contentWidth, display.contentHeight)
-background.x = display.contentCenterX
-background.y = display.contentCenterY
-view:insert(background)
+	local grassBottom = display.newRect(
+		view,
+		display.contentCenterX,
+		0,
+		display.contentWidth,
+		C.pixelSize*40 -- height = 40
+	)
+	grassBottom.y = display.contentHeight - grassBottom.height / 2 -- stick to bottom
+	grassBottom:setFillColor(0.2, 1, 0.4)
 
+	local grassTop = display.newRect(
+		view,
+		display.contentCenterX,
+		0,
+		display.contentWidth,
+		C.pixelSize*13 -- height = 13
+	)
+	grassTop.y = grassBottom.y - grassBottom.height / 2 - grassTop.height / 2 -- stick to top of grassBottom
+	grassTop:setFillColor(0, 1, 0)
 end
 
 
