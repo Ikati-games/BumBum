@@ -132,7 +132,7 @@ function M.new(data, dir)
 			end
 		end
 		--print("LOADED:", dir .. tileset.image)
-		return graphics.newImageSheet(dir .. tileset.image, options )
+		return graphics.newImageSheet(normalize(dir .. tileset.image), options )
 	end
 
 	local function findLast(tileset)

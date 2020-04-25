@@ -23,11 +23,10 @@ buttonReleaseSound = audio.loadSound(C.buttonReleaseSound)
 -- default settings on first run
 
 if not system.getPreference("app", "hasAppRunBefore", "boolean") then
-	system.setPreferences( "app", {
+	system.setPreferences("app", {
 		hasAppRunBefore = true,
 		sound = true,
 		music = true,
-		points = 0,
 	})
 end
 
