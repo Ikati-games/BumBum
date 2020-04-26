@@ -27,8 +27,8 @@ function T:moveIfPossible(who, dx, dy, janitorKey)
 			if who == self.player then
 				-- only player can push janitor
 				self:moveTillEnd(janitor, dx, dy, key)
-				return -- stop before janitor
 			end
+			return -- stop before janitor
 		end
 	end
 
