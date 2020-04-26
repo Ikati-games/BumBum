@@ -8,6 +8,7 @@ function T:swipe(dx, dy)
 	local finish = self.map:findObject("finish")
 	local walls = self.map:findLayer("walls")
 	local traps = self.map:listTypes("trap")
+	local janitors = self.map:listTypes("janitor")
 	local collectible = self.map:findObject("collectible")
 
 	while true do
@@ -29,6 +30,39 @@ function T:swipe(dx, dy)
 
 
 		-- check for barrier ahead
+
+			-- check for janitor
+			for _, janitor in pairs(janitors) do
+				if (player.tileX + dx == janitor.tileX and player.tileY + dy == janitor.tileY) then
+					-- push janitor
+					while true do
+
+						-- check for traps
+						for _, trap in pairs(traps) do
+							if (janitor.tileX + dx == trap.tileX and janitor.tileY + dy == trap.tileY) then
+									if (dx == 0 and not trap.isVerticalAllowed or
+										dy == 0 and not trap.isHorizontalAllowed) then
+											-- can not pass through, break trap
+											trap:removeSelf()
+											trap = nil
+											janitor:removeSelf()
+											janitor = nil
+											return -- stop player
+									end
+							end
+						end
+
+						-- check for walls
+						if (walls.tiles[janitor.tileY + dy] == nil or walls.tiles[janitor.tileY + dy][janitor.tileX + dx] ~= 0) then return end
+
+						-- move
+						janitor:translate(dx*self.map.tileWidth, dy*self.map.tileHeight)
+						janitor.tileX = janitor.tileX + dx
+						janitor.tileY = janitor.tileY + dy
+
+					end
+				end
+			end
 
 			-- check for unpassable trap
 			for _, trap in pairs(traps) do
