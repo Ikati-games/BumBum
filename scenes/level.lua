@@ -148,9 +148,10 @@ scene:addEventListener("create", function(event)
 	minigame.collectibleCollected = false
 	minigame.map = map
 	minigame.win = function() win(minigameId, levelId, event.params.randomMode, minigame) end
+	if minigame.init then minigame:init() end
 
 	map:addEventListener("touch", function(event)
-		if (event.phase == "ended" and T.swipe) then
+		if (event.phase == "ended" and minigame.swipe) then
 			local dx = event.x - event.xStart
 			local dy = event.y - event.yStart
 
