@@ -150,8 +150,8 @@ scene:addEventListener("create", function(event)
 	minigame.win = function() win(minigameId, levelId, event.params.randomMode, minigame) end
 	if minigame.init then minigame:init() end
 
-	map:addEventListener("touch", function(event)
-		if (event.phase == "ended" and minigame.swipe) then
+	Runtime:addEventListener("touch", function(event)
+		if (event.phase == "ended" and minigame and event.yStart >= C.topPanelHeight) then
 			local dx = event.x - event.xStart
 			local dy = event.y - event.yStart
 
