@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="left-up" width="7" height="9" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="7">
+ <editorsettings>
+  <export target="../levels/reach/13.lua" format="lua"/>
+ </editorsettings>
  <tileset firstgid="1" source="TileCollection.tsx"/>
  <tileset firstgid="26" source="janitor.tsx"/>
  <tileset firstgid="28" source="bum.tsx"/>
@@ -24,7 +27,7 @@
 2,0,0,0,0,0,0,
 0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,
-0,0,0,0,0,2,0,
+0,0,2,0,0,2,0,
 2,0,0,0,0,0,2,
 2,0,0,0,0,0,2,
 0,2,2,0,0,2,0
@@ -39,7 +42,7 @@
    </properties>
   </object>
   <object id="3" type="janitor" gid="26" x="64" y="112" width="16" height="16"/>
-  <object id="4" gid="28" x="48" y="128" width="16" height="16"/>
+  <object id="4" name="player" gid="28" x="48" y="128" width="16" height="16"/>
   <object id="5" name="collectible" gid="30" x="32" y="80" width="16" height="16"/>
  </objectgroup>
 </map>
