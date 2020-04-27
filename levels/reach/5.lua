@@ -32,7 +32,7 @@ return {
       },
       properties = {},
       terrains = {},
-      tilecount = 26,
+      tilecount = 22,
       tiles = {
         {
           id = 1,
@@ -165,56 +165,12 @@ return {
           image = "../../sprites/trap/trap_both.png",
           width = 16,
           height = 16
-        },
-        {
-          id = 29,
-          image = "../../sprites/change/change_f1.png",
-          width = 16,
-          height = 16,
-          animation = {
-            {
-              tileid = 29,
-              duration = 250
-            },
-            {
-              tileid = 30,
-              duration = 250
-            }
-          }
-        },
-        {
-          id = 30,
-          image = "../../sprites/change/change_f2.png",
-          width = 16,
-          height = 16
-        },
-        {
-          id = 32,
-          image = "../../sprites/bum/bum_f1.png",
-          width = 16,
-          height = 16,
-          animation = {
-            {
-              tileid = 32,
-              duration = 250
-            },
-            {
-              tileid = 33,
-              duration = 250
-            }
-          }
-        },
-        {
-          id = 33,
-          image = "../../sprites/bum/bum_f2.png",
-          width = 16,
-          height = 16
         }
       }
     },
     {
       name = "bum",
-      firstgid = 35,
+      firstgid = 26,
       filename = "../../TiledFiles/bum.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -254,7 +210,7 @@ return {
     },
     {
       name = "change",
-      firstgid = 37,
+      firstgid = 28,
       filename = "../../TiledFiles/change.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -465,12 +421,12 @@ return {
           name = "player",
           type = "",
           shape = "rectangle",
-          x = 64,
+          x = 80,
           y = 160,
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 35,
+          gid = 26,
           visible = true,
           properties = {}
         },
@@ -484,7 +440,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 37,
+          gid = 28,
           visible = true,
           properties = {}
         }

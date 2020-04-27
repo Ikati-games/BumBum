@@ -4,8 +4,8 @@
   <export target="../levels/reach/5.lua" format="lua"/>
  </editorsettings>
  <tileset firstgid="1" source="TileCollection.tsx"/>
- <tileset firstgid="35" source="bum.tsx"/>
- <tileset firstgid="37" source="change.tsx"/>
+ <tileset firstgid="26" source="bum.tsx"/>
+ <tileset firstgid="28" source="change.tsx"/>
  <layer id="1" name="floor" width="12" height="11">
   <data encoding="csv">
 7,10,21,14,10,14,15,15,17,20,19,19,
@@ -68,7 +68,7 @@
     <property name="isVerticalAllowed" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="10" name="player" gid="35" x="64" y="160" width="16" height="16"/>
-  <object id="11" name="collectible" gid="37" x="112" y="16" width="16" height="16"/>
+  <object id="10" name="player" gid="26" x="80" y="160" width="16" height="16"/>
+  <object id="11" name="collectible" gid="28" x="112" y="16" width="16" height="16"/>
  </objectgroup>
 </map>
