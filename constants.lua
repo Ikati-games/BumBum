@@ -24,11 +24,11 @@ T.confirmationScreenHeight = 34*T.pixelSize
 T.minSwipeSize = 50
 
 T.levelsAmount = {
-	reach = 12,
+	reach = 13,
 }
 
 T.collectibles = {
-	reach = {5, 9}
+	reach = {5, 9, 13}
 }
 T.collectibleCollectedImage = "sprites/change/change_f1.png"
 T.collectibleUncollectedImage = "sprites/change/change_uncollected.png"
