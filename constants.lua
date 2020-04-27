@@ -21,7 +21,7 @@ T.confirmationOverlayImage = "sprites/background/confirmation_screen.png"
 T.confirmationScreenWidth = 54*T.pixelSize
 T.confirmationScreenHeight = 34*T.pixelSize
 
-T.minSwipeSize = 50
+T.minSwipeSize = 25
 
 T.levelsAmount = {
 	reach = 15,

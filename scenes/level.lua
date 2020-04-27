@@ -142,6 +142,19 @@ scene:addEventListener("create", function(event)
 	scene.view:insert(repeatButton)
 
 
+	-- transparent rectangle to listen for events
+
+	eventRect = display.newRect(
+		scene.view,
+		display.contentCenterX,
+		display.contentCenterY + C.topPanelHeight / 2,
+		display.contentWidth,
+		display.contentHeight - C.topPanelHeight
+	)
+	eventRect.alpha = 0
+	eventRect.isHitTestable = true
+
+
 	-- add minigame mechanics
 
 	local minigame = require("minigames."..minigameId)
@@ -150,7 +163,9 @@ scene:addEventListener("create", function(event)
 	minigame.win = function() win(minigameId, levelId, event.params.randomMode, minigame) end
 	if minigame.init then minigame:init() end
 
-	map:addEventListener("touch", function(event)
+
+	-- swipe event
+	eventRect:addEventListener("touch", function(event)
 		if (event.phase == "ended" and minigame.swipe) then
 			local dx = event.x - event.xStart
 			local dy = event.y - event.yStart
