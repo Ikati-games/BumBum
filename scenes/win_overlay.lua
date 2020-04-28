@@ -50,11 +50,11 @@ scene:addEventListener("create", function(event)
 	})
 	scene.view:insert(repeatButton)
 
-	-- "no more levels" condotion
+	-- "no more levels" condition
 	local noMoreLevels, nextMinigameId, nextLevelId
 	if (randomMode) then
 		nextMinigameId, nextLevelId = getRandomLevel()
-		noMoreLevels = (not minigameId or not levelId)
+		noMoreLevels = (not nextMinigameId or not nextLevelId)
 	else
 		nextMinigameId = minigameId
 		nextLevelId = levelId + 1
@@ -82,15 +82,11 @@ scene:addEventListener("create", function(event)
 				backButton.isVisible = true
 				composer.hideOverlay()
 				composer.removeScene("scenes.level")
-				if (randomMode) then
-					composer.gotoScene("scenes.main_menu")
-				else
-					composer.gotoScene("scenes.level_select", {
-						params = {
-							minigameId = minigameId,
-						}
-					})
-				end
+				composer.gotoScene("scenes.level_select", {
+					params = {
+						minigameId = minigameId,
+					}
+				})
 			end
 		})
 	else
