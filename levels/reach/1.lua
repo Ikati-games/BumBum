@@ -9,15 +9,15 @@ return {
   tilewidth = 16,
   tileheight = 16,
   nextlayerid = 5,
-  nextobjectid = 7,
+  nextobjectid = 8,
   properties = {},
   tilesets = {
     {
       name = "TileCollection",
       firstgid = 1,
       filename = "../../../../TileCollection.tsx",
-      tilewidth = 16,
-      tileheight = 16,
+      tilewidth = 32,
+      tileheight = 32,
       spacing = 0,
       margin = 0,
       columns = 0,
@@ -27,42 +27,17 @@ return {
       },
       grid = {
         orientation = "orthogonal",
-        width = 1,
-        height = 1
+        width = 32,
+        height = 32
       },
       properties = {},
       terrains = {},
-      tilecount = 4,
-      tiles = {
-        {
-          id = 0,
-          image = "../../sprites/background/bg_tile_1_1.png",
-          width = 16,
-          height = 16
-        },
-        {
-          id = 1,
-          image = "../../sprites/wall/wall.png",
-          width = 16,
-          height = 16
-        },
-        {
-          id = 2,
-          image = "../../sprites/trashcan/trashcan.png",
-          width = 16,
-          height = 16
-        },
-        {
-          id = 4,
-          image = "../../sprites/bum/bum.gif",
-          width = 16,
-          height = 16
-        }
-      }
+      tilecount = 0,
+      tiles = {}
     },
     {
       name = "TileCollection",
-      firstgid = 6,
+      firstgid = 1,
       filename = "../../TiledFiles/TileCollection.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -80,7 +55,7 @@ return {
       },
       properties = {},
       terrains = {},
-      tilecount = 26,
+      tilecount = 22,
       tiles = {
         {
           id = 1,
@@ -213,56 +188,12 @@ return {
           image = "../../sprites/trap/trap_both.png",
           width = 16,
           height = 16
-        },
-        {
-          id = 29,
-          image = "../../sprites/change/change_f1.png",
-          width = 16,
-          height = 16,
-          animation = {
-            {
-              tileid = 29,
-              duration = 250
-            },
-            {
-              tileid = 30,
-              duration = 250
-            }
-          }
-        },
-        {
-          id = 30,
-          image = "../../sprites/change/change_f2.png",
-          width = 16,
-          height = 16
-        },
-        {
-          id = 32,
-          image = "../../sprites/bum/bum_f1.png",
-          width = 16,
-          height = 16,
-          animation = {
-            {
-              tileid = 32,
-              duration = 250
-            },
-            {
-              tileid = 33,
-              duration = 250
-            }
-          }
-        },
-        {
-          id = 33,
-          image = "../../sprites/bum/bum_f2.png",
-          width = 16,
-          height = 16
         }
       }
     },
     {
       name = "bum",
-      firstgid = 40,
+      firstgid = 26,
       filename = "../../TiledFiles/bum.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -317,10 +248,10 @@ return {
       properties = {},
       encoding = "lua",
       data = {
-        16, 20, 26, 19,
-        25, 26, 22, 14,
-        16, 18, 23, 12,
-        11, 22, 19, 18
+        11, 15, 21, 14,
+        20, 21, 17, 9,
+        11, 13, 18, 7,
+        6, 17, 14, 13
       }
     },
     {
@@ -356,20 +287,6 @@ return {
       properties = {},
       objects = {
         {
-          id = 3,
-          name = "finish",
-          type = "",
-          shape = "rectangle",
-          x = 16,
-          y = 64,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 3,
-          visible = true,
-          properties = {}
-        },
-        {
           id = 6,
           name = "player",
           type = "",
@@ -379,7 +296,21 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 40,
+          gid = 26,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 7,
+          name = "finish",
+          type = "",
+          shape = "rectangle",
+          x = 16,
+          y = 64,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 3,
           visible = true,
           properties = {}
         }
