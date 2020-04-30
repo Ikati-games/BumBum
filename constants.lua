@@ -33,9 +33,25 @@ T.collectibles = {
 T.collectibleCollectedImage = "sprites/change/change_f1.png"
 T.collectibleUncollectedImage = "sprites/change/change_uncollected.png"
 
+
+
 T.sounds = {
 	buttonPress = "sounds/button_press.wav",
 	buttonRelease = "sounds/button_release.wav",
+
+	step = "sounds/step.wav",
+	trap = "sounds/trap.wav",
+	collect = "sounds/collect.wav",
+	janitor = {
+		"sounds/janitor1.wav",
+		"sounds/janitor2.wav",
+		"sounds/janitor3.wav",
+		"sounds/janitor4.wav",
+		"sounds/janitor5.wav",
+		"sounds/janitor6.wav",
+	}
 }
+
+
 
 return T
