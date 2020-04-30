@@ -89,16 +89,7 @@ scene:addEventListener("create", function(event)
 		height = backButton.height,
 		defaultFile = "sprites/button/button_menu.png",
 		overFile = "sprites/button/button_menu_pressed.png",
-		onPress = function() 
-			if (system.getPreference("app", "sound", "boolean")) then
-				audio.play(buttonPressSound)
-			end
-		end,
 		onRelease = function()
-			if (system.getPreference("app", "sound", "boolean")) then
-				audio.play(buttonReleaseSound)
-			end
-			
 			goBack(minigameId)
 		end
 	})
@@ -111,16 +102,7 @@ scene:addEventListener("create", function(event)
 		height = C.menuButtonHeight,
 		defaultFile = "sprites/button/button_repeat.png",
 		overFile = "sprites/button/button_repeat_pressed.png",
-		onPress = function() 
-			if (system.getPreference("app", "sound", "boolean")) then
-				audio.play(buttonPressSound)
-			end
-		end,
 		onRelease = function()
-			if (system.getPreference("app", "sound", "boolean")) then
-				audio.play(buttonReleaseSound)
-			end
-			
 			composer.showOverlay("scenes.confirmation_overlay", {
 				isModal = true,
 				params = {

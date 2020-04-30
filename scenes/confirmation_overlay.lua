@@ -13,15 +13,7 @@ scene:addEventListener("create", function(event)
 		height = C.menuButtonHeight,
 		defaultFile = "sprites/button/button_yes.png",
 		overFile = "sprites/button/button_yes_pressed.png",
-		onPress = function() 
-			if (system.getPreference("app", "sound", "boolean")) then
-				audio.play(buttonPressSound)
-			end
-		end,
 		onRelease = function()
-			if (system.getPreference("app", "sound", "boolean")) then
-				audio.play(buttonReleaseSound)
-			end
 			composer.hideOverlay()
 			if event.params.onConfirm then
 				event.params.onConfirm()
@@ -37,15 +29,7 @@ scene:addEventListener("create", function(event)
 		height = C.menuButtonHeight,
 		defaultFile = "sprites/button/button_no.png",
 		overFile = "sprites/button/button_no_pressed.png",
-		onPress = function() 
-			if (system.getPreference("app", "sound", "boolean")) then
-				audio.play(buttonPressSound)
-			end
-		end,
 		onRelease = function()
-			if (system.getPreference("app", "sound", "boolean")) then
-				audio.play(buttonReleaseSound)
-			end
 			composer.hideOverlay()
 			if event.params.onDeny then
 				event.params.onDeny()

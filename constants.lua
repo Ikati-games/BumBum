@@ -33,7 +33,9 @@ T.collectibles = {
 T.collectibleCollectedImage = "sprites/change/change_f1.png"
 T.collectibleUncollectedImage = "sprites/change/change_uncollected.png"
 
-T.buttonPressSound = "sounds/button_press.wav"
-T.buttonReleaseSound = "sounds/button_release.wav"
+T.sounds = {
+	buttonPress = "sounds/button_press.wav",
+	buttonRelease = "sounds/button_release.wav",
+}
 
 return T
