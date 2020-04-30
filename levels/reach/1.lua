@@ -9,7 +9,7 @@ return {
   tilewidth = 16,
   tileheight = 16,
   nextlayerid = 5,
-  nextobjectid = 8,
+  nextobjectid = 9,
   properties = {},
   tilesets = {
     {
@@ -230,6 +230,102 @@ return {
           }
         }
       }
+    },
+    {
+      name = "reach_tutorial",
+      firstgid = 28,
+      filename = "../../TiledFiles/reach_tutorial.tsx",
+      tilewidth = 64,
+      tileheight = 64,
+      spacing = 0,
+      margin = 0,
+      columns = 16,
+      image = "../../sprites/tutorial/reach_tutorial.png",
+      imagewidth = 1024,
+      imageheight = 64,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 64,
+        height = 64
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 16,
+      tiles = {
+        {
+          id = 0,
+          animation = {
+            {
+              tileid = 0,
+              duration = 50
+            },
+            {
+              tileid = 1,
+              duration = 50
+            },
+            {
+              tileid = 2,
+              duration = 50
+            },
+            {
+              tileid = 3,
+              duration = 50
+            },
+            {
+              tileid = 4,
+              duration = 50
+            },
+            {
+              tileid = 5,
+              duration = 50
+            },
+            {
+              tileid = 6,
+              duration = 50
+            },
+            {
+              tileid = 7,
+              duration = 50
+            },
+            {
+              tileid = 8,
+              duration = 50
+            },
+            {
+              tileid = 9,
+              duration = 50
+            },
+            {
+              tileid = 10,
+              duration = 50
+            },
+            {
+              tileid = 11,
+              duration = 50
+            },
+            {
+              tileid = 12,
+              duration = 50
+            },
+            {
+              tileid = 13,
+              duration = 50
+            },
+            {
+              tileid = 14,
+              duration = 50
+            },
+            {
+              tileid = 15,
+              duration = 50
+            }
+          }
+        }
+      }
     }
   },
   layers = {
@@ -311,6 +407,20 @@ return {
           height = 16,
           rotation = 0,
           gid = 3,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 8,
+          name = "finger",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 64,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 28,
           visible = true,
           properties = {}
         }
