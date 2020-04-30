@@ -62,7 +62,7 @@ widget.newButton = function(params)
 	button.onRelease = params.onRelease
 	button._view._onRelease = function()
 		playSound("buttonRelease")
-		if button.onRelease then params.onRelease() end
+		if button.onRelease then button.onRelease() end
 	end
 
 	return button

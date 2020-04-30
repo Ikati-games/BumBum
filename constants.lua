@@ -49,7 +49,8 @@ T.sounds = {
 		"sounds/janitor4.wav",
 		"sounds/janitor5.wav",
 		"sounds/janitor6.wav",
-	}
+	},
+	reach_win = "sounds/trash.wav",
 }
 
 

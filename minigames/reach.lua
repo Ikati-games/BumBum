@@ -32,6 +32,7 @@ function T:moveTillEnd(who, dx, dy, janitorKey)
 
 		-- check for win
 		if (who == self.player and who.tileX == self.finish.tileX and who.tileY == self.finish.tileY) then
+			playSound("reach_win")
 			self.win()
 			return
 		end
