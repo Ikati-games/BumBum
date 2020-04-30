@@ -30,10 +30,22 @@ end
 local sounds = {}
 function playSound(sound)
 	if not sounds[sound] then
-		sounds[sound] = audio.loadSound(C.sounds[sound])
+		if type(C.sounds[sound]) == "table" then
+			sounds[sound] = {}
+			for i, soundPath in ipairs(C.sounds[sound]) do
+				sounds[sound][i] = audio.loadSound(soundPath)
+			end
+		else
+			sounds[sound] = audio.loadSound(C.sounds[sound])
+		end
 	end
+
 	if (system.getPreference("app", "sound", "boolean")) then
-		audio.play(sounds[sound])
+		local soundToPlay = sounds[sound]
+		if type(soundToPlay) == "table" then
+			soundToPlay = soundToPlay[math.random(#soundToPlay)]
+		end
+		audio.play(soundToPlay)
 	end
 end
 
