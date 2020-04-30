@@ -107,6 +107,12 @@ end
 
 function T:swipe(dx, dy)
 	self:moveTillEnd(self.player, dx, dy)
+
+	local finger = self.map:findObject("finger")
+	if (finger and dx == 1 and dy == 0) then
+		finger:removeSelf()
+		finger = nil
+	end
 end
 
 
