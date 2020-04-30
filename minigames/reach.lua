@@ -24,6 +24,7 @@ function T:moveTillEnd(who, dx, dy, janitorKey)
 
 		-- check for collectible
 		if (who == self.player and self.collectible and who.tileX == self.collectible.tileX and who.tileY == self.collectible.tileY) then
+			playSound("collect")
 			self.collectibleCollected = true
 			self.collectible:removeSelf()
 			self.collectible = nil
@@ -45,6 +46,7 @@ function T:moveTillEnd(who, dx, dy, janitorKey)
 			if (who.tileX + dx == janitor.tileX and who.tileY + dy == janitor.tileY) then
 				if who == self.player then
 					-- only player can push janitor
+					playSound("janitor")
 					self:moveTillEnd(janitor, dx, dy, key)
 				end
 				return -- stop before janitor
@@ -59,6 +61,7 @@ function T:moveTillEnd(who, dx, dy, janitorKey)
 						dy == 0 and not trap.isHorizontalAllowed) then
 							-- can not pass through
 							if janitorKey then
+								playSound("trap")
 								trap:removeSelf()
 								trap = nil
 								self.traps[key] = nil
@@ -78,6 +81,7 @@ function T:moveTillEnd(who, dx, dy, janitorKey)
 		if who == self.player then
 			for key, trap in pairs(self.traps) do
 				if (who.tileX == trap.tileX and who.tileY == trap.tileY) then
+					playSound("trap")
 					trap.fill = {
 						type = "image",
 						filename = "sprites/trap/trap_closed.png"
@@ -90,6 +94,7 @@ function T:moveTillEnd(who, dx, dy, janitorKey)
 		end
 
 		-- move
+		playSound("step")
 		who:translate(dx*self.map.tileWidth, dy*self.map.tileHeight)
 		who.tileX = who.tileX + dx
 		who.tileY = who.tileY + dy

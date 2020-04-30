@@ -17,15 +17,7 @@ return function (buttonsGetter, firstButtonY)
 				height = C.menuButtonHeight,
 				defaultFile = scene.buttons[i].img,
 				overFile = scene.buttons[i].imgPressed,
-				onPress = function() 
-					if (system.getPreference("app", "sound", "boolean")) then
-						audio.play(buttonPressSound)
-					end
-				end,
 				onRelease = function()
-					if (system.getPreference("app", "sound", "boolean")) then
-						audio.play(buttonReleaseSound)
-					end
 					scene.buttons[i].func()
 				end
 			})

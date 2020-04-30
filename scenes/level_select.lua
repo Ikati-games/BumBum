@@ -37,15 +37,7 @@ scene:addEventListener("show", function(event)
 				height = C.menuButtonHeight,
 				defaultFile = "sprites/button/button_"..i..".png",
 				overFile = "sprites/button/button_"..i.."_pressed.png",
-				onPress = function() 
-					if (system.getPreference("app", "sound", "boolean")) then
-						audio.play(buttonPressSound)
-					end
-				end,
 				onRelease = function()
-					if (system.getPreference("app", "sound", "boolean")) then
-						audio.play(buttonReleaseSound)
-					end
 					composer.gotoScene("scenes.level", {
 						params = {
 							minigameId = scene.params.minigameId,
