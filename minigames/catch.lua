@@ -7,10 +7,9 @@ T.imgPressed = "sprites/button/button_catch_pressed.png"
 
 
 
-T.height = 1
+T.height = 21
 T.width = math.sqrt(3) / 2 * T.height
 T.gridSize = T.height / 60
-T.bumSize = T.height * 70 / 100
 
 
 
@@ -19,9 +18,26 @@ function T:addSprite(hex, spriteId)
 		[1] = "sprites/bum/bum.png",
 		[2] = "sprites/janitor/janitor.png",
 	})[spriteId]
-	local bum = display.newImageRect(self.map, spritePath, T.bumSize, T.bumSize)
-	bum.x = hex.x
-	bum.y = hex.y
+
+	local sheet = graphics.newImageSheet(spritePath, {
+		width = 16,
+		height = 16,
+		numFrames = 2,
+	})
+
+	local image = display.newSprite(self.map, sheet, {
+	    {
+	        name = "animation",
+	        start = 1,
+	        count = 2,
+	        time = 500,
+	        loopCount = 0
+	    },
+	})
+	image.x = hex.x
+	image.y = hex.y
+
+	image:play("animation")
 end
 
 
