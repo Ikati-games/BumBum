@@ -18,6 +18,15 @@ local function goBack(minigameId)
 	})
 end
 
+local backButtonEvent = function(event)
+	if (event.keyName == "back" and event.phase == "up") then
+		goBack(scene.minigameId)
+		return true
+	end
+end
+
+Runtime:addEventListener("key", backButtonEvent)
+
 
 
 local function win(minigameId, levelId, randomMode, minigame)
@@ -172,13 +181,7 @@ end)
 
 scene:addEventListener("destroy", function(event)
 	backButton.isVisible = true
-end)
-
-Runtime:addEventListener("key", function(event) 
-	if (event.keyName == "back" and event.phase == "up") then
-		goBack(scene.minigameId)
-		return true
-	end
+	Runtime:removeEventListener("key", backButtonEvent)
 end)
 
 return scene
