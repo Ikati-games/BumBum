@@ -59,6 +59,8 @@ function T:makeMove(hex, i, j)
 		self.sprites[i][j] = 1
 	end
 
+	local win = true
+
 	-- for each janitor, perform bfs search and make a move
 	for key, janitor in pairs(self.janitors) do
 
@@ -96,6 +98,7 @@ function T:makeMove(hex, i, j)
 					end
 
 					-- move to the found cell
+					win = false
 					local hex = self.hexes[currentCoords.i][currentCoords.j]
 					self.sprites[janitor.i][janitor.j] = 0
 					self.sprites[currentCoords.i][currentCoords.j] = 2
@@ -114,6 +117,11 @@ function T:makeMove(hex, i, j)
 				end
 			end
 		end
+	end
+
+	if win then
+		playSound("janitor")
+		self:win()
 	end
 end
 
