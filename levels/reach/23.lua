@@ -344,20 +344,6 @@ return {
       properties = {},
       objects = {
         {
-          id = 1,
-          name = "player",
-          type = "",
-          shape = "rectangle",
-          x = 64,
-          y = 80,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 1,
-          visible = true,
-          properties = {}
-        },
-        {
           id = 2,
           name = "",
           type = "plate",
@@ -402,9 +388,23 @@ return {
           }
         },
         {
+          id = 1,
+          name = "player",
+          type = "",
+          shape = "rectangle",
+          x = 64,
+          y = 80,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 1,
+          visible = true,
+          properties = {}
+        },
+        {
           id = 5,
-          name = "",
-          type = "finish",
+          name = "finish",
+          type = "",
           shape = "rectangle",
           x = 32,
           y = 16,
