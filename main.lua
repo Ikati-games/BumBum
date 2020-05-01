@@ -104,7 +104,37 @@ end)
 
 -- drawing functions
 
-function drawTopPanel(view) 
+function drawCollectiblesAmount(view)
+	local collectibleImage = display.newImageRect(view, C.collectibleCollectedImage, C.menuButtonHeight, C.menuButtonHeight)
+	collectibleImage.x = display.contentWidth - collectibleImage.width / 2
+	collectibleImage.y = C.topPanelHeight / 2
+
+	local amount = system.getPreference("app", "points", "number") or 0
+	local currentX = collectibleImage.x - collectibleImage.width / 2 - C.pixelSize
+
+	if (amount > 0) then
+		while amount > 0 do
+			digit = amount % 10
+			
+			local digitImage = display.newImageRect(view, "sprites/digits/"..digit..".png", C.menuButtonHeight, C.menuButtonHeight)
+			digitImage.x = currentX
+			digitImage.y = collectibleImage.y
+
+			amount = math.floor(amount / 10)
+			currentX = currentX - C.pixelSize * 7
+			if digit == 0 or digit == 4 then -- yep, hardcoded digit image width
+				currentX = currentX - C.pixelSize
+			end
+			print(digitImage.width)
+		end
+	else
+		local digitImage = display.newImageRect(view, "sprites/digits/0.png", C.menuButtonHeight, C.menuButtonHeight)
+		digitImage.x = currentX
+		digitImage.y = collectibleImage.y
+	end
+end
+
+function drawTopPanel(view)
 	local topPanel = display.newImageRect("sprites/background/top_panel.png", C.topPanelImageWidth, C.topPanelImageHeight)
 	topPanel.x = display.contentCenterX
 	topPanel.y = -C.topPanelImageHeight / 2 + C.topPanelHeight
