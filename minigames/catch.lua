@@ -60,8 +60,7 @@ function T:init(mapData)
 					0,				T.height * 3 / 4,
 				}
 			)
-
-			-- TODO: add background
+			hex:setFillColor(0.6, 0.6, 0.6)
 
 			if (cell ~= 0) then
 				self:addSprite(hex, cell)
