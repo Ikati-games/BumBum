@@ -2,8 +2,8 @@ local T = {}
 
 
 
-T.img = "sprites/button/button_reach.png" -- temporary image
-T.imgPressed = "sprites/button/button_reach_pressed.png" -- temporary image
+T.img = "sprites/button/button_catch.png"
+T.imgPressed = "sprites/button/button_catch_pressed.png"
 
 
 
