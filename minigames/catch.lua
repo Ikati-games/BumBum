@@ -14,9 +14,12 @@ T.bumSize = T.height * 70 / 100
 
 
 
-function T:addBum(hex, i, j)
-	self.map[i][j] = 1
-	local bum = display.newImageRect(self.map, "sprites/bum/bum_f1.png", T.bumSize, T.bumSize)
+function T:addSprite(hex, spriteId)
+	local spritePath = ({
+		[1] = "sprites/bum/bum.png",
+		[2] = "sprites/janitor/janitor.png",
+	})[spriteId]
+	local bum = display.newImageRect(self.map, spritePath, T.bumSize, T.bumSize)
 	bum.x = hex.x
 	bum.y = hex.y
 end
@@ -24,8 +27,9 @@ end
 
 
 function T:init(mapData)
+	self.sprites = {}
 	self.map = display.newGroup()
-	for i, row in ipairs(mapData.data) do
+	for i, row in ipairs(mapData) do
 		for j, cell in ipairs(row) do
 			local hex = display.newPolygon(
 				self.map, 
@@ -41,10 +45,21 @@ function T:init(mapData)
 				}
 			)
 
-			hex:addEventListener("tap", function(event) self:addBum(hex, i, j) end)
+			-- TODO: add background
+
+			if (cell ~= 0) then
+				self:addSprite(hex, cell)
+			end
+
+			hex:addEventListener("tap", function(event)
+				if (self.sprites[i][j] == 0) then
+					self:addSprite(hex, 1)
+					self.sprites[i][j] = 1
+				end
+			end)
 		end
 
-		self.map[i] = row
+		self.sprites[i] = row
 	end
 end
 
