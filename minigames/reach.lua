@@ -58,18 +58,20 @@ function T:moveTillEnd(who, dx, dy, janitorKey)
 		for key, trap in pairs(self.traps) do
 			if (who.tileX + dx == trap.tileX and who.tileY + dy == trap.tileY or
 				who.tileX == trap.tileX and who.tileY == trap.tileY) then
+					if (janitorKey and not trap.isVerticalAllowed and not trap.isHorizontalAllowed) then
+							-- janitor removes trap and themself
+							playSound("trap")
+							trap:removeSelf()
+							trap = nil
+							self.traps[key] = nil
+							who:removeSelf()
+							who = nil
+							self.janitors[janitorKey] = nil
+							return
+					end
 					if (dx == 0 and not trap.isVerticalAllowed or
 						dy == 0 and not trap.isHorizontalAllowed) then
 							-- can not pass through
-							if janitorKey then
-								playSound("trap")
-								trap:removeSelf()
-								trap = nil
-								self.traps[key] = nil
-								who:removeSelf()
-								who = nil
-								self.janitors[janitorKey] = nil
-							end
 							return
 					end
 			end
