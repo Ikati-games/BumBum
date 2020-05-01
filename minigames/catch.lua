@@ -10,6 +10,16 @@ T.imgPressed = "sprites/button/button_reach_pressed.png" -- temporary image
 T.height = 1
 T.width = math.sqrt(3) / 2 * T.height
 T.gridSize = T.height / 60
+T.bumSize = T.height * 70 / 100
+
+
+
+function T:addBum(hex, i, j)
+	self.map[i][j] = 1
+	local bum = display.newImageRect(self.map, "sprites/bum/bum_f1.png", T.bumSize, T.bumSize)
+	bum.x = hex.x
+	bum.y = hex.y
+end
 
 
 
@@ -30,6 +40,8 @@ function T:init(mapData)
 					0,				T.height * 3 / 4,
 				}
 			)
+
+			hex:addEventListener("tap", function(event) self:addBum(hex, i, j) end)
 		end
 
 		self.map[i] = row
