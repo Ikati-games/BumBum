@@ -1,7 +1,3 @@
-local tiled = require("libs.ponytiled")
-
-
-
 local function goBack(minigameId)
 	composer.showOverlay("scenes.confirmation_overlay", {
 		isModal = true,
@@ -68,22 +64,6 @@ scene:addEventListener("create", function(event)
 	local package_path = path:gsub("/", ".").."."..levelId
 
 
-	-- load and draw map
-
-	local mapData = require(package_path)
-	local map = tiled.new(mapData, path)
-	scene.view:insert(map)
-
-
-	-- scale and place map to designated place
-
-	map.xScale = display.contentWidth / map.width
-	map.yScale = math.min(map.xScale, (display.contentHeight - C.topPanelHeight) / map.height)
-	map.xScale = map.yScale
-	map.x = display.contentCenterX - map.width * map.xScale / 2
-	map.y = display.contentCenterY - map.height * map.yScale / 2 + C.topPanelHeight / 2
-
-
 	-- add top panel
 
 	-- used for debug
@@ -133,6 +113,27 @@ scene:addEventListener("create", function(event)
 	scene.view:insert(repeatButton)
 
 
+	-- add minigame mechanics
+
+	local minigame = require("minigames."..minigameId)
+	minigame.collectibleCollected = false
+	minigame.win = function() win(minigameId, levelId, event.params.randomMode, minigame) end
+	local mapData = require(package_path)
+	if minigame.init then minigame:init(mapData) end
+
+
+
+	-- scale and place map to designated place
+
+	local map = minigame.map
+	scene.view:insert(map)
+	map.xScale = display.contentWidth / map.width
+	map.yScale = math.min(map.xScale, (display.contentHeight - C.topPanelHeight) / map.height)
+	map.xScale = map.yScale
+	map.x = display.contentCenterX - map.width * map.xScale / 2
+	map.y = display.contentCenterY - map.height * map.yScale / 2 + C.topPanelHeight / 2
+
+
 	-- transparent rectangle to listen for events
 
 	eventRect = display.newRect(
@@ -144,15 +145,6 @@ scene:addEventListener("create", function(event)
 	)
 	eventRect.alpha = 0
 	eventRect.isHitTestable = true
-
-
-	-- add minigame mechanics
-
-	local minigame = require("minigames."..minigameId)
-	minigame.collectibleCollected = false
-	minigame.map = map
-	minigame.win = function() win(minigameId, levelId, event.params.randomMode, minigame) end
-	if minigame.init then minigame:init() end
 
 
 	-- swipe event
