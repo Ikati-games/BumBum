@@ -9,7 +9,7 @@ return {
   tilewidth = 16,
   tileheight = 16,
   nextlayerid = 5,
-  nextobjectid = 8,
+  nextobjectid = 9,
   properties = {},
   tilesets = {
     {
@@ -247,6 +247,46 @@ return {
           }
         }
       }
+    },
+    {
+      name = "change",
+      firstgid = 30,
+      filename = "../../TiledFiles/change.tsx",
+      tilewidth = 16,
+      tileheight = 16,
+      spacing = 0,
+      margin = 0,
+      columns = 2,
+      image = "../../sprites/change/change.png",
+      imagewidth = 32,
+      imageheight = 16,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 16,
+        height = 16
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 2,
+      tiles = {
+        {
+          id = 0,
+          animation = {
+            {
+              tileid = 0,
+              duration = 250
+            },
+            {
+              tileid = 1,
+              duration = 250
+            }
+          }
+        }
+      }
     }
   },
   layers = {
@@ -296,7 +336,7 @@ return {
       properties = {},
       encoding = "lua",
       data = {
-        2, 2, 2, 2, 2, 2, 2, 0, 0, 2, 26, 3, 26,
+        2, 2, 2, 2, 2, 2, 0, 0, 0, 2, 26, 3, 26,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 3, 26, 3,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 26, 3, 26,
         0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 2, 2, 2,
@@ -376,6 +416,20 @@ return {
           height = 16,
           rotation = 0,
           gid = 3,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 8,
+          name = "collectible",
+          type = "",
+          shape = "rectangle",
+          x = 16,
+          y = 112,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
           visible = true,
           properties = {}
         }
