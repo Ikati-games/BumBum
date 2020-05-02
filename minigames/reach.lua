@@ -113,8 +113,6 @@ function T:moveTillEnd(who, dx, dy, janitorKey)
 		end
 		if (stop) then break end
 
-
-
 		-- check for walls
 		if (self.walls.tiles[who.tileY + dy] == nil or self.walls.tiles[who.tileY + dy][who.tileX + dx] ~= 0) then
 			stop = true
@@ -158,7 +156,7 @@ function T:moveTillEnd(who, dx, dy, janitorKey)
 	end
 
 	-- check for pressed/released plates
-	if (prevTileX ~= who.tileX or prevTileY ~= who.tileY) then
+	if (who and (prevTileX ~= who.tileX or prevTileY ~= who.tileY)) then
 		self:togglePlate(prevTileX, prevTileY)
 		self:togglePlate(who.tileX, who.tileY)
 	end
