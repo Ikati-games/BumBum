@@ -25,7 +25,7 @@ T.confirmationScreenHeight = 34*T.pixelSize
 T.minSwipeSize = 25
 
 T.levelsAmount = {
-	catch = 1,
+	catch = 4,
 	reach = 22,
 }
 
