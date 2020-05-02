@@ -144,11 +144,9 @@ function T:moveTillEnd(who, dx, dy, janitorKey)
 					}
 					trap.isVerticalAllowed = false
 					trap.isHorizontalAllowed = false
-					stop = true
 					break
 				end
 			end
-			if (stop) then break end
 		end
 
 		-- move
