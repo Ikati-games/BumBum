@@ -24,11 +24,11 @@ T.confirmationScreenHeight = 34*T.pixelSize
 T.minSwipeSize = 25
 
 T.levelsAmount = {
-	reach = 22,
+	reach = 27,
 }
 
 T.collectibles = {
-	reach = {5, 9, 13, 18, 19}
+	reach = {5, 9, 13, 18, 19, 25, 27}
 }
 T.collectibleCollectedImage = "sprites/change/change_f1.png"
 T.collectibleUncollectedImage = "sprites/change/change_uncollected.png"
@@ -51,6 +51,8 @@ T.sounds = {
 		"sounds/janitor6.wav",
 	},
 	reach_win = "sounds/trash.wav",
+	platePress = "sounds/plate_press.wav",
+	plateRelease = "sounds/plate_unpress.wav",
 }
 
 
