@@ -93,7 +93,7 @@ function T:makeMove(hex, i, j)
 			queueLowest = queueLowest + 1
 
 			for _, nextCoords in pairs(neighbours(currentCoords)) do
-				if (costArray[nextCoords.i][nextCoords.j] == nil) then
+				if (costArray[nextCoords.i] == nil or costArray[nextCoords.i][nextCoords.j] == nil) then
 					-- out of bounds, restore path
 					local currentCost = costArray[currentCoords.i][currentCoords.j]
 					if (currentCost == 0) then 
@@ -103,7 +103,7 @@ function T:makeMove(hex, i, j)
 					end
 					while currentCost > 1 do
 						for _, nextCoords in pairs(neighbours(currentCoords)) do
-							if (costArray[nextCoords.i][nextCoords.j] == currentCost - 1) then
+							if (costArray[nextCoords.i] and costArray[nextCoords.i][nextCoords.j] == currentCost - 1) then
 								currentCost = currentCost - 1
 								currentCoords = nextCoords
 							end
