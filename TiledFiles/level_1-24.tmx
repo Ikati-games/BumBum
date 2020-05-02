@@ -23,7 +23,7 @@
   <data encoding="csv">
 0,0,0,2,0,0,0,2,0,0,0,
 2,0,0,2,0,0,0,2,0,2,0,
-0,0,0,2,0,0,0,2,0,2,2,
+0,0,0,2,0,0,2,2,0,2,2,
 0,0,0,2,0,0,0,2,0,0,0,
 0,0,0,2,0,0,0,2,2,0,2,
 0,0,0,0,0,0,0,0,0,0,0,
@@ -33,7 +33,7 @@
 </data>
  </layer>
  <objectgroup id="3" name="objects">
-  <object id="1" gid="28" x="48" y="96" width="16" height="16">
+  <object id="1" type="gate" gid="28" x="48" y="96" width="16" height="16">
    <properties>
     <property name="allign" value="horizontal"/>
     <property name="isOpen" type="bool" value="false"/>
