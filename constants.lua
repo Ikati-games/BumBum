@@ -14,6 +14,7 @@ T.topPanelImageWidth = 100*T.pixelSize
 T.topPanelImageHeight = 150*T.pixelSize
 
 T.winOverlayImage = "sprites/background/win_screen.png"
+T.loseOverlayImage = "sprites/background/lose_screen.png"
 T.winScreenWidth = 54*T.pixelSize
 T.winScreenHeight = 60*T.pixelSize
 

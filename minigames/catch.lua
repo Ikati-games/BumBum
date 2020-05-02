@@ -88,6 +88,11 @@ function T:makeMove(hex, i, j)
 				if (costArray[nextCoords.i][nextCoords.j] == nil) then
 					-- out of bounds, restore path
 					local currentCost = costArray[currentCoords.i][currentCoords.j]
+					if (currentCost == 0) then 
+						-- janitor escaped, game losed
+						self:lose()
+						return
+					end
 					while currentCost > 1 do
 						for _, nextCoords in pairs(neighbours(currentCoords)) do
 							if (costArray[nextCoords.i][nextCoords.j] == currentCost - 1) then
