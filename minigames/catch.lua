@@ -59,10 +59,10 @@ end
 
 
 function T:makeMove(hex, i, j)
-	if (self.sprites[i][j] ~= 0) then return end
+	if (self.mapData[i][j] ~= 0) then return end
 	
 	self:addSprite(hex, 1)
-	self.sprites[i][j] = 1
+	self.mapData[i][j] = 1
 
 	local win = true
 
@@ -70,9 +70,9 @@ function T:makeMove(hex, i, j)
 	for key, janitor in pairs(self.janitors) do
 
 		local costArray = {}
-		for i in ipairs(self.sprites) do
+		for i in ipairs(self.mapData) do
 			costArray[i] = {}
-			for j in ipairs(self.sprites[i]) do
+			for j in ipairs(self.mapData[i]) do
 				costArray[i][j] = -1
 			end
 		end
@@ -110,15 +110,15 @@ function T:makeMove(hex, i, j)
 					-- move to the found cell
 					win = false
 					local hex = self.hexes[currentCoords.i][currentCoords.j]
-					self.sprites[janitor.i][janitor.j] = 0
-					self.sprites[currentCoords.i][currentCoords.j] = 2
+					self.mapData[janitor.i][janitor.j] = 0
+					self.mapData[currentCoords.i][currentCoords.j] = 2
 					janitor.sprite.x = hex.x
 					janitor.sprite.y = hex.y
 					self.janitors[key].i = currentCoords.i
 					self.janitors[key].j = currentCoords.j
 					breakToNextJanitor = true
 					break
-				elseif (costArray[nextCoords.i][nextCoords.j] == -1 and self.sprites[nextCoords.i][nextCoords.j] == 0) then
+				elseif (costArray[nextCoords.i][nextCoords.j] == -1 and self.mapData[nextCoords.i][nextCoords.j] == 0) then
 					costArray[nextCoords.i][nextCoords.j] = costArray[currentCoords.i][currentCoords.j] + 1
 
 					-- put
@@ -138,16 +138,16 @@ end
 
 
 function T:init(mapData)
-	self.sprites = {}
+	self.mapData = {}
 	self.janitors = {}
 	self.hexes = {}
 	self.map = display.newGroup()
 	for i, row in ipairs(mapData) do
-		self.sprites[i] = {}
+		self.mapData[i] = {}
 		self.hexes[i] = {}
 
 		for j, cell in ipairs(row) do
-			self.sprites[i][j] = mapData[i][j]
+			self.mapData[i][j] = mapData[i][j]
 
 			local hex = display.newPolygon(
 				self.map, 
