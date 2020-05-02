@@ -54,10 +54,10 @@ end
 
 
 function T:makeMove(hex, i, j)
-	if (self.sprites[i][j] == 0) then
-		self:addSprite(hex, 1)
-		self.sprites[i][j] = 1
-	end
+	if (self.sprites[i][j] ~= 0) then return end
+	
+	self:addSprite(hex, 1)
+	self.sprites[i][j] = 1
 
 	local win = true
 
