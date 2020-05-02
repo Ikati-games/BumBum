@@ -138,10 +138,12 @@ function T:init(mapData)
 	self.hexes = {}
 	self.map = display.newGroup()
 	for i, row in ipairs(mapData) do
-		self.sprites[i] = row
+		self.sprites[i] = {}
 		self.hexes[i] = {}
 
 		for j, cell in ipairs(row) do
+			self.sprites[i][j] = mapData[i][j]
+
 			local hex = display.newPolygon(
 				self.map, 
 				((i % 2 == 0) and (T.width + T.gridSize / 2) or (T.width / 2)) + (T.width + T.gridSize) * (j - 1), -- x
