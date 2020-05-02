@@ -45,9 +45,14 @@ end
 
 
 local function neighbours(coords)
+	local d = (coords.i % 2 == 0) and 1 or -1
 	return {
-		{i = coords.i, j = coords.j - 1}, 
-		{i = coords.i, j = coords.j + 1},
+		{i = coords.i,		j = coords.j - 1}, 
+		{i = coords.i,		j = coords.j + 1}, 
+		{i = coords.i - 1,	j = coords.j}, 
+		{i = coords.i + 1,	j = coords.j},
+		{i = coords.i - 1,	j = coords.j + d}, 
+		{i = coords.i + 1,	j = coords.j + d}, 
 	}
 end
 
