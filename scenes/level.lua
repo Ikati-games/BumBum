@@ -1,7 +1,3 @@
-local tiled = require("libs.ponytiled")
-
-
-
 local function goBack(minigameId)
 	composer.showOverlay("scenes.confirmation_overlay", {
 		isModal = true,
@@ -29,22 +25,25 @@ Runtime:addEventListener("key", backButtonEvent)
 
 
 
-local function win(minigameId, levelId, randomMode, minigame)
-	if (minigame.collectibleCollected and not system.getPreference("app", "collectibleCollected_"..minigameId.."_"..levelId, "boolean")) then
-		-- collected for the first time
-		local pref = {points = (system.getPreference("app", "points", "number") or 0) + 1} -- add point
-		pref["collectibleCollected_"..minigameId.."_"..levelId] = true -- remember that it is collected
+local function endGame(isWin, minigameId, levelId, randomMode, minigame)
+	if (isWin) then
+		-- collectible
+		if (minigame.collectibleCollected and not system.getPreference("app", "collectibleCollected_"..minigameId.."_"..levelId, "boolean")) then
+			-- collected for the first time
+			local pref = {points = (system.getPreference("app", "points", "number") or 0) + 1} -- add point
+			pref["collectibleCollected_"..minigameId.."_"..levelId] = true -- remember that it is collected
+			system.setPreferences("app", pref)
+		end
+
+		-- remember that level was completed
+		local lastLevelOpened = system.getPreference("app", "lastLevelOpened_"..minigameId, "number") or 1
+		local pref = {}
+		pref["lastLevelOpened_"..minigameId] = math.max(lastLevelOpened, levelId+1)
 		system.setPreferences("app", pref)
 	end
 
-	-- remember that level was completed
-	local lastLevelOpened = system.getPreference("app", "lastLevelOpened_"..minigameId, "number") or 1
-	local pref = {}
-	pref["lastLevelOpened_"..minigameId] = math.max(lastLevelOpened, levelId+1)
-	system.setPreferences("app", pref)
-
-	-- show win overlay
-	composer.showOverlay("scenes.win_overlay", {
+	-- show overlay
+	composer.showOverlay("scenes."..(isWin and "win" or "lose").."_overlay", {
 		isModal = true,
 		params = {
 			minigameId = minigameId,
@@ -66,22 +65,6 @@ scene:addEventListener("create", function(event)
 	local levelId = event.params.levelId
 	local path = "levels/"..minigameId
 	local package_path = path:gsub("/", ".").."."..levelId
-
-
-	-- load and draw map
-
-	local mapData = require(package_path)
-	local map = tiled.new(mapData, path)
-	scene.view:insert(map)
-
-
-	-- scale and place map to designated place
-
-	map.xScale = display.contentWidth / map.width
-	map.yScale = math.min(map.xScale, (display.contentHeight - C.topPanelHeight) / map.height)
-	map.xScale = map.yScale
-	map.x = display.contentCenterX - map.width * map.xScale / 2
-	map.y = display.contentCenterY - map.height * map.yScale / 2 + C.topPanelHeight / 2
 
 
 	-- add top panel
@@ -133,6 +116,27 @@ scene:addEventListener("create", function(event)
 	scene.view:insert(repeatButton)
 
 
+	-- add minigame mechanics
+
+	local minigame = require("minigames."..minigameId)
+	minigame.collectibleCollected = false
+	minigame.win = function() endGame(true, minigameId, levelId, event.params.randomMode, minigame) end
+	minigame.lose = function() endGame(false, minigameId, levelId, event.params.randomMode) end
+	local mapData = require(package_path)
+	if minigame.init then minigame:init(mapData) end
+
+
+	-- scale and place map to designated place
+
+	local map = minigame.map
+	scene.view:insert(map)
+	map.xScale = display.contentWidth / map.width
+	map.yScale = math.min(map.xScale, (display.contentHeight - C.topPanelHeight) / map.height)
+	map.xScale = map.yScale
+	map.x = display.contentCenterX - map.width * map.xScale / 2
+	map.y = display.contentCenterY - map.height * map.yScale / 2 + C.topPanelHeight / 2
+
+
 	-- transparent rectangle to listen for events
 
 	eventRect = display.newRect(
@@ -144,15 +148,6 @@ scene:addEventListener("create", function(event)
 	)
 	eventRect.alpha = 0
 	eventRect.isHitTestable = true
-
-
-	-- add minigame mechanics
-
-	local minigame = require("minigames."..minigameId)
-	minigame.collectibleCollected = false
-	minigame.map = map
-	minigame.win = function() win(minigameId, levelId, event.params.randomMode, minigame) end
-	if minigame.init then minigame:init() end
 
 
 	-- swipe event

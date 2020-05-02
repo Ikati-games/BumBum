@@ -1,3 +1,4 @@
+local tiled = require("libs.ponytiled")
 local T = {}
 
 
@@ -7,7 +8,9 @@ T.imgPressed = "sprites/button/button_reach_pressed.png"
 
 
 
-function T:init()
+function T:init(mapData)
+	self.map = tiled.new(mapData, path)
+
 	self.player = self.map:findObject("player")
 	self.finish = self.map:findObject("finish")
 	self.walls = self.map:findLayer("walls")

@@ -14,6 +14,7 @@ T.topPanelImageWidth = 100*T.pixelSize
 T.topPanelImageHeight = 150*T.pixelSize
 
 T.winOverlayImage = "sprites/background/win_screen.png"
+T.loseOverlayImage = "sprites/background/lose_screen.png"
 T.winScreenWidth = 54*T.pixelSize
 T.winScreenHeight = 60*T.pixelSize
 
@@ -24,10 +25,12 @@ T.confirmationScreenHeight = 34*T.pixelSize
 T.minSwipeSize = 25
 
 T.levelsAmount = {
+	catch = 4,
 	reach = 27,
 }
 
 T.collectibles = {
+	catch = {},
 	reach = {5, 9, 13, 18, 19, 25, 27}
 }
 T.collectibleCollectedImage = "sprites/change/change_f1.png"
