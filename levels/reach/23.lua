@@ -384,7 +384,8 @@ return {
           gid = 32,
           visible = true,
           properties = {
-            ["allign"] = "vertical"
+            ["allign"] = "vertical",
+            ["isOpen"] = false
           }
         },
         {

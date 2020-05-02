@@ -32,6 +32,7 @@
   <object id="4" type="gate" gid="32" x="32" y="32" width="16" height="16">
    <properties>
     <property name="allign" value="vertical"/>
+    <property name="isOpen" type="bool" value="false"/>
    </properties>
   </object>
   <object id="1" name="player" gid="1" x="64" y="80" width="16" height="16"/>
