@@ -18,6 +18,7 @@ function T:addSprite(hex, spriteId)
 		[1] = "sprites/bum/bum.png",
 		[2] = "sprites/janitor/janitor.png",
 	})[spriteId]
+	if (spritePath == nil) then return end
 
 	local sheet = graphics.newImageSheet(spritePath, {
 		width = 16,
@@ -73,7 +74,9 @@ function T:makeMove(hex, i, j)
 		for i in ipairs(self.mapData) do
 			costArray[i] = {}
 			for j in ipairs(self.mapData[i]) do
-				costArray[i][j] = -1
+				if self.mapData[i][j] ~= 3 then
+					costArray[i][j] = -1
+				end
 			end
 		end
 		costArray[janitor.i][janitor.j] = 0
@@ -162,18 +165,19 @@ function T:init(mapData)
 					0,				T.height * 3 / 4,
 				}
 			)
-			hex:setFillColor(0.6, 0.6, 0.6)
+			if cell ~= 3 then -- 3 is void
+				hex:setFillColor(0.6, 0.6, 0.6)
+				hex:addEventListener("tap", function(event) self:makeMove(hex, i, j) end)
+			else
+				hex.alpha = 0
+			end
 			hex:toBack()
 			self.hexes[i][j] = hex
 
-			if (cell ~= 0) then
-				local sprite = self:addSprite(hex, cell)
-				if (cell == 2) then
-					self.janitors[#self.janitors + 1] = {i = i, j = j, sprite = sprite}
-				end
+			local sprite = self:addSprite(hex, cell)
+			if (cell == 2) then -- 2 is janitor
+				self.janitors[#self.janitors + 1] = {i = i, j = j, sprite = sprite}
 			end
-
-			hex:addEventListener("tap", function(event) self:makeMove(hex, i, j) end)
 		end
 	end
 end
