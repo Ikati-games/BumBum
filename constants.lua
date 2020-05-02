@@ -51,6 +51,8 @@ T.sounds = {
 		"sounds/janitor6.wav",
 	},
 	reach_win = "sounds/trash.wav",
+	platePress = "sounds/plate_press.wav",
+	plateRelease = "sounds/plate_unpress.wav",
 }
 
 

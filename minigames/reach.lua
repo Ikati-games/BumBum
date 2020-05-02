@@ -20,9 +20,9 @@ end
 
 
 
-function T:checkPlates(who)
+function T:togglePlate(tileX, tileY)
 	for _, plate in pairs(self.plates) do
-		if (who.tileX == plate.tileX and who.tileY == plate.tileY) then
+		if (tileX == plate.tileX and tileY == plate.tileY) then
 			plate.isPressed = not plate.isPressed
 			plate.fill = {
 				type = "image",
@@ -46,6 +46,9 @@ end
 function T:moveTillEnd(who, dx, dy, janitorKey)
 
 	local stop = false
+	local prevTileX = who.tileX
+	local prevTileY = who.tileY
+
 	while not stop do
 
 		-- check for collectible
@@ -148,9 +151,6 @@ function T:moveTillEnd(who, dx, dy, janitorKey)
 			if (stop) then break end
 		end
 
-		-- check for released plates
-		self:checkPlates(who)
-
 		-- move
 		playSound("step")
 		who:translate(dx*self.map.tileWidth, dy*self.map.tileHeight)
@@ -159,8 +159,11 @@ function T:moveTillEnd(who, dx, dy, janitorKey)
 
 	end
 
-	-- check for pressed plates
-	self:checkPlates(who)
+	-- check for pressed/released plates
+	if (prevTileX ~= who.tileX or prevTileY ~= who.tileY) then
+		self:togglePlate(prevTileX, prevTileY)
+		self:togglePlate(who.tileX, who.tileY)
+	end
 
 end
 
