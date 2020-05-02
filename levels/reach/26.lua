@@ -9,7 +9,7 @@ return {
   tilewidth = 16,
   tileheight = 16,
   nextlayerid = 4,
-  nextobjectid = 9,
+  nextobjectid = 15,
   properties = {},
   tilesets = {
     {
@@ -330,15 +330,15 @@ return {
       properties = {},
       encoding = "lua",
       data = {
-        2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
-        2, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2,
-        2, 2, 2, 0, 0, 0, 2, 2, 0, 2, 0, 2,
-        2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2,
+        2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 2, 0,
+        2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0,
+        2, 2, 2, 0, 0, 0, 2, 2, 0, 0, 0, 0,
+        2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         2, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0,
-        0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2,
-        0, 0, 0, 0, 0, 2, 0, 0, 2, 0, 0, 2,
-        0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 0, 2,
+        0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 2, 0, 0, 2, 0, 0, 0,
+        0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 2, 0, 0, 0, 2, 0, 2, 2, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0,
         0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0
@@ -432,35 +432,120 @@ return {
           }
         },
         {
-          id = 7,
-          name = "",
-          type = "gate",
-          shape = "rectangle",
-          x = 144,
-          y = 64,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 28,
-          visible = true,
-          properties = {
-            ["allign"] = "horizontal",
-            ["isOpen"] = false
-          }
-        },
-        {
           id = 8,
           name = "finish",
           type = "",
           shape = "rectangle",
-          x = 160,
-          y = 32,
+          x = 176,
+          y = 16,
           width = 16,
           height = 16,
           rotation = 0,
           gid = 3,
           visible = true,
           properties = {}
+        },
+        {
+          id = 9,
+          name = "",
+          type = "gate",
+          shape = "rectangle",
+          x = 176,
+          y = 32,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["allign"] = "vertical",
+            ["isOpen"] = false
+          }
+        },
+        {
+          id = 10,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 160,
+          y = 112,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 25,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 11,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 160,
+          y = 96,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 23,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = false
+          }
+        },
+        {
+          id = 12,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 176,
+          y = 112,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 24,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = false,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 13,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 176,
+          y = 128,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 24,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = false,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 14,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 176,
+          y = 144,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 24,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = false,
+            ["isVerticalAllowed"] = true
+          }
         }
       }
     }
