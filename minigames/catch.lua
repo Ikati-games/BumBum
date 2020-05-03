@@ -13,6 +13,17 @@ T.gridSize = T.height / 60
 
 
 
+function T.getRandomMapData(seed)
+	-- temporary function
+	return {
+		{1,1,1,1,1},
+		 {0,2,0,0},
+		{1,1,1,1,1},
+	}
+end
+
+
+
 function T:addSprite(hex, spriteId)
 	local spritePath = ({
 		[1] = "sprites/bum/bum.png",

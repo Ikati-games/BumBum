@@ -63,8 +63,7 @@ scene:addEventListener("create", function(event)
 	local minigameId = event.params.minigameId
 	scene.minigameId = minigameId
 	local levelId = event.params.levelId
-	local path = "levels/"..minigameId
-	local package_path = path:gsub("/", ".").."."..levelId
+	local package_path = "levels."..minigameId.."."..levelId
 
 
 	-- add top panel
@@ -122,8 +121,17 @@ scene:addEventListener("create", function(event)
 	minigame.collectibleCollected = false
 	minigame.win = function() endGame(true, minigameId, levelId, event.params.randomMode, minigame) end
 	minigame.lose = function() endGame(false, minigameId, levelId, event.params.randomMode) end
-	local mapData = require(package_path)
-	if minigame.init then minigame:init(mapData) end
+
+
+	-- load or generate map
+	
+	local mapData
+	if (levelId > C.levelsAmount[minigameId]) then
+		mapData = minigame.getRandomMapData(levelId)
+	else
+		mapData = require(package_path)
+	end
+	minigame:init(mapData)
 
 
 	-- scale and place map to designated place
