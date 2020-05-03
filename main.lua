@@ -150,7 +150,8 @@ function getRandomLevel()
 	local minigames = {}
 	for minigame in pairs(C.levelsAmount) do
 		local lastLevelOpened = system.getPreference("app", "lastLevelOpened_"..minigame, "number") or 1
-		if lastLevelOpened <= C.levelsAmount[minigame] then
+		local data = require("minigames."..minigame)
+		if lastLevelOpened <= C.levelsAmount[minigame] or data.getRandomMapData then
 			minigames[#minigames + 1] = minigame
 		end
 	end
