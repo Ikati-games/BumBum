@@ -10,6 +10,101 @@ T.imgPressed = "sprites/button/button_catch_pressed.png"
 T.height = 21
 T.width = math.sqrt(3) / 2 * T.height
 T.gridSize = T.height / 60
+T.rotated = true
+
+if T.rotated then
+	T.width, T.height = T.height, T.width
+end
+
+
+
+function T.getRandomMapData(seed)
+	math.randomseed(seed)
+
+	-- select random pattern
+	local patterns = {
+		{
+			data = {
+				{1,1,1,1,1,1,1,1,1,1,1},
+				 {1,1,1,1,1,1,1,1,1,1,1},
+				{1,1,1,1,1,1,1,1,1,1,1},
+				 {1,1,1,1,1,1,1,1,1,1,1},
+				{1,1,1,1,1,1,1,1,1,1,1},
+				 {1,1,1,1,1,2,1,1,1,1,1},
+				{1,1,1,1,1,1,1,1,1,1,1},
+				 {1,1,1,1,1,1,1,1,1,1,1},
+				{1,1,1,1,1,1,1,1,1,1,1},
+				 {1,1,1,1,1,1,1,1,1,1,1},
+				{1,1,1,1,1,1,1,1,1,1,1},
+			},
+			[1] = {
+				min = 5,
+				max = 10,
+			},
+			[2] = {
+				min = 1,
+				max = 1,
+			},
+		},
+		{
+			data = {
+				{1,1,1,1,1,1,1,1,1,1,1,1,1},
+				 {1,1,1,1,1,1,1,1,1,1,1,1,1},
+				{1,1,1,1,1,1,1,1,1,1,1,1,1},
+				 {1,1,1,1,1,1,1,1,1,1,1,1,1},
+				{1,1,1,1,1,1,1,1,1,1,1,1,1},
+				 {1,1,1,1,1,2,0,2,1,1,1,1,1},
+				{1,1,1,1,1,1,1,1,1,1,1,1,1},
+				 {1,1,1,1,1,1,1,1,1,1,1,1,1},
+				{1,1,1,1,1,1,1,1,1,1,1,1,1},
+				 {1,1,1,1,1,1,1,1,1,1,1,1,1},
+				{1,1,1,1,1,1,1,1,1,1,1,1,1},
+			},
+			[1] = {
+				min = 25,
+				max = 40,
+			},
+			[2] = {
+				min = 2,
+				max = 2,
+			},
+		},
+	}
+	local pattern = patterns[math.random(#patterns)]
+	patterns = nil
+
+	-- will be result of the function
+	local mapData = pattern.data
+
+	-- gather all cells info
+	local cells = {}
+	for i in pairs(mapData) do
+		for j in pairs(mapData[i]) do
+			if (not cells[mapData[i][j]]) then
+				cells[mapData[i][j]] = {}
+			end
+			local cellsOfCurrentType = cells[mapData[i][j]]
+			cellsOfCurrentType[#cellsOfCurrentType + 1] = {i = i, j = j}
+		end
+	end
+
+	-- remove all except first N random cells
+	for cellType in pairs(cells) do
+		if (pattern[cellType]) then
+			shuffle(cells[cellType])
+			local k = math.random(pattern[cellType].min, pattern[cellType].max) + 1
+			while true do
+				local cellToRemove = cells[cellType][k]
+				if not cellToRemove then break end
+				mapData[cellToRemove.i][cellToRemove.j] = 0
+				k = k + 1
+			end
+		end
+	end
+
+	-- done
+	return mapData
+end
 
 
 
@@ -152,19 +247,36 @@ function T:init(mapData)
 		for j, cell in ipairs(row) do
 			self.mapData[i][j] = mapData[i][j]
 
-			local hex = display.newPolygon(
-				self.map, 
-				((i % 2 == 0) and (T.width + T.gridSize / 2) or (T.width / 2)) + (T.width + T.gridSize) * (j - 1), -- x
-				T.height / 2 + (T.height / 4 * 3 + T.gridSize) * (i - 1), -- y
-				{ -- hexagon vertices
-					0,				T.height / 4,
-					T.width / 2,	0,
-					T.width,		T.height / 4,
-					T.width,		T.height * 3 / 4,
-					T.width / 2,	T.height,
-					0,				T.height * 3 / 4,
-				}
-			)
+			local hex
+			if (T.rotated) then
+				hex = display.newPolygon(
+					self.map,
+					T.width / 2 + (T.width / 4 * 3 + T.gridSize) * (i - 1), -- x
+					((i % 2 == 0) and (T.height + T.gridSize / 2) or (T.height / 2)) + (T.height + T.gridSize) * (j - 1), -- y
+					{ -- hexagon vertices
+						T.width / 4,		0,
+						T.width * 3 / 4,	0,
+						T.width,			T.height / 2,
+						T.width * 3 / 4,	T.height,
+						T.width / 4,		T.height,
+						0,					T.height / 2,
+					}
+				)
+			else
+				hex = display.newPolygon(
+					self.map,
+					((i % 2 == 0) and (T.width + T.gridSize / 2) or (T.width / 2)) + (T.width + T.gridSize) * (j - 1), -- x
+					T.height / 2 + (T.height / 4 * 3 + T.gridSize) * (i - 1), -- y
+					{ -- hexagon vertices
+						0,					T.height / 4,
+						T.width / 2,		0,
+						T.width,			T.height / 4,
+						T.width,			T.height * 3 / 4,
+						T.width / 2,		T.height,
+						0,					T.height * 3 / 4,
+					}
+				)
+			end
 			if cell ~= 3 then -- 3 is void
 				hex:setFillColor(0.6, 0.6, 0.6)
 				hex:addEventListener("tap", function(event) self:makeMove(hex, i, j) end)

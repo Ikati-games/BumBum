@@ -48,9 +48,10 @@ scene:addEventListener("create", function(event)
 		nextMinigameId, nextLevelId = getRandomLevel()
 		noMoreLevels = (not nextMinigameId or not nextLevelId)
 	else
+		local data = require("minigames."..minigameId)
 		nextMinigameId = minigameId
 		nextLevelId = levelId + 1
-		noMoreLevels = nextLevelId > C.levelsAmount[minigameId]
+		noMoreLevels = nextLevelId > C.levelsAmount[minigameId] and not data.getRandomMapData
 	end
 
 	-- the second button

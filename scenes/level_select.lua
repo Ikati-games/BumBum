@@ -80,6 +80,37 @@ scene:addEventListener("show", function(event)
 			xIndex = xIndex + 1
 		end
 	end
+
+	-- infinite mode
+	local data = require("minigames."..scene.params.minigameId)
+	if data.getRandomMapData then
+		local button
+		if (lastLevelOpened > C.levelsAmount[scene.params.minigameId]) then
+			-- button to go to level
+			button = widget.newButton({
+				width = C.menuButtonWidth,
+				height = C.menuButtonHeight,
+				defaultFile = "sprites/button/button_infinite_mode.png",
+				overFile = "sprites/button/button_infinite_mode_pressed.png",
+				onRelease = function()
+					composer.gotoScene("scenes.level", {
+						params = {
+							minigameId = scene.params.minigameId,
+							levelId = lastLevelOpened
+						}
+					})
+				end
+			})
+		else
+			-- static image for closed levels
+			button = display.newImageRect(scene.view, "sprites/button/button_infinite_mode.png", C.menuButtonWidth, C.menuButtonHeight)
+			button.fill.effect = "filter.desaturate"
+			button.fill.effect.intensity = 0.9
+		end
+		button.x = display.contentCenterX
+		button.y = y
+		scrollView:insert(button)
+	end
 end)
 scene.previousScene = "scenes.minigame_select"
 return scene
