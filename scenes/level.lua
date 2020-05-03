@@ -68,10 +68,10 @@ scene:addEventListener("create", function(event)
 
 	-- add top panel
 
-	-- used for debug
-	-- display.newText(scene.view, string.format("%s-%d", minigameId, levelId), display.contentCenterX, C.menuButtonInterval)
-
 	drawTopPanel(scene.view)
+
+	-- used for debug
+	display.newText(scene.view, string.format("%s-%d", minigameId, levelId), display.contentCenterX, C.menuButtonInterval)
 
 	local levelSelectButton = widget.newButton({
 		x = backButton.x,

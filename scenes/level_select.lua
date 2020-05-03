@@ -84,10 +84,8 @@ scene:addEventListener("show", function(event)
 	-- infinite mode
 	local data = require("minigames."..scene.params.minigameId)
 	if data.getRandomMapData then
-		local infiniteModeLevel = system.getPreference("app", "infiniteModeLevel_"..scene.params.minigameId, "number")
-									or (C.levelsAmount[scene.params.minigameId] + 1)
 		local button
-		if (lastLevelOpened >= infiniteModeLevel) then
+		if (lastLevelOpened > C.levelsAmount[scene.params.minigameId]) then
 			-- button to go to level
 			button = widget.newButton({
 				width = C.menuButtonWidth,
@@ -98,7 +96,7 @@ scene:addEventListener("show", function(event)
 					composer.gotoScene("scenes.level", {
 						params = {
 							minigameId = scene.params.minigameId,
-							levelId = infiniteModeLevel
+							levelId = lastLevelOpened
 						}
 					})
 				end
