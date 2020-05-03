@@ -70,9 +70,6 @@ scene:addEventListener("create", function(event)
 
 	drawTopPanel(scene.view)
 
-	-- used for debug
-	display.newText(scene.view, string.format("%s-%d %s", minigameId, levelId, event.params.randomMode and "true" or "false"), display.contentCenterX, C.menuButtonInterval)
-
 	local levelSelectButton = widget.newButton({
 		x = backButton.x,
 		y = backButton.y,
@@ -98,7 +95,6 @@ scene:addEventListener("create", function(event)
 				isModal = true,
 				params = {
 					onConfirm = function()
-						composer.hideOverlay()
 						composer.removeScene("scenes.level")
 						composer.gotoScene("scenes.level", {
 							params = {
