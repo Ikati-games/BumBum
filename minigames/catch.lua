@@ -10,6 +10,11 @@ T.imgPressed = "sprites/button/button_catch_pressed.png"
 T.height = 21
 T.width = math.sqrt(3) / 2 * T.height
 T.gridSize = T.height / 60
+T.rotated = true
+
+if T.rotated then
+	T.width, T.height = T.height, T.width
+end
 
 
 
@@ -163,19 +168,36 @@ function T:init(mapData)
 		for j, cell in ipairs(row) do
 			self.mapData[i][j] = mapData[i][j]
 
-			local hex = display.newPolygon(
-				self.map, 
-				((i % 2 == 0) and (T.width + T.gridSize / 2) or (T.width / 2)) + (T.width + T.gridSize) * (j - 1), -- x
-				T.height / 2 + (T.height / 4 * 3 + T.gridSize) * (i - 1), -- y
-				{ -- hexagon vertices
-					0,				T.height / 4,
-					T.width / 2,	0,
-					T.width,		T.height / 4,
-					T.width,		T.height * 3 / 4,
-					T.width / 2,	T.height,
-					0,				T.height * 3 / 4,
-				}
-			)
+			local hex
+			if (T.rotated) then
+				hex = display.newPolygon(
+					self.map,
+					T.width / 2 + (T.width / 4 * 3 + T.gridSize) * (i - 1), -- x
+					((i % 2 == 0) and (T.height + T.gridSize / 2) or (T.height / 2)) + (T.height + T.gridSize) * (j - 1), -- y
+					{ -- hexagon vertices
+						T.width / 4,		0,
+						T.width * 3 / 4,	0,
+						T.width,			T.height / 2,
+						T.width * 3 / 4,	T.height,
+						T.width / 4,		T.height,
+						0,					T.height / 2,
+					}
+				)
+			else
+				hex = display.newPolygon(
+					self.map,
+					((i % 2 == 0) and (T.width + T.gridSize / 2) or (T.width / 2)) + (T.width + T.gridSize) * (j - 1), -- x
+					T.height / 2 + (T.height / 4 * 3 + T.gridSize) * (i - 1), -- y
+					{ -- hexagon vertices
+						0,					T.height / 4,
+						T.width / 2,		0,
+						T.width,			T.height / 4,
+						T.width,			T.height * 3 / 4,
+						T.width / 2,		T.height,
+						0,					T.height * 3 / 4,
+					}
+				)
+			end
 			if cell ~= 3 then -- 3 is void
 				hex:setFillColor(0.6, 0.6, 0.6)
 				hex:addEventListener("tap", function(event) self:makeMove(hex, i, j) end)
