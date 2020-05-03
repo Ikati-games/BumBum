@@ -19,12 +19,87 @@ end
 
 
 function T.getRandomMapData(seed)
-	-- temporary function
-	return {
-		{1,1,1,1,1},
-		 {0,2,0,0},
-		{1,1,1,1,1},
+	math.randomseed(seed)
+
+	-- select random pattern
+	local patterns = {
+		{
+			data = {
+				{3,3,1,1,1,1,1,1,1,},
+				 {3,1,1,1,1,1,1,1,1,},
+				{3,1,1,1,1,1,1,1,1,1,},
+				 {1,1,1,2,2,2,2,1,1,1,},
+				{1,1,1,2,2,2,2,2,1,1,1,},
+				 {1,1,1,2,2,2,2,1,1,1,},
+				{3,1,1,1,1,1,1,1,1,1,},
+				 {3,1,1,1,1,1,1,1,1,},
+				{3,3,1,1,1,1,1,1,1,},
+			},
+			[1] = {
+				min = 10,
+				max = 20,
+			},
+			[2] = {
+				min = 1,
+				max = 2,
+			},
+		},
+		{
+			data = {
+				{3,3,1,1,1,1,1,1,1,},
+				 {3,1,1,1,1,1,1,1,1,},
+				{3,1,1,2,1,1,1,2,1,1,},
+				 {1,1,2,1,1,1,1,2,1,1,},
+				{1,1,2,1,1,3,1,1,2,1,1,},
+				 {1,1,2,1,1,1,1,2,1,1,},
+				{3,1,1,2,1,1,1,2,1,1,},
+				 {3,1,1,1,1,1,1,1,1,},
+				{3,3,1,1,1,1,1,1,1,},
+			},
+			[1] = {
+				min = 10,
+				max = 20,
+			},
+			[2] = {
+				min = 1,
+				max = 1,
+			},
+		},
 	}
+	local pattern = patterns[math.random(#patterns)]
+	patterns = nil
+
+	-- will be result of the function
+	local mapData = pattern.data
+
+	-- gather all cells info
+	local cells = {}
+	for i in pairs(mapData) do
+		for j in pairs(mapData[i]) do
+			if (not cells[mapData[i][j]]) then
+				cells[mapData[i][j]] = {}
+			end
+			local cellsOfCurrentType = cells[mapData[i][j]]
+			cellsOfCurrentType[#cellsOfCurrentType + 1] = {i = i, j = j}
+		end
+	end
+
+	-- remove all except first N random cells
+	for cellType in pairs(cells) do
+		if (pattern[cellType]) then
+			shuffle(cells[cellType])
+			local k = math.random(pattern[cellType].min, pattern[cellType].max) + 1
+			while true do
+				local cellToRemove = cells[cellType][k]
+				if not cellToRemove then break end
+				mapData[cellToRemove.i][cellToRemove.j] = 0
+				k = k + 1
+			end
+		end
+	end
+
+	-- done
+	return mapData
 end
 
 
