@@ -122,7 +122,7 @@ scene:addEventListener("create", function(event)
 							params = {
 								minigameId = minigameId,
 								levelId = event.params.levelId,
-								randomMode = randomMode,
+								randomMode = event.params.randomMode,
 							}
 						})
 					end,
