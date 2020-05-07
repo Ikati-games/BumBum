@@ -154,9 +154,15 @@ scene:addEventListener("create", function(event)
 	eventRect.isHitTestable = true
 
 
-	-- swipe event
+	-- events
 	eventRect:addEventListener("touch", function(event)
-		if (event.phase == "ended" and minigame.swipe) then
+		-- touch
+		if minigame.touch then
+			minigame:touch(event)
+		end
+
+		-- swipe
+		if event.phase == "ended" and minigame.swipe then
 			local dx = event.x - event.xStart
 			local dy = event.y - event.yStart
 
@@ -169,7 +175,6 @@ scene:addEventListener("create", function(event)
 
 			minigame:swipe(dCoords.x, dCoords.y)
 		end
-		return true
 	end)
 
 end)

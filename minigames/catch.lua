@@ -2,21 +2,16 @@ local T = {}
 
 
 
+-- MENU BUTTON --
+
 T.img = "sprites/button/button_catch.png"
 T.imgPressed = "sprites/button/button_catch_pressed.png"
 
 
 
-T.height = 21
-T.width = math.sqrt(3) / 2 * T.height
-T.gridSize = T.height / 60
-T.rotated = true
-
-if T.rotated then
-	T.width, T.height = T.height, T.width
-end
 
 
+-- OTHER FUNCTIONS --
 
 function T.getRandomMapData(seed)
 	math.randomseed(seed)
@@ -108,57 +103,27 @@ end
 
 
 
-function T:addSprite(hex, spriteId)
-	local spritePath = ({
-		[1] = "sprites/bum/bum.png",
-		[2] = "sprites/janitor/janitor.png",
-	})[spriteId]
-	if (spritePath == nil) then return end
-
-	local sheet = graphics.newImageSheet(spritePath, {
-		width = 16,
-		height = 16,
-		numFrames = 2,
-	})
-
-	local image = display.newSprite(self.map, sheet, {
-	    {
-	        name = "animation",
-	        start = 1,
-	        count = 2,
-	        time = 500,
-	        loopCount = 0
-	    },
-	})
-	image.x = hex.x
-	image.y = hex.y
-
-	image:play("animation")
-
-	return image
-end
-
-
-
 local function neighbours(coords)
-	local d = (coords.i % 2 == 0) and 1 or -1
+	local d1 = (coords.i % 2 == 0) and 1 or 0
+	local d2 = (coords.i % 2 == 1) and -1 or 0
 	return {
+		{i = coords.i - 1,	j = coords.j + d1}, 
+		{i = coords.i - 1,	j = coords.j + d2}, 
 		{i = coords.i,		j = coords.j - 1}, 
 		{i = coords.i,		j = coords.j + 1}, 
-		{i = coords.i - 1,	j = coords.j}, 
-		{i = coords.i + 1,	j = coords.j},
-		{i = coords.i - 1,	j = coords.j + d}, 
-		{i = coords.i + 1,	j = coords.j + d}, 
+		{i = coords.i + 1,	j = coords.j + d1},
+		{i = coords.i + 1,	j = coords.j + d2}, 
 	}
 end
 
 
 
-function T:makeMove(hex, i, j)
+function T:makeMove(hex)
+	local i = hex.i
+	local j = hex.j
 	if (self.mapData[i][j] ~= 0) then return end
 	
 	self:addSprite(hex, 1)
-	self.mapData[i][j] = 1
 
 	local win = true
 
@@ -235,6 +200,106 @@ end
 
 
 
+
+
+-- COLORING FOR BETTER VISUALIZATION --
+
+
+local snowflakeCenterAlpha = 0.6
+local snowflakeRayAlpha = 0.8
+
+local unpassableCellColor = 0.4, 0.4, 0.4
+local normalCellColor = 0.6, 0.6, 0.6
+
+
+local currentlyTouched = nil
+
+
+function T:recolor(coords, isPressed, idx)
+	if (not coords or not self.hexes[coords.i] or not self.hexes[coords.i][coords.j]) then return end
+
+	if self.mapData[coords.i][coords.j] ~= 3 then
+		self.hexes[coords.i][coords.j].alpha = isPressed and snowflakeRayAlpha or 1
+	end
+
+	local neighbours = neighbours(coords)
+	if (not idx) then
+		for idx, neighbour in pairs(neighbours) do
+			self:recolor(neighbour, isPressed, idx)
+		end
+	else
+		local coords = neighbours[idx]
+		if self.hexes[coords.i] then
+			self:recolor(coords, isPressed, idx)
+		end
+	end
+end
+
+
+function T:touch(event, hex)
+	self:recolor(currentlyTouched, false)
+	if (event.phase == "ended" and hex) then
+		self:makeMove(hex)
+		currentlyTouched = nil
+	else
+		currentlyTouched = hex
+	end
+	self:recolor(currentlyTouched, true)
+	if currentlyTouched then currentlyTouched.alpha = snowflakeCenterAlpha end
+end
+
+
+
+
+
+-- CREATING MAP --
+
+
+T.height = 21
+T.width = math.sqrt(3) / 2 * T.height
+T.gridSize = T.height / 60
+T.rotated = true
+
+if T.rotated then
+	T.width, T.height = T.height, T.width
+end
+
+
+function T:addSprite(hex, spriteId)
+	self.mapData[hex.i][hex.j] = spriteId
+	if (spriteId == 1) then
+		hex:setFillColor(unpassableCellColor)
+	end
+
+	local spritePath = ({
+		[1] = "sprites/bum/bum.png",
+		[2] = "sprites/janitor/janitor.png",
+	})[spriteId]
+	if (spritePath == nil) then return end
+
+	local sheet = graphics.newImageSheet(spritePath, {
+		width = 16,
+		height = 16,
+		numFrames = 2,
+	})
+
+	local image = display.newSprite(self.map, sheet, {
+	    {
+	        name = "animation",
+	        start = 1,
+	        count = 2,
+	        time = 500,
+	        loopCount = 0
+	    },
+	})
+	image.x = hex.x
+	image.y = hex.y
+
+	image:play("animation")
+	return image
+end
+
+
 function T:init(mapData)
 	self.mapData = {}
 	self.janitors = {}
@@ -245,8 +310,6 @@ function T:init(mapData)
 		self.hexes[i] = {}
 
 		for j, cell in ipairs(row) do
-			self.mapData[i][j] = mapData[i][j]
-
 			local hex
 			if (T.rotated) then
 				hex = display.newPolygon(
@@ -277,12 +340,16 @@ function T:init(mapData)
 					}
 				)
 			end
-			if cell ~= 3 then -- 3 is void
-				hex:setFillColor(0.6, 0.6, 0.6)
-				hex:addEventListener("tap", function(event) self:makeMove(hex, i, j) end)
-			else
+			hex.i = i
+			hex.j = j
+			if cell == 3 then -- 3 is void
 				hex.alpha = 0
+			elseif cell == 1 then
+				hex:setFillColor(unpassableCellColor)
+			else
+				hex:setFillColor(normalCellColor)
 			end
+			hex:addEventListener("touch", function(event) self:touch(event, hex) end)
 			hex:toBack()
 			self.hexes[i][j] = hex
 
