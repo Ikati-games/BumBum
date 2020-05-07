@@ -124,7 +124,6 @@ function T:makeMove(hex)
 	if (self.mapData[i][j] ~= 0) then return end
 	
 	self:addSprite(hex, 1)
-	self.mapData[i][j] = 1
 
 	local win = true
 
@@ -203,7 +202,14 @@ end
 
 
 
--- COLORING FOR BETTER CONTROLS --
+-- COLORING FOR BETTER VISUALIZATION --
+
+
+local snowflakeCenterAlpha = 0.6
+local snowflakeRayAlpha = 0.8
+
+local unpassableCellColor = 0.4, 0.4, 0.4
+local normalCellColor = 0.6, 0.6, 0.6
 
 
 local currentlyTouched = nil
@@ -212,7 +218,7 @@ local currentlyTouched = nil
 function T:recolor(coords, isPressed, idx)
 	if (not coords or not self.hexes[coords.i] or not self.hexes[coords.i][coords.j]) then return end
 
-	self.hexes[coords.i][coords.j].alpha = isPressed and 0.8 or 1
+	self.hexes[coords.i][coords.j].alpha = isPressed and snowflakeRayAlpha or 1
 
 	local neighbours = neighbours(coords)
 	if (not idx) then
@@ -237,7 +243,7 @@ function T:touch(event, hex)
 		currentlyTouched = hex
 	end
 	self:recolor(currentlyTouched, true)
-	if currentlyTouched then currentlyTouched.alpha = 0.7 end
+	if currentlyTouched then currentlyTouched.alpha = snowflakeCenterAlpha end
 end
 
 
@@ -258,6 +264,11 @@ end
 
 
 function T:addSprite(hex, spriteId)
+	self.mapData[hex.i][hex.j] = spriteId
+	if (spriteId == 1) then
+		hex:setFillColor(unpassableCellColor)
+	end
+
 	local spritePath = ({
 		[1] = "sprites/bum/bum.png",
 		[2] = "sprites/janitor/janitor.png",
@@ -283,10 +294,6 @@ function T:addSprite(hex, spriteId)
 	image.y = hex.y
 
 	image:play("animation")
-	if (spriteId == 1) then
-		hex:setFillColor(0.4, 0.4, 0.4)
-	end
-
 	return image
 end
 
@@ -301,8 +308,6 @@ function T:init(mapData)
 		self.hexes[i] = {}
 
 		for j, cell in ipairs(row) do
-			self.mapData[i][j] = mapData[i][j]
-
 			local hex
 			if (T.rotated) then
 				hex = display.newPolygon(
@@ -338,9 +343,9 @@ function T:init(mapData)
 			if cell == 3 then -- 3 is void
 				hex.alpha = 0
 			elseif cell == 1 then
-				hex:setFillColor(0.4, 0.4, 0.4)
+				hex:setFillColor(unpassableCellColor)
 			else
-				hex:setFillColor(0.6, 0.6, 0.6)
+				hex:setFillColor(normalCellColor)
 			end
 			hex:addEventListener("touch", function(event) self:touch(event, hex) end)
 			hex:toBack()
