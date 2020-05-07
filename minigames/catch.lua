@@ -283,6 +283,9 @@ function T:addSprite(hex, spriteId)
 	image.y = hex.y
 
 	image:play("animation")
+	if (spriteId == 1) then
+		hex:setFillColor(0.4, 0.4, 0.4)
+	end
 
 	return image
 end
@@ -332,10 +335,12 @@ function T:init(mapData)
 			end
 			hex.i = i
 			hex.j = j
-			if cell ~= 3 then -- 3 is void
-				hex:setFillColor(0.6, 0.6, 0.6)
-			else
+			if cell == 3 then -- 3 is void
 				hex.alpha = 0
+			elseif cell == 1 then
+				hex:setFillColor(0.4, 0.4, 0.4)
+			else
+				hex:setFillColor(0.6, 0.6, 0.6)
 			end
 			hex:addEventListener("touch", function(event) self:touch(event, hex) end)
 			hex:toBack()
