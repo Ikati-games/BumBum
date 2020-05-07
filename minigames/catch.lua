@@ -218,7 +218,9 @@ local currentlyTouched = nil
 function T:recolor(coords, isPressed, idx)
 	if (not coords or not self.hexes[coords.i] or not self.hexes[coords.i][coords.j]) then return end
 
-	self.hexes[coords.i][coords.j].alpha = isPressed and snowflakeRayAlpha or 1
+	if self.mapData[coords.i][coords.j] ~= 3 then
+		self.hexes[coords.i][coords.j].alpha = isPressed and snowflakeRayAlpha or 1
+	end
 
 	local neighbours = neighbours(coords)
 	if (not idx) then
