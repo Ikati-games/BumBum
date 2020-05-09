@@ -9,7 +9,7 @@ return {
   tilewidth = 16,
   tileheight = 16,
   nextlayerid = 4,
-  nextobjectid = 5,
+  nextobjectid = 6,
   properties = {},
   tilesets = {
     {
@@ -32,7 +32,7 @@ return {
       },
       properties = {},
       terrains = {},
-      tilecount = 22,
+      tilecount = 28,
       tiles = {
         {
           id = 1,
@@ -165,12 +165,48 @@ return {
           image = "../../sprites/trap/trap_both.png",
           width = 16,
           height = 16
+        },
+        {
+          id = 25,
+          image = "../../sprites/plate/plate.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 26,
+          image = "../../sprites/plate/plate_pressed.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 27,
+          image = "../../sprites/gate/gate_horizontal.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 28,
+          image = "../../sprites/gate/gate_horizontal_open.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 29,
+          image = "../../sprites/gate/gate_vertical.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 30,
+          image = "../../sprites/gate/gate_vertical_open.png",
+          width = 16,
+          height = 16
         }
       }
     },
     {
       name = "bum",
-      firstgid = 26,
+      firstgid = 32,
       filename = "../../TiledFiles/bum.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -210,7 +246,7 @@ return {
     },
     {
       name = "janitor",
-      firstgid = 28,
+      firstgid = 34,
       filename = "../../TiledFiles/janitor.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -218,6 +254,46 @@ return {
       margin = 0,
       columns = 2,
       image = "../../sprites/janitor/janitor.png",
+      imagewidth = 32,
+      imageheight = 16,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 16,
+        height = 16
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 2,
+      tiles = {
+        {
+          id = 0,
+          animation = {
+            {
+              tileid = 0,
+              duration = 250
+            },
+            {
+              tileid = 1,
+              duration = 250
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "change",
+      firstgid = 36,
+      filename = "../../TiledFiles/change.tsx",
+      tilewidth = 16,
+      tileheight = 16,
+      spacing = 0,
+      margin = 0,
+      columns = 2,
+      image = "../../sprites/change/change.png",
       imagewidth = 32,
       imageheight = 16,
       tileoffset = {
@@ -331,7 +407,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 28,
+          gid = 34,
           visible = true,
           properties = {}
         },
@@ -345,7 +421,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 28,
+          gid = 34,
           visible = true,
           properties = {}
         },
@@ -359,7 +435,21 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 26,
+          gid = 32,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 5,
+          name = "collectible",
+          type = "",
+          shape = "rectangle",
+          x = 32,
+          y = 64,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 36,
           visible = true,
           properties = {}
         }
