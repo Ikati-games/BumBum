@@ -26,7 +26,7 @@ T.minSwipeSize = 25
 
 T.levelsAmount = {
 	catch = 6,
-	reach = 40,
+	reach = 42,
 }
 
 T.collectibles = {
