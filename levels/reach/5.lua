@@ -5,11 +5,11 @@ return {
   orientation = "orthogonal",
   renderorder = "left-up",
   width = 12,
-  height = 8,
+  height = 11,
   tilewidth = 16,
   tileheight = 16,
   nextlayerid = 4,
-  nextobjectid = 5,
+  nextobjectid = 12,
   properties = {},
   tilesets = {
     {
@@ -32,7 +32,7 @@ return {
       },
       properties = {},
       terrains = {},
-      tilecount = 28,
+      tilecount = 22,
       tiles = {
         {
           id = 1,
@@ -165,48 +165,12 @@ return {
           image = "../../sprites/trap/trap_both.png",
           width = 16,
           height = 16
-        },
-        {
-          id = 25,
-          image = "../../sprites/plate/plate.png",
-          width = 16,
-          height = 16
-        },
-        {
-          id = 26,
-          image = "../../sprites/plate/plate_pressed.png",
-          width = 16,
-          height = 16
-        },
-        {
-          id = 27,
-          image = "../../sprites/gate/gate_horizontal.png",
-          width = 16,
-          height = 16
-        },
-        {
-          id = 28,
-          image = "../../sprites/gate/gate_horizontal_open.png",
-          width = 16,
-          height = 16
-        },
-        {
-          id = 29,
-          image = "../../sprites/gate/gate_vertical.png",
-          width = 16,
-          height = 16
-        },
-        {
-          id = 30,
-          image = "../../sprites/gate/gate_vertical_open.png",
-          width = 16,
-          height = 16
         }
       }
     },
     {
       name = "bum",
-      firstgid = 32,
+      firstgid = 26,
       filename = "../../TiledFiles/bum.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -214,6 +178,46 @@ return {
       margin = 0,
       columns = 2,
       image = "../../sprites/bum/bum.png",
+      imagewidth = 32,
+      imageheight = 16,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 16,
+        height = 16
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 2,
+      tiles = {
+        {
+          id = 0,
+          animation = {
+            {
+              tileid = 0,
+              duration = 250
+            },
+            {
+              tileid = 1,
+              duration = 250
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "change",
+      firstgid = 28,
+      filename = "../../TiledFiles/change.tsx",
+      tilewidth = 16,
+      tileheight = 16,
+      spacing = 0,
+      margin = 0,
+      columns = 2,
+      image = "../../sprites/change/change.png",
       imagewidth = 32,
       imageheight = 16,
       tileoffset = {
@@ -253,7 +257,7 @@ return {
       x = 0,
       y = 0,
       width = 12,
-      height = 8,
+      height = 11,
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -261,14 +265,17 @@ return {
       properties = {},
       encoding = "lua",
       data = {
-        10, 17, 13, 16, 6, 6, 10, 7, 10, 17, 17, 13,
-        21, 10, 17, 19, 11, 17, 13, 12, 12, 19, 16, 21,
-        10, 7, 20, 15, 16, 9, 21, 8, 15, 19, 18, 13,
-        11, 16, 15, 11, 16, 18, 8, 12, 9, 10, 19, 13,
-        15, 16, 17, 13, 14, 13, 15, 9, 10, 16, 19, 19,
-        15, 18, 7, 12, 18, 6, 20, 12, 21, 17, 17, 16,
-        12, 18, 17, 18, 18, 20, 16, 15, 12, 6, 11, 19,
-        18, 12, 8, 19, 10, 19, 8, 16, 7, 17, 10, 14
+        7, 10, 21, 14, 10, 14, 15, 15, 17, 20, 19, 19,
+        10, 7, 11, 14, 18, 18, 6, 21, 6, 6, 14, 10,
+        14, 10, 7, 11, 18, 13, 19, 19, 9, 14, 16, 13,
+        14, 20, 15, 7, 13, 14, 10, 12, 20, 20, 10, 21,
+        14, 16, 14, 10, 14, 7, 15, 16, 6, 13, 19, 13,
+        6, 14, 11, 10, 14, 21, 21, 19, 21, 11, 11, 19,
+        6, 20, 11, 21, 18, 8, 18, 18, 11, 15, 9, 8,
+        13, 12, 14, 14, 20, 15, 14, 16, 10, 7, 6, 16,
+        6, 12, 16, 19, 18, 16, 18, 14, 20, 11, 15, 20,
+        18, 6, 18, 17, 21, 19, 18, 8, 11, 15, 20, 13,
+        16, 17, 16, 12, 10, 14, 19, 13, 20, 20, 7, 15
       }
     },
     {
@@ -278,7 +285,7 @@ return {
       x = 0,
       y = 0,
       width = 12,
-      height = 8,
+      height = 11,
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -286,14 +293,17 @@ return {
       properties = {},
       encoding = "lua",
       data = {
+        2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 2,
+        2, 2, 2, 0, 2, 0, 0, 0, 0, 0, 0, 0,
+        2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0,
+        2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 2, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0,
+        0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0,
-        0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0,
-        0, 0, 0, 2, 0, 0, 0, 0, 2, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0,
-        0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0,
+        2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 2
       }
     },
     {
@@ -312,8 +322,8 @@ return {
           name = "finish",
           type = "",
           shape = "rectangle",
-          x = 160,
-          y = 80,
+          x = 96,
+          y = 64,
           width = 16,
           height = 16,
           rotation = 0,
@@ -322,16 +332,115 @@ return {
           properties = {}
         },
         {
-          id = 4,
-          name = "player",
-          type = "",
+          id = 3,
+          name = "trap1",
+          type = "trap",
           shape = "rectangle",
-          x = 64,
-          y = 80,
+          x = 48,
+          y = 160,
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 32,
+          gid = 23,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = false
+          }
+        },
+        {
+          id = 4,
+          name = "trap2",
+          type = "trap",
+          shape = "rectangle",
+          x = 112,
+          y = 112,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 23,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = false
+          }
+        },
+        {
+          id = 5,
+          name = "trap3",
+          type = "trap",
+          shape = "rectangle",
+          x = 144,
+          y = 112,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 24,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = false,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 6,
+          name = "trap4",
+          type = "trap",
+          shape = "rectangle",
+          x = 32,
+          y = 96,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 24,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = false,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 7,
+          name = "trap5",
+          type = "trap",
+          shape = "rectangle",
+          x = 64,
+          y = 64,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 24,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = false,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 10,
+          name = "player",
+          type = "",
+          shape = "rectangle",
+          x = 80,
+          y = 160,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 26,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 11,
+          name = "collectible",
+          type = "",
+          shape = "rectangle",
+          x = 112,
+          y = 16,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 28,
           visible = true,
           properties = {}
         }

@@ -4,57 +4,65 @@ return {
   tiledversion = "1.3.4",
   orientation = "orthogonal",
   renderorder = "left-up",
-  width = 16,
-  height = 21,
+  width = 8,
+  height = 15,
   tilewidth = 16,
   tileheight = 16,
   nextlayerid = 4,
-  nextobjectid = 3,
+  nextobjectid = 56,
   properties = {},
   tilesets = {
     {
-      name = "bum",
+      name = "TileCollection",
       firstgid = 1,
-      filename = "../../TiledFiles/bum.tsx",
+      filename = "../../../../TileCollection.tsx",
       tilewidth = 16,
       tileheight = 16,
       spacing = 0,
       margin = 0,
-      columns = 2,
-      image = "../../sprites/bum/bum.png",
-      imagewidth = 32,
-      imageheight = 16,
+      columns = 0,
       tileoffset = {
         x = 0,
         y = 0
       },
       grid = {
         orientation = "orthogonal",
-        width = 16,
-        height = 16
+        width = 1,
+        height = 1
       },
       properties = {},
       terrains = {},
-      tilecount = 2,
+      tilecount = 4,
       tiles = {
         {
           id = 0,
-          animation = {
-            {
-              tileid = 0,
-              duration = 250
-            },
-            {
-              tileid = 1,
-              duration = 250
-            }
-          }
+          image = "../../sprites/background/bg_tile_1_1.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 1,
+          image = "../../sprites/wall/wall.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 2,
+          image = "../../sprites/trashcan/trashcan.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 4,
+          image = "../../sprites/bum/bum.gif",
+          width = 16,
+          height = 16
         }
       }
     },
     {
       name = "TileCollection",
-      firstgid = 3,
+      firstgid = 6,
       filename = "../../TiledFiles/TileCollection.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -72,7 +80,7 @@ return {
       },
       properties = {},
       terrains = {},
-      tilecount = 28,
+      tilecount = 22,
       tiles = {
         {
           id = 1,
@@ -205,42 +213,86 @@ return {
           image = "../../sprites/trap/trap_both.png",
           width = 16,
           height = 16
-        },
+        }
+      }
+    },
+    {
+      name = "change",
+      firstgid = 40,
+      filename = "../../TiledFiles/change.tsx",
+      tilewidth = 16,
+      tileheight = 16,
+      spacing = 0,
+      margin = 0,
+      columns = 2,
+      image = "../../sprites/change/change.png",
+      imagewidth = 32,
+      imageheight = 16,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 16,
+        height = 16
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 2,
+      tiles = {
         {
-          id = 25,
-          image = "../../sprites/plate/plate.png",
-          width = 16,
-          height = 16
-        },
+          id = 0,
+          animation = {
+            {
+              tileid = 0,
+              duration = 250
+            },
+            {
+              tileid = 1,
+              duration = 250
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "bum",
+      firstgid = 42,
+      filename = "../../TiledFiles/bum.tsx",
+      tilewidth = 16,
+      tileheight = 16,
+      spacing = 0,
+      margin = 0,
+      columns = 2,
+      image = "../../sprites/bum/bum.png",
+      imagewidth = 32,
+      imageheight = 16,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 16,
+        height = 16
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 2,
+      tiles = {
         {
-          id = 26,
-          image = "../../sprites/plate/plate_pressed.png",
-          width = 16,
-          height = 16
-        },
-        {
-          id = 27,
-          image = "../../sprites/gate/gate_horizontal.png",
-          width = 16,
-          height = 16
-        },
-        {
-          id = 28,
-          image = "../../sprites/gate/gate_horizontal_open.png",
-          width = 16,
-          height = 16
-        },
-        {
-          id = 29,
-          image = "../../sprites/gate/gate_vertical.png",
-          width = 16,
-          height = 16
-        },
-        {
-          id = 30,
-          image = "../../sprites/gate/gate_vertical_open.png",
-          width = 16,
-          height = 16
+          id = 0,
+          animation = {
+            {
+              tileid = 0,
+              duration = 250
+            },
+            {
+              tileid = 1,
+              duration = 250
+            }
+          }
         }
       }
     }
@@ -252,8 +304,8 @@ return {
       name = "floor",
       x = 0,
       y = 0,
-      width = 16,
-      height = 21,
+      width = 8,
+      height = 15,
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -261,27 +313,21 @@ return {
       properties = {},
       encoding = "lua",
       data = {
-        23, 8, 15, 20, 23, 11, 20, 11, 9, 13, 18, 20, 12, 12, 11, 12,
-        18, 10, 20, 10, 9, 23, 15, 10, 10, 12, 22, 13, 17, 9, 17, 13,
-        11, 15, 18, 14, 22, 17, 10, 17, 20, 11, 20, 21, 9, 10, 19, 12,
-        20, 19, 18, 9, 15, 10, 9, 20, 13, 19, 8, 16, 19, 19, 8, 10,
-        14, 15, 16, 11, 12, 23, 23, 17, 21, 11, 21, 18, 22, 9, 9, 18,
-        22, 14, 11, 15, 13, 14, 22, 8, 15, 22, 20, 16, 15, 8, 12, 15,
-        17, 10, 20, 22, 19, 23, 15, 22, 17, 23, 15, 14, 14, 18, 8, 18,
-        13, 17, 21, 14, 8, 10, 21, 14, 22, 9, 16, 15, 20, 8, 8, 9,
-        23, 8, 12, 14, 17, 23, 20, 10, 13, 20, 8, 21, 20, 13, 12, 10,
-        21, 9, 12, 23, 8, 18, 20, 15, 22, 12, 23, 10, 15, 8, 21, 15,
-        15, 19, 17, 23, 16, 13, 21, 14, 11, 13, 9, 14, 18, 16, 19, 15,
-        19, 10, 9, 23, 19, 9, 21, 19, 11, 10, 19, 13, 22, 23, 19, 21,
-        10, 11, 16, 17, 15, 22, 10, 12, 13, 22, 11, 14, 10, 19, 8, 17,
-        10, 14, 23, 18, 11, 21, 15, 19, 10, 22, 18, 12, 16, 23, 21, 17,
-        15, 19, 15, 17, 15, 12, 10, 11, 21, 8, 17, 18, 12, 15, 23, 23,
-        14, 17, 9, 10, 8, 8, 15, 12, 12, 18, 14, 8, 18, 10, 17, 17,
-        19, 10, 15, 8, 18, 13, 10, 11, 20, 16, 8, 17, 8, 15, 21, 16,
-        12, 14, 13, 19, 19, 13, 10, 12, 19, 12, 20, 18, 14, 15, 13, 11,
-        8, 8, 23, 20, 11, 13, 16, 17, 16, 23, 11, 12, 9, 17, 17, 21,
-        8, 8, 10, 9, 15, 16, 10, 13, 18, 20, 12, 9, 11, 23, 11, 10,
-        17, 19, 17, 20, 22, 13, 15, 19, 10, 18, 23, 12, 14, 12, 10, 17
+        26, 15, 18, 26, 26, 26, 21, 18,
+        14, 21, 12, 22, 19, 19, 24, 16,
+        22, 11, 24, 19, 14, 23, 22, 15,
+        23, 15, 17, 18, 23, 19, 19, 12,
+        14, 12, 26, 12, 12, 12, 23, 24,
+        13, 20, 23, 11, 19, 13, 19, 15,
+        15, 18, 16, 15, 19, 24, 14, 18,
+        13, 15, 21, 21, 26, 13, 20, 19,
+        24, 20, 13, 17, 16, 25, 12, 25,
+        11, 14, 19, 12, 25, 13, 25, 17,
+        11, 18, 11, 19, 22, 16, 23, 19,
+        24, 21, 20, 12, 21, 21, 14, 19,
+        12, 24, 11, 16, 24, 11, 19, 15,
+        21, 22, 25, 23, 24, 15, 25, 18,
+        24, 18, 21, 12, 14, 16, 16, 15
       }
     },
     {
@@ -290,8 +336,8 @@ return {
       name = "walls",
       x = 0,
       y = 0,
-      width = 16,
-      height = 21,
+      width = 8,
+      height = 15,
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -299,27 +345,21 @@ return {
       properties = {},
       encoding = "lua",
       data = {
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 4, 0, 0, 4, 0, 0, 0, 0, 4, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0,
-        0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0,
-        0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0,
-        0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0,
-        0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0,
-        0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 7, 7, 0, 0, 0, 0,
+        0, 7, 0, 0, 7, 7, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 7, 0, 0, 0,
+        0, 7, 7, 0, 0, 0, 0, 0,
+        0, 0, 0, 2, 0, 0, 0, 0,
+        0, 7, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 2, 7, 0,
+        0, 2, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 2, 0, 0, 0,
+        0, 2, 0, 0, 0, 0, 2, 0,
+        0, 0, 0, 0, 0, 0, 0, 0
       }
     },
     {
@@ -335,31 +375,861 @@ return {
       objects = {
         {
           id = 1,
-          name = "finish",
+          name = "collectible",
           type = "",
           shape = "rectangle",
-          x = 160,
-          y = 160,
+          x = 16,
+          y = 208,
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 5,
+          gid = 40,
           visible = true,
           properties = {}
         },
         {
           id = 2,
-          name = "player",
-          type = "",
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 32,
+          y = 240,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 3,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 48,
+          y = 240,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 4,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 64,
+          y = 240,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 5,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 80,
+          y = 240,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 6,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 96,
+          y = 240,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 7,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 112,
+          y = 240,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 8,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 48,
+          y = 224,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 9,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 16,
+          y = 240,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 10,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 0,
+          y = 240,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 11,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 0,
+          y = 224,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 12,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 0,
+          y = 208,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 13,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 0,
+          y = 192,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 14,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 0,
+          y = 176,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 15,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 0,
+          y = 160,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 16,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 0,
+          y = 144,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 17,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 0,
+          y = 128,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 18,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 0,
+          y = 112,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 19,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 0,
+          y = 96,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 20,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 0,
+          y = 80,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 21,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 0,
+          y = 64,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 22,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 0,
+          y = 48,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 23,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 0,
+          y = 32,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 24,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 0,
+          y = 16,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 25,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 16,
+          y = 16,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 26,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 32,
+          y = 16,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 27,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 48,
+          y = 16,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 28,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 64,
+          y = 16,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 29,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 80,
+          y = 16,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 30,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 96,
+          y = 16,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 31,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 112,
+          y = 16,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 32,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 112,
+          y = 32,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 33,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 112,
+          y = 48,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 34,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 112,
+          y = 64,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 35,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 112,
+          y = 80,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 36,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 112,
+          y = 96,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 37,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 112,
+          y = 112,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 40,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 112,
+          y = 160,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 41,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 112,
+          y = 176,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 42,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 112,
+          y = 192,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 43,
+          name = "",
+          type = "trap",
           shape = "rectangle",
           x = 112,
           y = 208,
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 1,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 44,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 112,
+          y = 224,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 45,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 64,
+          y = 192,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 46,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 32,
+          y = 192,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 48,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 48,
+          y = 112,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 49,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 32,
+          y = 112,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 51,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 32,
+          y = 64,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 52,
+          name = "player",
+          type = "",
+          shape = "rectangle",
+          x = 64,
+          y = 224,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 42,
           visible = true,
           properties = {}
+        },
+        {
+          id = 53,
+          name = "finish",
+          type = "",
+          shape = "rectangle",
+          x = 64,
+          y = 64,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 8,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 54,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 64,
+          y = 160,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 29,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = false,
+            ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 55,
+          name = "",
+          type = "trap",
+          shape = "rectangle",
+          x = 48,
+          y = 64,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
         }
       }
     }

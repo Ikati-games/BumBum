@@ -112,7 +112,7 @@ return {
       },
       properties = {},
       terrains = {},
-      tilecount = 28,
+      tilecount = 22,
       tiles = {
         {
           id = 1,
@@ -245,48 +245,12 @@ return {
           image = "../../sprites/trap/trap_both.png",
           width = 16,
           height = 16
-        },
-        {
-          id = 25,
-          image = "../../sprites/plate/plate.png",
-          width = 16,
-          height = 16
-        },
-        {
-          id = 26,
-          image = "../../sprites/plate/plate_pressed.png",
-          width = 16,
-          height = 16
-        },
-        {
-          id = 27,
-          image = "../../sprites/gate/gate_horizontal.png",
-          width = 16,
-          height = 16
-        },
-        {
-          id = 28,
-          image = "../../sprites/gate/gate_horizontal_open.png",
-          width = 16,
-          height = 16
-        },
-        {
-          id = 29,
-          image = "../../sprites/gate/gate_vertical.png",
-          width = 16,
-          height = 16
-        },
-        {
-          id = 30,
-          image = "../../sprites/gate/gate_vertical_open.png",
-          width = 16,
-          height = 16
         }
       }
     },
     {
       name = "bum",
-      firstgid = 36,
+      firstgid = 30,
       filename = "../../TiledFiles/bum.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -392,34 +356,6 @@ return {
       properties = {},
       objects = {
         {
-          id = 6,
-          name = "finish",
-          type = "",
-          shape = "rectangle",
-          x = 144,
-          y = 80,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 7,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 5,
-          name = "player",
-          type = "",
-          shape = "rectangle",
-          x = 48,
-          y = 80,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 36,
-          visible = true,
-          properties = {}
-        },
-        {
           id = 2,
           name = "",
           type = "janitor",
@@ -449,6 +385,34 @@ return {
             ["isHorizontalAllowed"] = false,
             ["isVerticalAllowed"] = true
           }
+        },
+        {
+          id = 5,
+          name = "player",
+          type = "",
+          shape = "rectangle",
+          x = 48,
+          y = 80,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 6,
+          name = "finish",
+          type = "",
+          shape = "rectangle",
+          x = 144,
+          y = 80,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 7,
+          visible = true,
+          properties = {}
         },
         {
           id = 9,

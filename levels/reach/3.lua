@@ -4,12 +4,12 @@ return {
   tiledversion = "1.3.4",
   orientation = "orthogonal",
   renderorder = "left-up",
-  width = 7,
-  height = 7,
+  width = 11,
+  height = 14,
   tilewidth = 16,
   tileheight = 16,
   nextlayerid = 4,
-  nextobjectid = 4,
+  nextobjectid = 5,
   properties = {},
   tilesets = {
     {
@@ -32,7 +32,7 @@ return {
       },
       properties = {},
       terrains = {},
-      tilecount = 28,
+      tilecount = 26,
       tiles = {
         {
           id = 1,
@@ -167,38 +167,46 @@ return {
           height = 16
         },
         {
-          id = 25,
-          image = "../../sprites/plate/plate.png",
-          width = 16,
-          height = 16
-        },
-        {
-          id = 26,
-          image = "../../sprites/plate/plate_pressed.png",
-          width = 16,
-          height = 16
-        },
-        {
-          id = 27,
-          image = "../../sprites/gate/gate_horizontal.png",
-          width = 16,
-          height = 16
-        },
-        {
-          id = 28,
-          image = "../../sprites/gate/gate_horizontal_open.png",
-          width = 16,
-          height = 16
-        },
-        {
           id = 29,
-          image = "../../sprites/gate/gate_vertical.png",
+          image = "../../sprites/change/change_f1.png",
           width = 16,
-          height = 16
+          height = 16,
+          animation = {
+            {
+              tileid = 29,
+              duration = 250
+            },
+            {
+              tileid = 30,
+              duration = 250
+            }
+          }
         },
         {
           id = 30,
-          image = "../../sprites/gate/gate_vertical_open.png",
+          image = "../../sprites/change/change_f2.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 32,
+          image = "../../sprites/bum/bum_f1.png",
+          width = 16,
+          height = 16,
+          animation = {
+            {
+              tileid = 32,
+              duration = 250
+            },
+            {
+              tileid = 33,
+              duration = 250
+            }
+          }
+        },
+        {
+          id = 33,
+          image = "../../sprites/bum/bum_f2.png",
           width = 16,
           height = 16
         }
@@ -206,7 +214,7 @@ return {
     },
     {
       name = "bum",
-      firstgid = 32,
+      firstgid = 35,
       filename = "../../TiledFiles/bum.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -252,8 +260,8 @@ return {
       name = "floor",
       x = 0,
       y = 0,
-      width = 7,
-      height = 7,
+      width = 11,
+      height = 14,
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -261,13 +269,20 @@ return {
       properties = {},
       encoding = "lua",
       data = {
-        17, 9, 8, 13, 8, 7, 13,
-        18, 9, 6, 10, 10, 12, 9,
-        16, 9, 11, 20, 16, 7, 21,
-        20, 18, 20, 11, 20, 16, 6,
-        13, 19, 12, 17, 13, 14, 6,
-        14, 10, 12, 16, 10, 17, 8,
-        18, 16, 11, 12, 11, 9, 18
+        15, 19, 6, 14, 21, 14, 16, 7, 15, 14, 19,
+        15, 20, 20, 16, 9, 18, 15, 17, 9, 13, 19,
+        20, 10, 14, 8, 6, 8, 16, 18, 10, 17, 15,
+        21, 21, 12, 6, 16, 13, 14, 17, 20, 9, 19,
+        16, 10, 11, 8, 19, 11, 20, 20, 14, 15, 21,
+        10, 21, 6, 13, 11, 9, 15, 20, 13, 9, 8,
+        9, 12, 10, 13, 20, 8, 12, 9, 13, 10, 7,
+        19, 17, 13, 7, 15, 21, 13, 18, 10, 19, 9,
+        7, 19, 21, 19, 17, 18, 9, 21, 6, 16, 6,
+        14, 15, 8, 16, 12, 19, 16, 19, 18, 15, 7,
+        11, 13, 14, 21, 16, 8, 17, 13, 14, 13, 7,
+        14, 12, 8, 12, 14, 8, 6, 18, 8, 12, 6,
+        7, 12, 8, 17, 13, 8, 10, 13, 17, 19, 7,
+        13, 17, 13, 17, 14, 9, 19, 18, 18, 15, 16
       }
     },
     {
@@ -276,8 +291,8 @@ return {
       name = "walls",
       x = 0,
       y = 0,
-      width = 7,
-      height = 7,
+      width = 11,
+      height = 14,
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -285,13 +300,20 @@ return {
       properties = {},
       encoding = "lua",
       data = {
-        0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 2, 0, 0,
-        0, 2, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 2, 0,
-        0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0
+        2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        2, 2, 2, 0, 2, 2, 2, 2, 0, 2, 0,
+        0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0,
+        0, 2, 2, 2, 0, 2, 2, 2, 0, 2, 2,
+        0, 0, 0, 0, 0, 2, 2, 2, 0, 2, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 2, 2, 0, 2, 0, 2, 2, 0, 2, 0,
+        0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0,
+        0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0,
+        0, 2, 0, 0, 0, 0, 0, 2, 0, 2, 0,
+        0, 0, 0, 0, 0, 0, 2, 2, 0, 2, 0,
+        0, 0, 0, 0, 2, 0, 0, 2, 0, 2, 0,
+        0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2
       }
     },
     {
@@ -310,8 +332,8 @@ return {
           name = "finish",
           type = "",
           shape = "rectangle",
-          x = 32,
-          y = 96,
+          x = 128,
+          y = 208,
           width = 16,
           height = 16,
           rotation = 0,
@@ -320,16 +342,16 @@ return {
           properties = {}
         },
         {
-          id = 1,
+          id = 4,
           name = "player",
           type = "",
           shape = "rectangle",
-          x = 16,
-          y = 80,
+          x = 64,
+          y = 160,
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 32,
+          gid = 35,
           visible = true,
           properties = {}
         }

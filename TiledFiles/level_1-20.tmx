@@ -1,44 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="left-up" width="8" height="8" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="5">
+<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="left-up" width="16" height="18" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="5">
  <editorsettings>
-  <export target="../levels/reach/11.lua" format="lua"/>
+  <export target="../levels/reach/20.lua" format="lua"/>
  </editorsettings>
  <tileset firstgid="1" source="TileCollection.tsx"/>
- <tileset firstgid="32" source="janitor.tsx"/>
- <tileset firstgid="34" source="bum.tsx"/>
- <layer id="1" name="floor" width="8" height="8">
+ <tileset firstgid="26" source="bum.tsx"/>
+ <tileset firstgid="28" source="janitor.tsx"/>
+ <layer id="1" name="floor" width="16" height="18">
   <data encoding="csv">
-7,12,7,18,15,21,21,18,
-7,14,15,7,8,19,13,8,
-17,16,19,19,12,16,18,12,
-9,21,15,13,18,21,8,21,
-17,19,21,21,10,9,16,7,
-21,8,11,12,8,19,21,10,
-16,10,11,7,10,8,17,14,
-18,11,9,21,14,14,18,19
+9,19,14,20,10,11,7,10,13,15,20,10,8,21,11,20,
+20,7,15,16,15,14,7,9,20,19,9,21,16,18,8,6,
+15,16,15,6,13,11,10,17,11,20,7,14,15,16,16,18,
+18,21,15,9,10,16,7,18,12,12,13,11,8,19,12,8,
+19,12,20,17,20,13,18,16,18,21,13,11,16,10,15,21,
+8,10,7,15,6,15,17,8,19,9,7,10,20,7,18,18,
+8,6,13,8,7,20,7,6,11,15,15,19,15,14,10,13,
+18,12,6,12,17,6,11,11,13,18,17,21,7,10,6,15,
+21,21,18,21,9,12,12,14,6,20,15,15,11,18,10,16,
+17,6,11,19,11,8,11,20,7,20,9,11,20,8,15,13,
+14,8,17,18,21,16,17,15,18,15,11,18,16,9,20,20,
+6,10,9,18,19,21,19,11,13,19,6,13,14,18,17,10,
+21,9,7,9,11,12,11,10,21,21,16,18,8,11,16,14,
+19,14,21,18,18,6,10,15,7,8,7,20,6,8,20,19,
+8,11,21,12,11,12,20,13,16,13,12,16,17,9,11,18,
+15,20,7,11,13,16,8,9,11,19,9,8,10,10,8,16,
+13,6,11,9,8,19,16,20,6,20,10,15,6,16,15,21,
+8,8,15,15,17,21,9,18,15,21,13,21,19,14,8,12
 </data>
  </layer>
- <layer id="2" name="walls" width="8" height="8">
+ <layer id="2" name="walls" width="16" height="18">
   <data encoding="csv">
-0,0,0,0,0,2,2,2,
-0,0,0,2,0,2,0,2,
-0,2,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,2,
-0,0,2,0,0,0,2,0,
-0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,2,0,0,0,2,0,0,0,0,2,0,0,0,0,
+2,0,0,2,0,0,0,0,2,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,
+0,2,0,0,0,2,0,0,0,0,0,0,0,2,0,0,
+2,0,0,0,0,0,0,0,2,2,2,0,0,0,0,0,
+0,0,2,0,0,0,0,0,2,2,2,0,0,0,0,0,
+0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,2,0,0,0,0,2,0,
+2,2,0,0,0,0,0,0,0,0,0,0,2,0,0,0,
+0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,
+0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,
+2,0,0,0,0,0,0,0,0,0,0,2,0,2,0,0,
+0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,
+0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
  <objectgroup id="3" name="objects">
-  <object id="4" name="finish" gid="3" x="96" y="32" width="16" height="16"/>
-  <object id="3" name="player" gid="34" x="48" y="112" width="16" height="16"/>
-  <object id="2" type="janitor" gid="32" x="80" y="96" width="16" height="16"/>
-  <object id="1" type="trap" gid="22" x="96" y="48" width="16" height="16">
-   <properties>
-    <property name="isHorizontalAllowed" type="bool" value="false"/>
-    <property name="isVerticalAllowed" type="bool" value="false"/>
-   </properties>
-  </object>
+  <object id="1" type="janitor" gid="28" x="64" y="128" width="16" height="16"/>
+  <object id="2" type="janitor" gid="28" x="176" y="112" width="16" height="16"/>
+  <object id="3" name="player" gid="26" x="64" y="96" width="16" height="16"/>
+  <object id="4" name="finish" gid="3" x="144" y="176" width="16" height="16"/>
  </objectgroup>
 </map>

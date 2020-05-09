@@ -4,12 +4,12 @@ return {
   tiledversion = "1.3.4",
   orientation = "orthogonal",
   renderorder = "left-up",
-  width = 11,
-  height = 14,
+  width = 9,
+  height = 12,
   tilewidth = 16,
   tileheight = 16,
   nextlayerid = 4,
-  nextobjectid = 11,
+  nextobjectid = 12,
   properties = {},
   tilesets = {
     {
@@ -283,6 +283,46 @@ return {
           }
         }
       }
+    },
+    {
+      name = "change",
+      firstgid = 36,
+      filename = "../../TiledFiles/change.tsx",
+      tilewidth = 16,
+      tileheight = 16,
+      spacing = 0,
+      margin = 0,
+      columns = 2,
+      image = "../../sprites/change/change.png",
+      imagewidth = 32,
+      imageheight = 16,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 16,
+        height = 16
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 2,
+      tiles = {
+        {
+          id = 0,
+          animation = {
+            {
+              tileid = 0,
+              duration = 250
+            },
+            {
+              tileid = 1,
+              duration = 250
+            }
+          }
+        }
+      }
     }
   },
   layers = {
@@ -292,8 +332,8 @@ return {
       name = "floor",
       x = 0,
       y = 0,
-      width = 11,
-      height = 14,
+      width = 9,
+      height = 12,
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -301,20 +341,18 @@ return {
       properties = {},
       encoding = "lua",
       data = {
-        21, 9, 20, 17, 17, 21, 13, 15, 23, 16, 11,
-        13, 14, 13, 13, 11, 9, 8, 14, 22, 23, 21,
-        23, 9, 16, 8, 10, 10, 19, 14, 11, 19, 18,
-        12, 16, 23, 16, 17, 10, 14, 16, 11, 21, 16,
-        17, 19, 19, 15, 19, 19, 23, 15, 19, 21, 15,
-        10, 9, 10, 8, 15, 8, 13, 8, 9, 23, 22,
-        18, 9, 15, 16, 16, 21, 22, 16, 13, 22, 12,
-        8, 14, 18, 17, 23, 23, 21, 18, 16, 8, 18,
-        12, 19, 14, 16, 23, 13, 21, 20, 18, 19, 11,
-        11, 18, 21, 20, 8, 14, 23, 20, 21, 19, 21,
-        12, 22, 21, 9, 21, 12, 18, 19, 19, 14, 20,
-        22, 8, 14, 14, 21, 16, 16, 16, 8, 17, 9,
-        12, 20, 17, 21, 12, 17, 9, 19, 8, 19, 17,
-        8, 12, 16, 19, 13, 23, 21, 18, 23, 23, 18
+        0, 0, 0, 0, 0, 0, 0, 0, 0,
+        12, 20, 20, 10, 15, 23, 17, 13, 23,
+        23, 23, 10, 8, 21, 16, 19, 10, 23,
+        16, 9, 11, 16, 12, 23, 15, 20, 19,
+        13, 8, 8, 23, 21, 23, 8, 9, 22,
+        14, 15, 12, 14, 13, 18, 12, 11, 14,
+        11, 12, 12, 9, 14, 12, 23, 17, 12,
+        12, 20, 17, 14, 22, 16, 8, 13, 9,
+        16, 13, 14, 20, 18, 14, 16, 11, 13,
+        23, 15, 21, 13, 21, 10, 18, 17, 11,
+        20, 22, 20, 18, 20, 22, 15, 22, 10,
+        14, 19, 8, 13, 10, 17, 11, 10, 17
       }
     },
     {
@@ -323,8 +361,8 @@ return {
       name = "walls",
       x = 0,
       y = 0,
-      width = 11,
-      height = 14,
+      width = 9,
+      height = 12,
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -332,20 +370,18 @@ return {
       properties = {},
       encoding = "lua",
       data = {
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0,
-        0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0,
-        0, 0, 0, 0, 4, 0, 0, 4, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        4, 4, 4, 4, 4, 4, 4, 4, 4,
+        4, 4, 4, 4, 0, 0, 0, 4, 4,
+        4, 4, 0, 0, 0, 4, 0, 4, 4,
+        4, 4, 0, 4, 0, 0, 0, 0, 4,
+        4, 4, 0, 0, 0, 0, 0, 0, 4,
+        4, 0, 0, 0, 0, 0, 0, 0, 4,
+        4, 0, 0, 0, 0, 0, 0, 0, 4,
+        4, 0, 4, 4, 4, 0, 0, 4, 4,
+        4, 0, 0, 0, 4, 0, 0, 4, 4,
+        4, 0, 0, 0, 4, 0, 4, 4, 4,
+        4, 0, 0, 0, 0, 0, 0, 0, 4,
+        4, 4, 4, 4, 4, 4, 4, 4, 4
       }
     },
     {
@@ -360,16 +396,30 @@ return {
       properties = {},
       objects = {
         {
-          id = 2,
-          name = "finish",
-          type = "",
+          id = 9,
+          name = "",
+          type = "plate",
           shape = "rectangle",
-          x = 128,
-          y = 48,
+          x = 48,
+          y = 144,
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 5,
+          gid = 28,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 10,
+          name = "",
+          type = "plate",
+          shape = "rectangle",
+          x = 96,
+          y = 112,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 28,
           visible = true,
           properties = {}
         },
@@ -378,8 +428,8 @@ return {
           name = "player",
           type = "",
           shape = "rectangle",
-          x = 112,
-          y = 64,
+          x = 32,
+          y = 160,
           width = 16,
           height = 16,
           rotation = 0,
@@ -388,12 +438,12 @@ return {
           properties = {}
         },
         {
-          id = 7,
+          id = 2,
           name = "",
           type = "janitor",
           shape = "rectangle",
-          x = 80,
-          y = 160,
+          x = 32,
+          y = 144,
           width = 16,
           height = 16,
           rotation = 0,
@@ -404,87 +454,109 @@ return {
         {
           id = 3,
           name = "",
-          type = "trap",
+          type = "janitor",
           shape = "rectangle",
-          x = 128,
-          y = 64,
+          x = 64,
+          y = 96,
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 25,
+          gid = 34,
           visible = true,
-          properties = {
-            ["isHorizontalAllowed"] = true,
-            ["isVerticalAllowed"] = false
-          }
+          properties = {}
         },
         {
           id = 4,
           name = "",
-          type = "trap",
+          type = "janitor",
           shape = "rectangle",
-          x = 128,
-          y = 32,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 25,
-          visible = true,
-          properties = {
-            ["isHorizontalAllowed"] = true,
-            ["isVerticalAllowed"] = false
-          }
-        },
-        {
-          id = 5,
-          name = "",
-          type = "trap",
-          shape = "rectangle",
-          x = 144,
-          y = 48,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 26,
-          visible = true,
-          properties = {
-            ["isHorizontalAllowed"] = false,
-            ["isVerticalAllowed"] = true
-          }
-        },
-        {
-          id = 6,
-          name = "",
-          type = "trap",
-          shape = "rectangle",
-          x = 112,
-          y = 48,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 26,
-          visible = true,
-          properties = {
-            ["isHorizontalAllowed"] = false,
-            ["isVerticalAllowed"] = true
-          }
-        },
-        {
-          id = 10,
-          name = "",
-          type = "trap",
-          shape = "rectangle",
-          x = 112,
+          x = 80,
           y = 128,
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 26,
+          gid = 34,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 5,
+          name = "collectible",
+          type = "",
+          shape = "rectangle",
+          x = 96,
+          y = 96,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 36,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 6,
+          name = "",
+          type = "gate",
+          shape = "rectangle",
+          x = 80,
+          y = 160,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 33,
           visible = true,
           properties = {
-            ["isHorizontalAllowed"] = false,
-            ["isVerticalAllowed"] = true
+            ["allign"] = "vertical",
+            ["isOpen"] = true
           }
+        },
+        {
+          id = 7,
+          name = "",
+          type = "gate",
+          shape = "rectangle",
+          x = 64,
+          y = 176,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 31,
+          visible = true,
+          properties = {
+            ["allign"] = "horizontal",
+            ["isOpen"] = true
+          }
+        },
+        {
+          id = 8,
+          name = "",
+          type = "gate",
+          shape = "rectangle",
+          x = 16,
+          y = 128,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 32,
+          visible = true,
+          properties = {
+            ["allign"] = "vertical",
+            ["isOpen"] = false
+          }
+        },
+        {
+          id = 11,
+          name = "finish",
+          type = "",
+          shape = "rectangle",
+          x = 112,
+          y = 176,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 5,
+          visible = true,
+          properties = {}
         }
       }
     }
