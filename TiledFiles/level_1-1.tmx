@@ -5,8 +5,8 @@
  </editorsettings>
  <tileset firstgid="1" source="../../../TileCollection.tsx"/>
  <tileset firstgid="1" source="TileCollection.tsx"/>
- <tileset firstgid="26" source="bum.tsx"/>
- <tileset firstgid="28" source="reach_tutorial.tsx"/>
+ <tileset firstgid="32" source="bum.tsx"/>
+ <tileset firstgid="34" source="reach_tutorial.tsx"/>
  <layer id="1" name="floor" width="4" height="4">
   <data encoding="csv">
 11,15,21,14,
@@ -24,8 +24,7 @@
 </data>
  </layer>
  <objectgroup id="2" name="objects" offsetx="1.77636e-15" offsety="0">
-  <object id="6" name="player" gid="26" x="0" y="48" width="16" height="16"/>
+  <object id="6" name="player" gid="32" x="0" y="48" width="16" height="16"/>
   <object id="7" name="finish" gid="3" x="16" y="64" width="16" height="16"/>
-  <object id="8" name="finger" gid="28" x="0" y="64" width="64" height="64"/>
  </objectgroup>
 </map>
