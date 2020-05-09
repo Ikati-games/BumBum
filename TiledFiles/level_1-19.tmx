@@ -1,45 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="left-up" width="11" height="9" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="11">
- <tileset firstgid="1" source="TileCollection.tsx"/>
- <tileset firstgid="26" source="bum.tsx"/>
- <tileset firstgid="28" source="janitor.tsx"/>
- <tileset firstgid="30" source="change.tsx"/>
- <layer id="1" name="floor" width="11" height="9">
+<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="left-up" width="3" height="9" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="5">
+ <editorsettings>
+  <export target="../levels/reach/10.lua" format="lua"/>
+ </editorsettings>
+ <tileset firstgid="1" source="janitor.tsx"/>
+ <tileset firstgid="3" source="TileCollection.tsx"/>
+ <tileset firstgid="28" source="bum.tsx"/>
+ <layer id="1" name="floor" width="3" height="9">
   <data encoding="csv">
-14,18,6,10,11,18,11,9,11,12,17,
-17,21,17,20,10,17,20,15,8,13,21,
-12,7,9,16,10,6,6,13,9,19,17,
-18,18,10,17,12,20,21,11,13,16,13,
-20,20,16,13,16,12,14,16,8,7,8,
-7,8,18,14,11,15,9,18,8,14,18,
-6,21,17,21,12,14,7,11,13,18,17,
-16,14,11,20,13,13,21,18,15,15,15,
-9,7,9,16,11,16,19,11,7,19,21
+12,20,15,
+8,22,9,
+22,14,12,
+17,12,16,
+17,9,14,
+21,12,18,
+13,22,20,
+9,21,18,
+12,19,10
 </data>
  </layer>
- <layer id="2" name="walls" width="11" height="9">
+ <layer id="2" name="walls" width="3" height="9">
   <data encoding="csv">
-0,0,0,0,0,2,0,0,0,0,2,
-0,2,0,0,0,2,0,0,2,0,2,
-0,2,0,0,2,2,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,2,0,
-2,0,0,0,0,2,2,2,0,0,0,
-0,0,0,0,0,2,2,2,2,2,2,
-0,0,0,2,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,
-2,2,2,2,0,0,0,0,0,0,0
+0,0,0,
+0,0,0,
+0,0,0,
+0,0,0,
+0,0,0,
+0,0,0,
+0,0,0,
+0,0,0,
+0,0,0
 </data>
  </layer>
  <objectgroup id="3" name="objects">
-  <object id="2" type="trap" gid="25" x="80" y="64" width="16" height="16">
+  <object id="1" type="janitor" gid="1" x="16" y="64" width="16" height="16"/>
+  <object id="2" name="player" gid="28" x="16" y="32" width="16" height="16"/>
+  <object id="3" name="finish" gid="5" x="16" y="128" width="16" height="16"/>
+  <object id="4" type="trap" gid="24" x="16" y="96" width="16" height="16">
    <properties>
-    <property name="isHorizontalAllowed" type="bool" value="true"/>
-    <property name="isVerticalAllowed" type="bool" value="true"/>
+    <property name="isHorizontalAllowed" type="bool" value="false"/>
+    <property name="isVerticalAllowed" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="3" name="finish" gid="3" x="32" y="48" width="16" height="16"/>
-  <object id="4" name="player" gid="26" x="32" y="80" width="16" height="16"/>
-  <object id="5" type="janitor" gid="28" x="144" y="112" width="16" height="16"/>
-  <object id="6" name="collectible" gid="30" x="112" y="64" width="16" height="16"/>
  </objectgroup>
 </map>
