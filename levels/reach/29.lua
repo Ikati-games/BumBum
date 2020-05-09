@@ -72,7 +72,7 @@ return {
       },
       properties = {},
       terrains = {},
-      tilecount = 22,
+      tilecount = 28,
       tiles = {
         {
           id = 1,
@@ -205,12 +205,48 @@ return {
           image = "../../sprites/trap/trap_both.png",
           width = 16,
           height = 16
+        },
+        {
+          id = 25,
+          image = "../../sprites/plate/plate.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 26,
+          image = "../../sprites/plate/plate_pressed.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 27,
+          image = "../../sprites/gate/gate_horizontal.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 28,
+          image = "../../sprites/gate/gate_horizontal_open.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 29,
+          image = "../../sprites/gate/gate_vertical.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 30,
+          image = "../../sprites/gate/gate_vertical_open.png",
+          width = 16,
+          height = 16
         }
       }
     },
     {
       name = "janitor",
-      firstgid = 28,
+      firstgid = 34,
       filename = "../../TiledFiles/janitor.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -314,20 +350,6 @@ return {
       properties = {},
       objects = {
         {
-          id = 1,
-          name = "player",
-          type = "",
-          shape = "rectangle",
-          x = 48,
-          y = 96,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 1,
-          visible = true,
-          properties = {}
-        },
-        {
           id = 2,
           name = "finish",
           type = "",
@@ -342,6 +364,20 @@ return {
           properties = {}
         },
         {
+          id = 1,
+          name = "player",
+          type = "",
+          shape = "rectangle",
+          x = 48,
+          y = 96,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 1,
+          visible = true,
+          properties = {}
+        },
+        {
           id = 4,
           name = "",
           type = "janitor",
@@ -351,7 +387,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 28,
+          gid = 34,
           visible = true,
           properties = {}
         },
@@ -365,7 +401,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 28,
+          gid = 34,
           visible = true,
           properties = {}
         },
@@ -379,7 +415,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 28,
+          gid = 34,
           visible = true,
           properties = {}
         },
@@ -393,7 +429,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 28,
+          gid = 34,
           visible = true,
           properties = {}
         },
@@ -407,7 +443,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 28,
+          gid = 34,
           visible = true,
           properties = {}
         },
@@ -421,7 +457,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 28,
+          gid = 34,
           visible = true,
           properties = {}
         },
@@ -435,7 +471,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 28,
+          gid = 34,
           visible = true,
           properties = {}
         },
@@ -449,7 +485,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 28,
+          gid = 34,
           visible = true,
           properties = {}
         },
@@ -463,7 +499,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 28,
+          gid = 34,
           visible = true,
           properties = {}
         }

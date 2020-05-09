@@ -398,6 +398,34 @@ return {
           properties = {}
         },
         {
+          id = 5,
+          name = "collectible",
+          type = "",
+          shape = "rectangle",
+          x = 32,
+          y = 64,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 36,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 4,
+          name = "player",
+          type = "",
+          shape = "rectangle",
+          x = 16,
+          y = 80,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 32,
+          visible = true,
+          properties = {}
+        },
+        {
           id = 2,
           name = "",
           type = "janitor",
@@ -422,34 +450,6 @@ return {
           height = 16,
           rotation = 0,
           gid = 34,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 4,
-          name = "player",
-          type = "",
-          shape = "rectangle",
-          x = 16,
-          y = 80,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 32,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 5,
-          name = "collectible",
-          type = "",
-          shape = "rectangle",
-          x = 32,
-          y = 64,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 36,
           visible = true,
           properties = {}
         }

@@ -38,8 +38,8 @@
 </data>
  </layer>
  <objectgroup id="3" name="objects">
-  <object id="1" name="player" gid="1" x="64" y="144" width="16" height="16"/>
   <object id="2" name="finish" gid="5" x="128" y="48" width="16" height="16"/>
+  <object id="1" name="player" gid="1" x="64" y="144" width="16" height="16"/>
   <object id="3" type="trap" gid="27" x="64" y="96" width="16" height="16">
    <properties>
     <property name="isHorizontalAllowed" type="bool" value="true"/>

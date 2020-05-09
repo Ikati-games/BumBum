@@ -370,6 +370,20 @@ return {
           properties = {}
         },
         {
+          id = 8,
+          name = "finish",
+          type = "",
+          shape = "rectangle",
+          x = 176,
+          y = 16,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 3,
+          visible = true,
+          properties = {}
+        },
+        {
           id = 1,
           name = "player",
           type = "",
@@ -396,71 +410,6 @@ return {
           gid = 34,
           visible = true,
           properties = {}
-        },
-        {
-          id = 3,
-          name = "",
-          type = "gate",
-          shape = "rectangle",
-          x = 112,
-          y = 64,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 29,
-          visible = true,
-          properties = {
-            ["allign"] = "horizontal",
-            ["isOpen"] = true
-          }
-        },
-        {
-          id = 5,
-          name = "",
-          type = "gate",
-          shape = "rectangle",
-          x = 112,
-          y = 32,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 29,
-          visible = true,
-          properties = {
-            ["allign"] = "horizontal",
-            ["isOpen"] = true
-          }
-        },
-        {
-          id = 8,
-          name = "finish",
-          type = "",
-          shape = "rectangle",
-          x = 176,
-          y = 16,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 3,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 9,
-          name = "",
-          type = "gate",
-          shape = "rectangle",
-          x = 176,
-          y = 32,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 30,
-          visible = true,
-          properties = {
-            ["allign"] = "vertical",
-            ["isOpen"] = false
-          }
         },
         {
           id = 10,
@@ -545,6 +494,57 @@ return {
           properties = {
             ["isHorizontalAllowed"] = false,
             ["isVerticalAllowed"] = true
+          }
+        },
+        {
+          id = 3,
+          name = "",
+          type = "gate",
+          shape = "rectangle",
+          x = 112,
+          y = 64,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 29,
+          visible = true,
+          properties = {
+            ["allign"] = "horizontal",
+            ["isOpen"] = true
+          }
+        },
+        {
+          id = 5,
+          name = "",
+          type = "gate",
+          shape = "rectangle",
+          x = 112,
+          y = 32,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 29,
+          visible = true,
+          properties = {
+            ["allign"] = "horizontal",
+            ["isOpen"] = true
+          }
+        },
+        {
+          id = 9,
+          name = "",
+          type = "gate",
+          shape = "rectangle",
+          x = 176,
+          y = 32,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 30,
+          visible = true,
+          properties = {
+            ["allign"] = "vertical",
+            ["isOpen"] = false
           }
         }
       }

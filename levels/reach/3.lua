@@ -306,20 +306,6 @@ return {
       properties = {},
       objects = {
         {
-          id = 1,
-          name = "player",
-          type = "",
-          shape = "rectangle",
-          x = 16,
-          y = 80,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 32,
-          visible = true,
-          properties = {}
-        },
-        {
           id = 2,
           name = "finish",
           type = "",
@@ -330,6 +316,20 @@ return {
           height = 16,
           rotation = 0,
           gid = 3,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 1,
+          name = "player",
+          type = "",
+          shape = "rectangle",
+          x = 16,
+          y = 80,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 32,
           visible = true,
           properties = {}
         }

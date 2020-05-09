@@ -384,6 +384,34 @@ return {
           properties = {}
         },
         {
+          id = 10,
+          name = "finish",
+          type = "",
+          shape = "rectangle",
+          x = 112,
+          y = 32,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 3,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 7,
+          name = "player",
+          type = "",
+          shape = "rectangle",
+          x = 48,
+          y = 160,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 34,
+          visible = true,
+          properties = {}
+        },
+        {
           id = 2,
           name = "",
           type = "janitor",
@@ -415,18 +443,21 @@ return {
           }
         },
         {
-          id = 7,
-          name = "player",
-          type = "",
+          id = 13,
+          name = "",
+          type = "trap",
           shape = "rectangle",
-          x = 48,
-          y = 160,
+          x = 80,
+          y = 144,
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 34,
+          gid = 25,
           visible = true,
-          properties = {}
+          properties = {
+            ["isHorizontalAllowed"] = true,
+            ["isVerticalAllowed"] = true
+          }
         },
         {
           id = 8,
@@ -443,37 +474,6 @@ return {
           properties = {
             ["allign"] = "vertical",
             ["isOpen"] = true
-          }
-        },
-        {
-          id = 10,
-          name = "finish",
-          type = "",
-          shape = "rectangle",
-          x = 112,
-          y = 32,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 3,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 13,
-          name = "",
-          type = "trap",
-          shape = "rectangle",
-          x = 80,
-          y = 144,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 25,
-          visible = true,
-          properties = {
-            ["isHorizontalAllowed"] = true,
-            ["isVerticalAllowed"] = true
           }
         },
         {

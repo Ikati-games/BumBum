@@ -46,6 +46,7 @@
 </data>
  </layer>
  <objectgroup id="3" name="objects">
+  <object id="7" name="finish" gid="7" x="112" y="80" width="16" height="16"/>
   <object id="1" name="player" gid="1" x="80" y="208" width="16" height="16"/>
   <object id="2" type="janitor" gid="3" x="80" y="176" width="16" height="16"/>
   <object id="3" type="trap" gid="27" x="48" y="160" width="16" height="16">
@@ -72,7 +73,6 @@
     <property name="isVerticalAllowed" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="7" name="finish" gid="7" x="112" y="80" width="16" height="16"/>
   <object id="8" type="trap" gid="29" x="112" y="240" width="16" height="16">
    <properties>
     <property name="isHorizontalAllowed" type="bool" value="true"/>

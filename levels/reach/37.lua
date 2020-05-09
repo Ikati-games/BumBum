@@ -358,6 +358,34 @@ return {
           properties = {}
         },
         {
+          id = 5,
+          name = "finish",
+          type = "",
+          shape = "rectangle",
+          x = 32,
+          y = 16,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 5,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 1,
+          name = "player",
+          type = "",
+          shape = "rectangle",
+          x = 64,
+          y = 80,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 1,
+          visible = true,
+          properties = {}
+        },
+        {
           id = 3,
           name = "",
           type = "janitor",
@@ -387,34 +415,6 @@ return {
             ["allign"] = "vertical",
             ["isOpen"] = false
           }
-        },
-        {
-          id = 1,
-          name = "player",
-          type = "",
-          shape = "rectangle",
-          x = 64,
-          y = 80,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 1,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 5,
-          name = "finish",
-          type = "",
-          shape = "rectangle",
-          x = 32,
-          y = 16,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 5,
-          visible = true,
-          properties = {}
         }
       }
     }

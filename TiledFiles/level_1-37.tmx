@@ -28,6 +28,8 @@
  </layer>
  <objectgroup id="3" name="objects">
   <object id="2" type="plate" gid="28" x="64" y="48" width="16" height="16"/>
+  <object id="5" name="finish" gid="5" x="32" y="16" width="16" height="16"/>
+  <object id="1" name="player" gid="1" x="64" y="80" width="16" height="16"/>
   <object id="3" type="janitor" gid="34" x="16" y="64" width="16" height="16"/>
   <object id="4" type="gate" gid="32" x="32" y="32" width="16" height="16">
    <properties>
@@ -35,7 +37,5 @@
     <property name="isOpen" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="1" name="player" gid="1" x="64" y="80" width="16" height="16"/>
-  <object id="5" name="finish" gid="5" x="32" y="16" width="16" height="16"/>
  </objectgroup>
 </map>

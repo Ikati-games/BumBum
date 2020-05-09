@@ -72,7 +72,7 @@ return {
       },
       properties = {},
       terrains = {},
-      tilecount = 22,
+      tilecount = 28,
       tiles = {
         {
           id = 1,
@@ -205,12 +205,48 @@ return {
           image = "../../sprites/trap/trap_both.png",
           width = 16,
           height = 16
+        },
+        {
+          id = 25,
+          image = "../../sprites/plate/plate.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 26,
+          image = "../../sprites/plate/plate_pressed.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 27,
+          image = "../../sprites/gate/gate_horizontal.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 28,
+          image = "../../sprites/gate/gate_horizontal_open.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 29,
+          image = "../../sprites/gate/gate_vertical.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 30,
+          image = "../../sprites/gate/gate_vertical_open.png",
+          width = 16,
+          height = 16
         }
       }
     },
     {
       name = "bum",
-      firstgid = 28,
+      firstgid = 34,
       filename = "../../TiledFiles/bum.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -314,16 +350,16 @@ return {
       properties = {},
       objects = {
         {
-          id = 1,
-          name = "",
-          type = "janitor",
+          id = 3,
+          name = "finish",
+          type = "",
           shape = "rectangle",
           x = 16,
-          y = 64,
+          y = 128,
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 1,
+          gid = 5,
           visible = true,
           properties = {}
         },
@@ -337,21 +373,21 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 28,
+          gid = 34,
           visible = true,
           properties = {}
         },
         {
-          id = 3,
-          name = "finish",
-          type = "",
+          id = 1,
+          name = "",
+          type = "janitor",
           shape = "rectangle",
           x = 16,
-          y = 128,
+          y = 64,
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 5,
+          gid = 1,
           visible = true,
           properties = {}
         },

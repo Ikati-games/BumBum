@@ -350,40 +350,6 @@ return {
       properties = {},
       objects = {
         {
-          id = 1,
-          name = "",
-          type = "gate",
-          shape = "rectangle",
-          x = 48,
-          y = 96,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 28,
-          visible = true,
-          properties = {
-            ["allign"] = "horizontal",
-            ["isOpen"] = false
-          }
-        },
-        {
-          id = 2,
-          name = "",
-          type = "gate",
-          shape = "rectangle",
-          x = 112,
-          y = 96,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 29,
-          visible = true,
-          properties = {
-            ["allign"] = "horizontal",
-            ["isOpen"] = true
-          }
-        },
-        {
           id = 4,
           name = "",
           type = "plate",
@@ -408,6 +374,34 @@ return {
           height = 16,
           rotation = 0,
           gid = 26,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 9,
+          name = "finish",
+          type = "",
+          shape = "rectangle",
+          x = 160,
+          y = 32,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 3,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 8,
+          name = "player",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 112,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 34,
           visible = true,
           properties = {}
         },
@@ -440,32 +434,38 @@ return {
           properties = {}
         },
         {
-          id = 8,
-          name = "player",
-          type = "",
+          id = 1,
+          name = "",
+          type = "gate",
           shape = "rectangle",
-          x = 0,
-          y = 112,
+          x = 48,
+          y = 96,
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 34,
+          gid = 28,
           visible = true,
-          properties = {}
+          properties = {
+            ["allign"] = "horizontal",
+            ["isOpen"] = false
+          }
         },
         {
-          id = 9,
-          name = "finish",
-          type = "",
+          id = 2,
+          name = "",
+          type = "gate",
           shape = "rectangle",
-          x = 160,
-          y = 32,
+          x = 112,
+          y = 96,
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 3,
+          gid = 29,
           visible = true,
-          properties = {}
+          properties = {
+            ["allign"] = "horizontal",
+            ["isOpen"] = true
+          }
         }
       }
     }

@@ -344,6 +344,34 @@ return {
       properties = {},
       objects = {
         {
+          id = 4,
+          name = "finish",
+          type = "",
+          shape = "rectangle",
+          x = 64,
+          y = 64,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 5,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 6,
+          name = "collectible",
+          type = "",
+          shape = "rectangle",
+          x = 96,
+          y = 32,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 34,
+          visible = true,
+          properties = {}
+        },
+        {
           id = 1,
           name = "player",
           type = "",
@@ -390,34 +418,6 @@ return {
             ["isHorizontalAllowed"] = false,
             ["isVerticalAllowed"] = true
           }
-        },
-        {
-          id = 4,
-          name = "finish",
-          type = "",
-          shape = "rectangle",
-          x = 64,
-          y = 64,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 5,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 6,
-          name = "collectible",
-          type = "",
-          shape = "rectangle",
-          x = 96,
-          y = 32,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 34,
-          visible = true,
-          properties = {}
         }
       }
     }

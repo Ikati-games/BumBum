@@ -32,7 +32,7 @@ return {
       },
       properties = {},
       terrains = {},
-      tilecount = 22,
+      tilecount = 28,
       tiles = {
         {
           id = 1,
@@ -165,12 +165,48 @@ return {
           image = "../../sprites/trap/trap_both.png",
           width = 16,
           height = 16
+        },
+        {
+          id = 25,
+          image = "../../sprites/plate/plate.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 26,
+          image = "../../sprites/plate/plate_pressed.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 27,
+          image = "../../sprites/gate/gate_horizontal.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 28,
+          image = "../../sprites/gate/gate_horizontal_open.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 29,
+          image = "../../sprites/gate/gate_vertical.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 30,
+          image = "../../sprites/gate/gate_vertical_open.png",
+          width = 16,
+          height = 16
         }
       }
     },
     {
       name = "bum",
-      firstgid = 26,
+      firstgid = 32,
       filename = "../../TiledFiles/bum.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -210,7 +246,7 @@ return {
     },
     {
       name = "change",
-      firstgid = 28,
+      firstgid = 34,
       filename = "../../TiledFiles/change.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -332,8 +368,36 @@ return {
           properties = {}
         },
         {
+          id = 11,
+          name = "collectible",
+          type = "",
+          shape = "rectangle",
+          x = 112,
+          y = 16,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 34,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 10,
+          name = "player",
+          type = "",
+          shape = "rectangle",
+          x = 80,
+          y = 160,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 32,
+          visible = true,
+          properties = {}
+        },
+        {
           id = 3,
-          name = "trap1",
+          name = "",
           type = "trap",
           shape = "rectangle",
           x = 48,
@@ -350,7 +414,7 @@ return {
         },
         {
           id = 4,
-          name = "trap2",
+          name = "",
           type = "trap",
           shape = "rectangle",
           x = 112,
@@ -367,7 +431,7 @@ return {
         },
         {
           id = 5,
-          name = "trap3",
+          name = "",
           type = "trap",
           shape = "rectangle",
           x = 144,
@@ -384,7 +448,7 @@ return {
         },
         {
           id = 6,
-          name = "trap4",
+          name = "",
           type = "trap",
           shape = "rectangle",
           x = 32,
@@ -401,7 +465,7 @@ return {
         },
         {
           id = 7,
-          name = "trap5",
+          name = "",
           type = "trap",
           shape = "rectangle",
           x = 64,
@@ -415,34 +479,6 @@ return {
             ["isHorizontalAllowed"] = false,
             ["isVerticalAllowed"] = true
           }
-        },
-        {
-          id = 10,
-          name = "player",
-          type = "",
-          shape = "rectangle",
-          x = 80,
-          y = 160,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 26,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 11,
-          name = "collectible",
-          type = "",
-          shape = "rectangle",
-          x = 112,
-          y = 16,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 28,
-          visible = true,
-          properties = {}
         }
       }
     }

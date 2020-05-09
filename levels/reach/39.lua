@@ -424,6 +424,34 @@ return {
           properties = {}
         },
         {
+          id = 11,
+          name = "finish",
+          type = "",
+          shape = "rectangle",
+          x = 112,
+          y = 176,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 5,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 5,
+          name = "collectible",
+          type = "",
+          shape = "rectangle",
+          x = 96,
+          y = 96,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 36,
+          visible = true,
+          properties = {}
+        },
+        {
           id = 1,
           name = "player",
           type = "",
@@ -480,20 +508,6 @@ return {
           properties = {}
         },
         {
-          id = 5,
-          name = "collectible",
-          type = "",
-          shape = "rectangle",
-          x = 96,
-          y = 96,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 36,
-          visible = true,
-          properties = {}
-        },
-        {
           id = 6,
           name = "",
           type = "gate",
@@ -543,20 +557,6 @@ return {
             ["allign"] = "vertical",
             ["isOpen"] = false
           }
-        },
-        {
-          id = 11,
-          name = "finish",
-          type = "",
-          shape = "rectangle",
-          x = 112,
-          y = 176,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 5,
-          visible = true,
-          properties = {}
         }
       }
     }

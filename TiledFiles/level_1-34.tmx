@@ -4,9 +4,9 @@
   <export target="../levels/reach/18.lua" format="lua"/>
  </editorsettings>
  <tileset firstgid="1" source="TileCollection.tsx"/>
- <tileset firstgid="26" source="janitor.tsx"/>
- <tileset firstgid="28" source="bum.tsx"/>
- <tileset firstgid="30" source="change.tsx"/>
+ <tileset firstgid="32" source="janitor.tsx"/>
+ <tileset firstgid="34" source="bum.tsx"/>
+ <tileset firstgid="36" source="change.tsx"/>
  <layer id="1" name="floor" width="13" height="14">
   <data encoding="csv">
 11,20,15,6,9,20,6,16,18,6,20,12,9,
@@ -27,9 +27,9 @@
  </layer>
  <layer id="2" name="walls" width="13" height="14">
   <data encoding="csv">
-2,2,2,2,2,2,0,0,0,2,26,3,26,
-0,0,0,0,0,0,0,0,0,2,3,26,3,
-0,0,0,0,0,0,0,0,0,2,26,3,26,
+2,2,2,2,2,2,0,0,0,2,32,3,32,
+0,0,0,0,0,0,0,0,0,2,3,32,3,
+0,0,0,0,0,0,0,0,0,2,32,3,32,
 0,0,0,0,0,0,2,0,0,2,2,2,2,
 0,0,0,0,0,0,2,0,0,0,0,0,0,
 0,0,0,0,0,0,2,0,0,0,0,0,0,
@@ -44,10 +44,10 @@
 </data>
  </layer>
  <objectgroup id="4" name="objects">
-  <object id="1" type="janitor" gid="27" x="128" y="80" width="16" height="16"/>
-  <object id="4" type="janitor" gid="27" x="96" y="144" width="16" height="16"/>
-  <object id="5" name="player" gid="28" x="176" y="144" width="16" height="16"/>
   <object id="6" name="finish" gid="3" x="64" y="80" width="16" height="16"/>
-  <object id="8" name="collectible" gid="30" x="16" y="112" width="16" height="16"/>
+  <object id="8" name="collectible" gid="36" x="16" y="112" width="16" height="16"/>
+  <object id="5" name="player" gid="34" x="176" y="144" width="16" height="16"/>
+  <object id="1" type="janitor" gid="33" x="128" y="80" width="16" height="16"/>
+  <object id="4" type="janitor" gid="33" x="96" y="144" width="16" height="16"/>
  </objectgroup>
 </map>

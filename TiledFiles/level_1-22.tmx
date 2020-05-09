@@ -6,7 +6,7 @@
  <tileset firstgid="1" source="change.tsx"/>
  <tileset firstgid="3" source="janitor.tsx"/>
  <tileset firstgid="5" source="TileCollection.tsx"/>
- <tileset firstgid="30" source="bum.tsx"/>
+ <tileset firstgid="36" source="bum.tsx"/>
  <layer id="1" name="floor" width="11" height="10">
   <data encoding="csv">
 14,18,18,23,23,18,10,22,18,22,20,
@@ -36,6 +36,8 @@
 </data>
  </layer>
  <objectgroup id="3" name="objects">
+  <object id="6" name="finish" gid="7" x="144" y="80" width="16" height="16"/>
+  <object id="5" name="player" gid="36" x="48" y="80" width="16" height="16"/>
   <object id="2" type="janitor" gid="3" x="96" y="80" width="16" height="16"/>
   <object id="4" type="trap" gid="28" x="128" y="80" width="16" height="16">
    <properties>
@@ -43,8 +45,6 @@
     <property name="isVerticalAllowed" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="5" name="player" gid="30" x="48" y="80" width="16" height="16"/>
-  <object id="6" name="finish" gid="7" x="144" y="80" width="16" height="16"/>
   <object id="9" type="trap" gid="29" x="80" y="80" width="16" height="16">
    <properties>
     <property name="isHorizontalAllowed" type="bool" value="true"/>

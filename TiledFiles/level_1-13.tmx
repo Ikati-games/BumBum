@@ -4,7 +4,7 @@
   <export target="../levels/reach/7.lua" format="lua"/>
  </editorsettings>
  <tileset firstgid="1" source="TileCollection.tsx"/>
- <tileset firstgid="35" source="bum.tsx"/>
+ <tileset firstgid="32" source="bum.tsx"/>
  <layer id="1" name="floor" width="12" height="14">
   <data encoding="csv">
 16,21,19,14,9,18,14,19,20,15,12,15,
@@ -42,19 +42,19 @@
 </data>
  </layer>
  <objectgroup id="3" name="objects">
-  <object id="1" name="trap1" type="trap" gid="24" x="96" y="64" width="16" height="16">
+  <object id="4" name="finish" gid="3" x="112" y="176" width="16" height="16"/>
+  <object id="5" name="player" gid="32" x="112" y="80" width="16" height="16"/>
+  <object id="1" type="trap" gid="24" x="96" y="64" width="16" height="16">
    <properties>
     <property name="isHorizontalAllowed" type="bool" value="false"/>
     <property name="isVerticalAllowed" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="2" name="trap2" type="trap" gid="23" x="127" y="192" width="16" height="16">
+  <object id="2" type="trap" gid="23" x="127" y="192" width="16" height="16">
    <properties>
     <property name="isHorizontalAllowed" type="bool" value="true"/>
     <property name="isVerticalAllowed" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="4" name="finish" gid="3" x="112" y="176" width="16" height="16"/>
-  <object id="5" name="player" gid="35" x="112" y="80" width="16" height="16"/>
  </objectgroup>
 </map>

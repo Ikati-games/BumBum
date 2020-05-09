@@ -41,10 +41,10 @@
 </data>
  </layer>
  <objectgroup id="3" name="objects">
+  <object id="5" name="finish" gid="5" x="144" y="96" width="16" height="16"/>
+  <object id="6" name="player" gid="34" x="80" y="80" width="16" height="16"/>
   <object id="1" type="janitor" gid="1" x="144" y="128" width="16" height="16"/>
   <object id="3" type="janitor" gid="1" x="80" y="128" width="16" height="16"/>
   <object id="4" type="janitor" gid="1" x="96" y="64" width="16" height="16"/>
-  <object id="5" name="finish" gid="5" x="144" y="96" width="16" height="16"/>
-  <object id="6" name="player" gid="34" x="80" y="80" width="16" height="16"/>
  </objectgroup>
 </map>

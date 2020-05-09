@@ -16,8 +16,8 @@ return {
       name = "TileCollection",
       firstgid = 1,
       filename = "../../../../TileCollection.tsx",
-      tilewidth = 16,
-      tileheight = 16,
+      tilewidth = 32,
+      tileheight = 32,
       spacing = 0,
       margin = 0,
       columns = 0,
@@ -27,42 +27,17 @@ return {
       },
       grid = {
         orientation = "orthogonal",
-        width = 1,
-        height = 1
+        width = 32,
+        height = 32
       },
       properties = {},
       terrains = {},
-      tilecount = 4,
-      tiles = {
-        {
-          id = 0,
-          image = "../../sprites/background/bg_tile_1_1.png",
-          width = 16,
-          height = 16
-        },
-        {
-          id = 1,
-          image = "../../sprites/wall/wall.png",
-          width = 16,
-          height = 16
-        },
-        {
-          id = 2,
-          image = "../../sprites/trashcan/trashcan.png",
-          width = 16,
-          height = 16
-        },
-        {
-          id = 4,
-          image = "../../sprites/bum/bum.gif",
-          width = 16,
-          height = 16
-        }
-      }
+      tilecount = 0,
+      tiles = {}
     },
     {
       name = "TileCollection",
-      firstgid = 6,
+      firstgid = 1,
       filename = "../../TiledFiles/TileCollection.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -80,7 +55,7 @@ return {
       },
       properties = {},
       terrains = {},
-      tilecount = 22,
+      tilecount = 28,
       tiles = {
         {
           id = 1,
@@ -213,12 +188,48 @@ return {
           image = "../../sprites/trap/trap_both.png",
           width = 16,
           height = 16
+        },
+        {
+          id = 25,
+          image = "../../sprites/plate/plate.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 26,
+          image = "../../sprites/plate/plate_pressed.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 27,
+          image = "../../sprites/gate/gate_horizontal.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 28,
+          image = "../../sprites/gate/gate_horizontal_open.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 29,
+          image = "../../sprites/gate/gate_vertical.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 30,
+          image = "../../sprites/gate/gate_vertical_open.png",
+          width = 16,
+          height = 16
         }
       }
     },
     {
       name = "change",
-      firstgid = 40,
+      firstgid = 32,
       filename = "../../TiledFiles/change.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -258,7 +269,7 @@ return {
     },
     {
       name = "bum",
-      firstgid = 42,
+      firstgid = 34,
       filename = "../../TiledFiles/bum.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -313,21 +324,21 @@ return {
       properties = {},
       encoding = "lua",
       data = {
-        26, 15, 18, 26, 26, 26, 21, 18,
-        14, 21, 12, 22, 19, 19, 24, 16,
-        22, 11, 24, 19, 14, 23, 22, 15,
-        23, 15, 17, 18, 23, 19, 19, 12,
-        14, 12, 26, 12, 12, 12, 23, 24,
-        13, 20, 23, 11, 19, 13, 19, 15,
-        15, 18, 16, 15, 19, 24, 14, 18,
-        13, 15, 21, 21, 26, 13, 20, 19,
-        24, 20, 13, 17, 16, 25, 12, 25,
-        11, 14, 19, 12, 25, 13, 25, 17,
-        11, 18, 11, 19, 22, 16, 23, 19,
-        24, 21, 20, 12, 21, 21, 14, 19,
-        12, 24, 11, 16, 24, 11, 19, 15,
-        21, 22, 25, 23, 24, 15, 25, 18,
-        24, 18, 21, 12, 14, 16, 16, 15
+        21, 10, 13, 21, 21, 21, 16, 13,
+        9, 16, 7, 17, 14, 14, 19, 11,
+        17, 6, 19, 14, 9, 18, 17, 10,
+        18, 10, 12, 13, 18, 14, 14, 7,
+        9, 7, 21, 7, 7, 7, 18, 19,
+        8, 15, 18, 6, 14, 8, 14, 10,
+        10, 13, 11, 10, 14, 19, 9, 13,
+        8, 10, 16, 16, 21, 8, 15, 14,
+        19, 15, 8, 12, 11, 20, 7, 20,
+        6, 9, 14, 7, 20, 8, 20, 12,
+        6, 13, 6, 14, 17, 11, 18, 14,
+        19, 16, 15, 7, 16, 16, 9, 14,
+        7, 19, 6, 11, 19, 6, 14, 10,
+        16, 17, 20, 18, 19, 10, 20, 13,
+        19, 13, 16, 7, 9, 11, 11, 10
       }
     },
     {
@@ -346,16 +357,16 @@ return {
       encoding = "lua",
       data = {
         0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 7, 7, 0, 0, 0, 0,
-        0, 7, 0, 0, 7, 7, 0, 0,
+        0, 0, 2, 2, 0, 0, 0, 0,
+        0, 2, 0, 0, 2, 2, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 7, 0, 0, 0,
-        0, 7, 7, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 2, 0, 0, 0,
+        0, 2, 2, 0, 0, 0, 0, 0,
         0, 0, 0, 2, 0, 0, 0, 0,
-        0, 7, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 2, 7, 0,
+        0, 2, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 2, 2, 0,
         0, 2, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 2, 0, 0, 0,
         0, 2, 0, 0, 0, 0, 2, 0,
@@ -374,6 +385,20 @@ return {
       properties = {},
       objects = {
         {
+          id = 53,
+          name = "finish",
+          type = "",
+          shape = "rectangle",
+          x = 64,
+          y = 64,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 3,
+          visible = true,
+          properties = {}
+        },
+        {
           id = 1,
           name = "collectible",
           type = "",
@@ -383,7 +408,21 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 40,
+          gid = 32,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 52,
+          name = "player",
+          type = "",
+          shape = "rectangle",
+          x = 64,
+          y = 224,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 34,
           visible = true,
           properties = {}
         },
@@ -397,7 +436,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -414,7 +453,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -431,7 +470,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -448,7 +487,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -465,7 +504,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -482,7 +521,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -499,7 +538,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -516,7 +555,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -533,7 +572,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -550,7 +589,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -567,7 +606,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -584,7 +623,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -601,7 +640,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -618,7 +657,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -635,7 +674,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -652,7 +691,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -669,7 +708,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -686,7 +725,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -703,7 +742,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -720,7 +759,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -737,7 +776,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -754,7 +793,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -771,7 +810,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -788,7 +827,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -805,7 +844,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -822,7 +861,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -839,7 +878,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -856,7 +895,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -873,7 +912,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -890,7 +929,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -907,7 +946,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -924,7 +963,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -941,7 +980,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -958,7 +997,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -975,7 +1014,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -992,7 +1031,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -1009,7 +1048,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -1026,7 +1065,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -1043,7 +1082,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -1060,7 +1099,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -1077,7 +1116,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -1094,7 +1133,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -1111,7 +1150,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -1128,7 +1167,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -1145,7 +1184,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
@@ -1162,40 +1201,12 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,
             ["isVerticalAllowed"] = true
           }
-        },
-        {
-          id = 52,
-          name = "player",
-          type = "",
-          shape = "rectangle",
-          x = 64,
-          y = 224,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 42,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 53,
-          name = "finish",
-          type = "",
-          shape = "rectangle",
-          x = 64,
-          y = 64,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 8,
-          visible = true,
-          properties = {}
         },
         {
           id = 54,
@@ -1207,7 +1218,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 29,
+          gid = 24,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = false,
@@ -1224,7 +1235,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 25,
           visible = true,
           properties = {
             ["isHorizontalAllowed"] = true,

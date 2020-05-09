@@ -418,6 +418,20 @@ return {
       properties = {},
       objects = {
         {
+          id = 3,
+          name = "finish",
+          type = "",
+          shape = "rectangle",
+          x = 144,
+          y = 96,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 3,
+          visible = true,
+          properties = {}
+        },
+        {
           id = 1,
           name = "collectible",
           type = "",
@@ -442,20 +456,6 @@ return {
           height = 16,
           rotation = 0,
           gid = 34,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 3,
-          name = "finish",
-          type = "",
-          shape = "rectangle",
-          x = 144,
-          y = 96,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 3,
           visible = true,
           properties = {}
         }

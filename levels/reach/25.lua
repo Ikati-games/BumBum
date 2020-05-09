@@ -72,7 +72,7 @@ return {
       },
       properties = {},
       terrains = {},
-      tilecount = 22,
+      tilecount = 28,
       tiles = {
         {
           id = 1,
@@ -205,12 +205,48 @@ return {
           image = "../../sprites/trap/trap_both.png",
           width = 16,
           height = 16
+        },
+        {
+          id = 25,
+          image = "../../sprites/plate/plate.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 26,
+          image = "../../sprites/plate/plate_pressed.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 27,
+          image = "../../sprites/gate/gate_horizontal.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 28,
+          image = "../../sprites/gate/gate_horizontal_open.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 29,
+          image = "../../sprites/gate/gate_vertical.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 30,
+          image = "../../sprites/gate/gate_vertical_open.png",
+          width = 16,
+          height = 16
         }
       }
     },
     {
       name = "janitor",
-      firstgid = 28,
+      firstgid = 34,
       filename = "../../TiledFiles/janitor.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -324,6 +360,20 @@ return {
       properties = {},
       objects = {
         {
+          id = 2,
+          name = "finish",
+          type = "",
+          shape = "rectangle",
+          x = 128,
+          y = 48,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 5,
+          visible = true,
+          properties = {}
+        },
+        {
           id = 1,
           name = "player",
           type = "",
@@ -338,16 +388,16 @@ return {
           properties = {}
         },
         {
-          id = 2,
-          name = "finish",
-          type = "",
+          id = 7,
+          name = "",
+          type = "janitor",
           shape = "rectangle",
-          x = 128,
-          y = 48,
+          x = 80,
+          y = 160,
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 5,
+          gid = 34,
           visible = true,
           properties = {}
         },
@@ -418,20 +468,6 @@ return {
             ["isHorizontalAllowed"] = false,
             ["isVerticalAllowed"] = true
           }
-        },
-        {
-          id = 7,
-          name = "",
-          type = "janitor",
-          shape = "rectangle",
-          x = 80,
-          y = 160,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 28,
-          visible = true,
-          properties = {}
         },
         {
           id = 10,

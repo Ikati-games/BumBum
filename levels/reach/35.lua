@@ -380,6 +380,20 @@ return {
           properties = {}
         },
         {
+          id = 6,
+          name = "player",
+          type = "",
+          shape = "rectangle",
+          x = 144,
+          y = 144,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 34,
+          visible = true,
+          properties = {}
+        },
+        {
           id = 2,
           name = "",
           type = "janitor",
@@ -418,20 +432,6 @@ return {
           height = 16,
           rotation = 0,
           gid = 32,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 6,
-          name = "player",
-          type = "",
-          shape = "rectangle",
-          x = 144,
-          y = 144,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 34,
           visible = true,
           properties = {}
         }

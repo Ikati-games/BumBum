@@ -318,6 +318,20 @@ return {
           properties = {}
         },
         {
+          id = 3,
+          name = "player",
+          type = "",
+          shape = "rectangle",
+          x = 32,
+          y = 32,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 32,
+          visible = true,
+          properties = {}
+        },
+        {
           id = 2,
           name = "",
           type = "trap",
@@ -333,20 +347,6 @@ return {
             ["isHorizontalAllowed"] = false,
             ["isVerticalAllowed"] = true
           }
-        },
-        {
-          id = 3,
-          name = "player",
-          type = "",
-          shape = "rectangle",
-          x = 32,
-          y = 32,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 32,
-          visible = true,
-          properties = {}
         }
       }
     }

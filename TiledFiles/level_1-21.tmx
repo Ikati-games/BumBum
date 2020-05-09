@@ -4,9 +4,9 @@
   <export target="../levels/reach/13.lua" format="lua"/>
  </editorsettings>
  <tileset firstgid="1" source="TileCollection.tsx"/>
- <tileset firstgid="26" source="janitor.tsx"/>
- <tileset firstgid="28" source="bum.tsx"/>
- <tileset firstgid="30" source="change.tsx"/>
+ <tileset firstgid="32" source="janitor.tsx"/>
+ <tileset firstgid="34" source="bum.tsx"/>
+ <tileset firstgid="36" source="change.tsx"/>
  <layer id="1" name="floor" width="7" height="9">
   <data encoding="csv">
 20,15,18,15,9,8,17,
@@ -35,14 +35,14 @@
  </layer>
  <objectgroup id="3" name="objects">
   <object id="1" name="finish" gid="3" x="16" y="16" width="16" height="16"/>
+  <object id="5" name="collectible" gid="36" x="32" y="80" width="16" height="16"/>
+  <object id="4" name="player" gid="34" x="48" y="128" width="16" height="16"/>
+  <object id="3" type="janitor" gid="32" x="64" y="112" width="16" height="16"/>
   <object id="2" type="trap" gid="22" x="16" y="48" width="16" height="16">
    <properties>
     <property name="isHorizontalAllowed" type="bool" value="false"/>
     <property name="isVerticalAllowed" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="3" type="janitor" gid="26" x="64" y="112" width="16" height="16"/>
-  <object id="4" name="player" gid="28" x="48" y="128" width="16" height="16"/>
-  <object id="5" name="collectible" gid="30" x="32" y="80" width="16" height="16"/>
  </objectgroup>
 </map>

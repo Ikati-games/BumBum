@@ -4,8 +4,8 @@
   <export target="../levels/reach/11.lua" format="lua"/>
  </editorsettings>
  <tileset firstgid="1" source="TileCollection.tsx"/>
- <tileset firstgid="26" source="janitor.tsx"/>
- <tileset firstgid="28" source="bum.tsx"/>
+ <tileset firstgid="32" source="janitor.tsx"/>
+ <tileset firstgid="34" source="bum.tsx"/>
  <layer id="1" name="floor" width="8" height="8">
   <data encoding="csv">
 7,12,7,18,15,21,21,18,
@@ -31,14 +31,14 @@
 </data>
  </layer>
  <objectgroup id="3" name="objects">
+  <object id="4" name="finish" gid="3" x="96" y="32" width="16" height="16"/>
+  <object id="3" name="player" gid="34" x="48" y="112" width="16" height="16"/>
+  <object id="2" type="janitor" gid="32" x="80" y="96" width="16" height="16"/>
   <object id="1" type="trap" gid="22" x="96" y="48" width="16" height="16">
    <properties>
     <property name="isHorizontalAllowed" type="bool" value="false"/>
     <property name="isVerticalAllowed" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="2" type="janitor" gid="26" x="80" y="96" width="16" height="16"/>
-  <object id="3" name="player" gid="28" x="48" y="112" width="16" height="16"/>
-  <object id="4" name="finish" gid="3" x="96" y="32" width="16" height="16"/>
  </objectgroup>
 </map>

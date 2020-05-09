@@ -382,6 +382,48 @@ return {
       properties = {},
       objects = {
         {
+          id = 3,
+          name = "finish",
+          type = "",
+          shape = "rectangle",
+          x = 32,
+          y = 16,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 3,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 5,
+          name = "collectible",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 16,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 36,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 4,
+          name = "player",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 64,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 34,
+          visible = true,
+          properties = {}
+        },
+        {
           id = 1,
           name = "",
           type = "janitor",
@@ -411,48 +453,6 @@ return {
             ["isHorizontalAllowed"] = false,
             ["isVerticalAllowed"] = true
           }
-        },
-        {
-          id = 3,
-          name = "finish",
-          type = "",
-          shape = "rectangle",
-          x = 32,
-          y = 16,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 3,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 4,
-          name = "player",
-          type = "",
-          shape = "rectangle",
-          x = 0,
-          y = 64,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 34,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 5,
-          name = "collectible",
-          type = "",
-          shape = "rectangle",
-          x = 0,
-          y = 16,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 36,
-          visible = true,
-          properties = {}
         },
         {
           id = 6,

@@ -32,7 +32,7 @@ return {
       },
       properties = {},
       terrains = {},
-      tilecount = 22,
+      tilecount = 28,
       tiles = {
         {
           id = 1,
@@ -165,12 +165,48 @@ return {
           image = "../../sprites/trap/trap_both.png",
           width = 16,
           height = 16
+        },
+        {
+          id = 25,
+          image = "../../sprites/plate/plate.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 26,
+          image = "../../sprites/plate/plate_pressed.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 27,
+          image = "../../sprites/gate/gate_horizontal.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 28,
+          image = "../../sprites/gate/gate_horizontal_open.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 29,
+          image = "../../sprites/gate/gate_vertical.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 30,
+          image = "../../sprites/gate/gate_vertical_open.png",
+          width = 16,
+          height = 16
         }
       }
     },
     {
       name = "janitor",
-      firstgid = 26,
+      firstgid = 32,
       filename = "../../TiledFiles/janitor.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -210,7 +246,7 @@ return {
     },
     {
       name = "bum",
-      firstgid = 28,
+      firstgid = 34,
       filename = "../../TiledFiles/bum.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -250,7 +286,7 @@ return {
     },
     {
       name = "change",
-      firstgid = 30,
+      firstgid = 36,
       filename = "../../TiledFiles/change.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -336,9 +372,9 @@ return {
       properties = {},
       encoding = "lua",
       data = {
-        2, 2, 2, 2, 2, 2, 0, 0, 0, 2, 26, 3, 26,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 3, 26, 3,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 26, 3, 26,
+        2, 2, 2, 2, 2, 2, 0, 0, 0, 2, 32, 3, 32,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 3, 32, 3,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 32, 3, 32,
         0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 2, 2, 2,
         0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0,
@@ -364,48 +400,6 @@ return {
       properties = {},
       objects = {
         {
-          id = 1,
-          name = "",
-          type = "janitor",
-          shape = "rectangle",
-          x = 128,
-          y = 80,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 27,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 4,
-          name = "",
-          type = "janitor",
-          shape = "rectangle",
-          x = 96,
-          y = 144,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 27,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 5,
-          name = "player",
-          type = "",
-          shape = "rectangle",
-          x = 176,
-          y = 144,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 28,
-          visible = true,
-          properties = {}
-        },
-        {
           id = 6,
           name = "finish",
           type = "",
@@ -429,7 +423,49 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 30,
+          gid = 36,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 5,
+          name = "player",
+          type = "",
+          shape = "rectangle",
+          x = 176,
+          y = 144,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 34,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 1,
+          name = "",
+          type = "janitor",
+          shape = "rectangle",
+          x = 128,
+          y = 80,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 33,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 4,
+          name = "",
+          type = "janitor",
+          shape = "rectangle",
+          x = 96,
+          y = 144,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 33,
           visible = true,
           properties = {}
         }

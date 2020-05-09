@@ -5,7 +5,7 @@
  </editorsettings>
  <tileset firstgid="1" source="janitor.tsx"/>
  <tileset firstgid="3" source="TileCollection.tsx"/>
- <tileset firstgid="28" source="bum.tsx"/>
+ <tileset firstgid="34" source="bum.tsx"/>
  <layer id="1" name="floor" width="3" height="9">
   <data encoding="csv">
 12,20,15,
@@ -33,9 +33,9 @@
 </data>
  </layer>
  <objectgroup id="3" name="objects">
-  <object id="1" type="janitor" gid="1" x="16" y="64" width="16" height="16"/>
-  <object id="2" name="player" gid="28" x="16" y="32" width="16" height="16"/>
   <object id="3" name="finish" gid="5" x="16" y="128" width="16" height="16"/>
+  <object id="2" name="player" gid="34" x="16" y="32" width="16" height="16"/>
+  <object id="1" type="janitor" gid="1" x="16" y="64" width="16" height="16"/>
   <object id="4" type="trap" gid="24" x="16" y="96" width="16" height="16">
    <properties>
     <property name="isHorizontalAllowed" type="bool" value="false"/>

@@ -4,8 +4,8 @@
   <export target="../levels/reach/5.lua" format="lua"/>
  </editorsettings>
  <tileset firstgid="1" source="TileCollection.tsx"/>
- <tileset firstgid="26" source="bum.tsx"/>
- <tileset firstgid="28" source="change.tsx"/>
+ <tileset firstgid="32" source="bum.tsx"/>
+ <tileset firstgid="34" source="change.tsx"/>
  <layer id="1" name="floor" width="12" height="11">
   <data encoding="csv">
 7,10,21,14,10,14,15,15,17,20,19,19,
@@ -38,37 +38,37 @@
  </layer>
  <objectgroup id="3" name="objects">
   <object id="2" name="finish" gid="3" x="96" y="64" width="16" height="16"/>
-  <object id="3" name="trap1" type="trap" gid="23" x="48" y="160" width="16" height="16">
+  <object id="11" name="collectible" gid="34" x="112" y="16" width="16" height="16"/>
+  <object id="10" name="player" gid="32" x="80" y="160" width="16" height="16"/>
+  <object id="3" type="trap" gid="23" x="48" y="160" width="16" height="16">
    <properties>
     <property name="isHorizontalAllowed" type="bool" value="true"/>
     <property name="isVerticalAllowed" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="4" name="trap2" type="trap" gid="23" x="112" y="112" width="16" height="16">
+  <object id="4" type="trap" gid="23" x="112" y="112" width="16" height="16">
    <properties>
     <property name="isHorizontalAllowed" type="bool" value="true"/>
     <property name="isVerticalAllowed" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="5" name="trap3" type="trap" gid="24" x="144" y="112" width="16" height="16">
+  <object id="5" type="trap" gid="24" x="144" y="112" width="16" height="16">
    <properties>
     <property name="isHorizontalAllowed" type="bool" value="false"/>
     <property name="isVerticalAllowed" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="6" name="trap4" type="trap" gid="24" x="32" y="96" width="16" height="16">
+  <object id="6" type="trap" gid="24" x="32" y="96" width="16" height="16">
    <properties>
     <property name="isHorizontalAllowed" type="bool" value="false"/>
     <property name="isVerticalAllowed" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="7" name="trap5" type="trap" gid="24" x="64" y="64" width="16" height="16">
+  <object id="7" type="trap" gid="24" x="64" y="64" width="16" height="16">
    <properties>
     <property name="isHorizontalAllowed" type="bool" value="false"/>
     <property name="isVerticalAllowed" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="10" name="player" gid="26" x="80" y="160" width="16" height="16"/>
-  <object id="11" name="collectible" gid="28" x="112" y="16" width="16" height="16"/>
  </objectgroup>
 </map>

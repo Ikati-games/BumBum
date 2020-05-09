@@ -40,27 +40,9 @@
  </layer>
  <objectgroup id="3" name="objects">
   <object id="6" type="plate" gid="26" x="32" y="64" width="16" height="16"/>
+  <object id="8" name="finish" gid="3" x="176" y="16" width="16" height="16"/>
   <object id="1" name="player" gid="32" x="80" y="80" width="16" height="16"/>
   <object id="2" type="janitor" gid="34" x="144" y="112" width="16" height="16"/>
-  <object id="3" type="gate" gid="29" x="112" y="64" width="16" height="16">
-   <properties>
-    <property name="allign" value="horizontal"/>
-    <property name="isOpen" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="5" type="gate" gid="29" x="112" y="32" width="16" height="16">
-   <properties>
-    <property name="allign" value="horizontal"/>
-    <property name="isOpen" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="8" name="finish" gid="3" x="176" y="16" width="16" height="16"/>
-  <object id="9" type="gate" gid="30" x="176" y="32" width="16" height="16">
-   <properties>
-    <property name="allign" value="vertical"/>
-    <property name="isOpen" type="bool" value="false"/>
-   </properties>
-  </object>
   <object id="10" type="trap" gid="25" x="160" y="112" width="16" height="16">
    <properties>
     <property name="isHorizontalAllowed" type="bool" value="true"/>
@@ -89,6 +71,24 @@
    <properties>
     <property name="isHorizontalAllowed" type="bool" value="false"/>
     <property name="isVerticalAllowed" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="3" type="gate" gid="29" x="112" y="64" width="16" height="16">
+   <properties>
+    <property name="allign" value="horizontal"/>
+    <property name="isOpen" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="5" type="gate" gid="29" x="112" y="32" width="16" height="16">
+   <properties>
+    <property name="allign" value="horizontal"/>
+    <property name="isOpen" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="9" type="gate" gid="30" x="176" y="32" width="16" height="16">
+   <properties>
+    <property name="allign" value="vertical"/>
+    <property name="isOpen" type="bool" value="false"/>
    </properties>
   </object>
  </objectgroup>

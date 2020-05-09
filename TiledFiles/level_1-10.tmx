@@ -27,12 +27,12 @@
  </layer>
  <objectgroup id="3" name="objects">
   <object id="1" name="finish" gid="3" x="16" y="80" width="16" height="16"/>
+  <object id="3" name="player" gid="32" x="32" y="32" width="16" height="16"/>
   <object id="2" type="trap" gid="24" x="32" y="64" width="16" height="16">
    <properties>
     <property name="isHorizontalAllowed" type="bool" value="false"/>
     <property name="isVerticalAllowed" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="3" name="player" gid="32" x="32" y="32" width="16" height="16"/>
  </objectgroup>
 </map>

@@ -41,6 +41,8 @@
  <objectgroup id="3" name="objects">
   <object id="9" type="plate" gid="26" x="64" y="32" width="16" height="16"/>
   <object id="1" type="plate" gid="27" x="64" y="144" width="16" height="16"/>
+  <object id="10" name="finish" gid="3" x="112" y="32" width="16" height="16"/>
+  <object id="7" name="player" gid="34" x="48" y="160" width="16" height="16"/>
   <object id="2" type="janitor" gid="32" x="64" y="144" width="16" height="16"/>
   <object id="4" type="trap" gid="25" x="64" y="160" width="16" height="16">
    <properties>
@@ -48,18 +50,16 @@
     <property name="isVerticalAllowed" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="7" name="player" gid="34" x="48" y="160" width="16" height="16"/>
-  <object id="8" type="gate" gid="31" x="64" y="80" width="16" height="16">
-   <properties>
-    <property name="allign" value="vertical"/>
-    <property name="isOpen" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="10" name="finish" gid="3" x="112" y="32" width="16" height="16"/>
   <object id="13" type="trap" gid="25" x="80" y="144" width="16" height="16">
    <properties>
     <property name="isHorizontalAllowed" type="bool" value="true"/>
     <property name="isVerticalAllowed" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="8" type="gate" gid="31" x="64" y="80" width="16" height="16">
+   <properties>
+    <property name="allign" value="vertical"/>
+    <property name="isOpen" type="bool" value="true"/>
    </properties>
   </object>
   <object id="15" type="gate" gid="28" x="96" y="32" width="16" height="16">

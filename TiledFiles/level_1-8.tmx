@@ -59,8 +59,8 @@
 </data>
  </layer>
  <objectgroup id="3" name="objects">
+  <object id="3" name="finish" gid="3" x="144" y="96" width="16" height="16"/>
   <object id="1" name="collectible" gid="36" x="112" y="192" width="16" height="16"/>
   <object id="2" name="player" gid="34" x="80" y="288" width="16" height="16"/>
-  <object id="3" name="finish" gid="3" x="144" y="96" width="16" height="16"/>
  </objectgroup>
 </map>

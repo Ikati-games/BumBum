@@ -32,7 +32,7 @@ return {
       },
       properties = {},
       terrains = {},
-      tilecount = 26,
+      tilecount = 28,
       tiles = {
         {
           id = 1,
@@ -167,46 +167,38 @@ return {
           height = 16
         },
         {
-          id = 29,
-          image = "../../sprites/change/change_f1.png",
-          width = 16,
-          height = 16,
-          animation = {
-            {
-              tileid = 29,
-              duration = 250
-            },
-            {
-              tileid = 30,
-              duration = 250
-            }
-          }
-        },
-        {
-          id = 30,
-          image = "../../sprites/change/change_f2.png",
+          id = 25,
+          image = "../../sprites/plate/plate.png",
           width = 16,
           height = 16
         },
         {
-          id = 32,
-          image = "../../sprites/bum/bum_f1.png",
+          id = 26,
+          image = "../../sprites/plate/plate_pressed.png",
           width = 16,
-          height = 16,
-          animation = {
-            {
-              tileid = 32,
-              duration = 250
-            },
-            {
-              tileid = 33,
-              duration = 250
-            }
-          }
+          height = 16
         },
         {
-          id = 33,
-          image = "../../sprites/bum/bum_f2.png",
+          id = 27,
+          image = "../../sprites/gate/gate_horizontal.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 28,
+          image = "../../sprites/gate/gate_horizontal_open.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 29,
+          image = "../../sprites/gate/gate_vertical.png",
+          width = 16,
+          height = 16
+        },
+        {
+          id = 30,
+          image = "../../sprites/gate/gate_vertical_open.png",
           width = 16,
           height = 16
         }
@@ -214,7 +206,7 @@ return {
     },
     {
       name = "bum",
-      firstgid = 35,
+      firstgid = 32,
       filename = "../../TiledFiles/bum.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -339,7 +331,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 35,
+          gid = 32,
           visible = true,
           properties = {}
         }
