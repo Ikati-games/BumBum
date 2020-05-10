@@ -49,8 +49,6 @@ end
 function T:moveTillEnd(who, dx, dy, janitorKey)
 
 	local stop = false
-	local prevTileX = who.tileX
-	local prevTileY = who.tileY
 
 	while not stop do
 
@@ -150,18 +148,16 @@ function T:moveTillEnd(who, dx, dy, janitorKey)
 			end
 		end
 
+		-- check for pressed/released plates
+		self:togglePlate(who.tileX, who.tileY)
+		self:togglePlate(who.tileX + dx, who.tileY + dy)
+
 		-- move
 		playSound("step")
 		who:translate(dx*self.map.tileWidth, dy*self.map.tileHeight)
 		who.tileX = who.tileX + dx
 		who.tileY = who.tileY + dy
 
-	end
-
-	-- check for pressed/released plates
-	if (who and (prevTileX ~= who.tileX or prevTileY ~= who.tileY)) then
-		self:togglePlate(prevTileX, prevTileY)
-		self:togglePlate(who.tileX, who.tileY)
 	end
 
 end
