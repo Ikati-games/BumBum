@@ -1,31 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="left-up" width="4" height="4" tilewidth="16" tileheight="16" infinite="0" nextlayerid="5" nextobjectid="9">
+<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="left-up" width="5" height="7" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="7">
  <editorsettings>
-  <export target="../levels/reach/1.lua" format="lua"/>
+  <export target="../levels/reach/31.lua" format="lua"/>
  </editorsettings>
- <tileset firstgid="1" source="../../../TileCollection.tsx"/>
- <tileset firstgid="1" source="TileCollection.tsx"/>
- <tileset firstgid="26" source="bum.tsx"/>
- <tileset firstgid="28" source="reach_tutorial.tsx"/>
- <layer id="1" name="floor" width="4" height="4">
+ <tileset firstgid="1" source="bum.tsx"/>
+ <tileset firstgid="3" source="TileCollection.tsx"/>
+ <tileset firstgid="34" source="reach_tutorial.tsx"/>
+ <layer id="1" name="floor" width="5" height="7">
   <data encoding="csv">
-11,15,21,14,
-20,21,17,9,
-11,13,18,7,
-6,17,14,13
+18,8,23,10,12,
+19,20,19,18,23,
+22,9,21,11,23,
+13,11,14,17,12,
+12,16,10,19,9,
+21,17,15,21,9,
+10,23,21,14,21
 </data>
  </layer>
- <layer id="4" name="walls" width="4" height="4">
+ <layer id="2" name="walls" width="5" height="7">
   <data encoding="csv">
-2,0,0,0,
-2,0,2,0,
-0,0,0,0,
-2,0,2,2
+4,4,4,4,4,
+4,0,0,0,4,
+4,0,0,0,4,
+0,0,0,0,0,
+4,0,0,0,4,
+4,0,0,0,4,
+4,4,4,4,4
 </data>
  </layer>
- <objectgroup id="2" name="objects" offsetx="1.77636e-15" offsety="0">
-  <object id="6" name="player" gid="26" x="0" y="48" width="16" height="16"/>
-  <object id="7" name="finish" gid="3" x="16" y="64" width="16" height="16"/>
-  <object id="8" name="finger" gid="28" x="0" y="64" width="64" height="64"/>
+ <objectgroup id="3" name="objects">
+  <object id="2" name="finish" gid="5" x="64" y="64" width="16" height="16"/>
+  <object id="1" name="player" gid="1" x="0" y="64" width="16" height="16"/>
+  <object id="6" name="finger" gid="34" x="16" y="96" width="64" height="64"/>
  </objectgroup>
 </map>
