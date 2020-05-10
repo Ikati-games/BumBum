@@ -159,6 +159,17 @@ scene:addEventListener("create", function(event)
 	})
 	scene.view:insert(skipLevelButton)
 
+	if (levelId <= C.levelsAmount[minigameId]) then
+		local digit = (levelId - 1) % 9 + 1
+		local letter = ({"w", "b", "s", "g", "p"})[math.ceil(levelId/9)]
+		local levelIdImage = display.newImageRect(scene.view, "sprites/digits/"..digit..letter..".png", C.menuButtonHeight, C.menuButtonHeight)
+		levelIdImage.x = (skipLevelButton.x + levelSelectButton.x) / 2
+		if digit == 1 or digit == 4 then -- yep, hardcoded digit image width
+			levelIdImage.x = levelIdImage.x + C.pixelSize
+		end
+		levelIdImage.y = repeatButton.y + C.pixelSize
+	end
+
 
 	-- transparent rectangle to listen for events
 
