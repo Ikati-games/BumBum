@@ -381,7 +381,9 @@ return {
           rotation = 0,
           gid = 27,
           visible = true,
-          properties = {}
+          properties = {
+            ["isPressed"] = true
+          }
         },
         {
           id = 10,
