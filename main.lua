@@ -3,6 +3,26 @@
 composer = require("composer")
 widget = require("widget")
 C = require("constants")
+appodeal = require("plugin.appodeal")
+toast = require("libs.toast")
+
+
+
+-- init ad plugin
+
+local function adListener(event)
+	if event.phase == "init" then
+		appodeal.load("rewardedVideo")
+	elseif event.phase == "failed" then
+		toast.show("Sorry, ad is not available right now")
+	elseif event.phase == "closed" then
+		if event.type == "rewardedVideo" and event.data ~= nil and event.data.finished == true then
+			appodeal.afterReward()
+		end
+	end
+end
+
+appodeal.init(adListener, {appKey = "06d42448e1660f48d3a5c5d4d9f7a6395f91d3a59a03fbfa"})
 
 
 
@@ -125,7 +145,6 @@ function drawCollectiblesAmount(view)
 			if digit == 0 or digit == 4 then -- yep, hardcoded digit image width
 				currentX = currentX - C.pixelSize
 			end
-			print(digitImage.width)
 		end
 	else
 		local digitImage = display.newImageRect(view, "sprites/digits/0.png", C.menuButtonHeight, C.menuButtonHeight)
@@ -184,7 +203,6 @@ function getRandomLevel()
 			minigames[#minigames + 1] = minigame
 		end
 	end
-	for _, v in pairs(minigames) do print(v) end
 	if #minigames > 0 then
 		local minigameId = minigames[math.random(#minigames)]
 		local levelId = system.getPreference("app", "lastLevelOpened_"..minigameId, "number") or 1

@@ -84,6 +84,15 @@ scene:addEventListener("create", function(event)
 	map.y = display.contentCenterY - map.height * map.yScale / 2 + C.topPanelHeight / 2
 
 
+	-- add minigame mechanics
+
+	local minigame = require("minigames."..minigameId)
+	minigame.collectibleCollected = false
+	minigame.map = map
+	minigame.win = function() win(minigameId, levelId, event.params.randomMode, minigame) end
+	if minigame.init then minigame:init() end
+
+
 	-- add top panel
 
 	-- used for debug
@@ -106,7 +115,7 @@ scene:addEventListener("create", function(event)
  
 	local repeatButton = widget.newButton({
 		top = C.pixelSize,
-		left = display.contentWidth - C.menuButtonHeight - 2*C.pixelSize,
+		left = display.contentWidth - C.menuButtonHeight - C.pixelSize * 2,
 		width = C.menuButtonHeight,
 		height = C.menuButtonHeight,
 		defaultFile = "sprites/button/button_repeat.png",
@@ -131,6 +140,24 @@ scene:addEventListener("create", function(event)
 		end
 	})
 	scene.view:insert(repeatButton)
+ 
+	local skipLevelButton = widget.newButton({
+		top = C.pixelSize,
+		left = display.contentWidth - C.menuButtonHeight - C.settingsButtonWidth - C.pixelSize * 3,
+		width = C.settingsButtonWidth,
+		height = C.menuButtonHeight,
+		defaultFile = "sprites/button/button_ad.png",
+		overFile = "sprites/button/button_ad_pressed.png",
+		onRelease = function()
+			toast.show("Loading ad...")
+			appodeal.afterReward = function()
+				minigame.collectibleCollected = false
+				minigame.win()
+			end
+			appodeal.show("rewardedVideo")
+		end
+	})
+	scene.view:insert(skipLevelButton)
 
 
 	-- transparent rectangle to listen for events
@@ -144,15 +171,6 @@ scene:addEventListener("create", function(event)
 	)
 	eventRect.alpha = 0
 	eventRect.isHitTestable = true
-
-
-	-- add minigame mechanics
-
-	local minigame = require("minigames."..minigameId)
-	minigame.collectibleCollected = false
-	minigame.map = map
-	minigame.win = function() win(minigameId, levelId, event.params.randomMode, minigame) end
-	if minigame.init then minigame:init() end
 
 
 	-- swipe event
