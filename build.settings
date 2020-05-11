@@ -80,7 +80,7 @@ settings =
 	excludeFiles =
 	{
 		-- Exclude unnecessary files for each platform
-		all = { "Icon.png", "Icon-*dpi.png", "Images.xcassets", },
+		all = { "Icon.png", "Icon-*dpi.png", "Images.xcassets", "TiledFiles", "ImageSources", "README*", "LICENSE*", ".git*"},
 		android = { "LaunchScreen.storyboardc", },
 	},
 }
