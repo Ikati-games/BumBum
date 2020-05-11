@@ -66,15 +66,6 @@ scene:addEventListener("create", function(event)
 	local package_path = "levels."..minigameId.."."..levelId
 
 
-	-- add minigame mechanics
-
-	local minigame = require("minigames."..minigameId)
-	minigame.collectibleCollected = false
-	minigame.map = map
-	minigame.win = function() win(minigameId, levelId, event.params.randomMode, minigame) end
-	if minigame.init then minigame:init() end
-
-
 	-- add top panel
 
 	drawTopPanel(scene.view)
