@@ -21,7 +21,16 @@ settings =
 		usesPermissions =
 		{
 			"android.permission.INTERNET",
+			"android.permission.ACCESS_NETWORK_STATE",
+			"android.permission.WRITE_EXTERNAL_STORAGE",
 		},
+        applicationChildElements =
+        {
+            [[
+                <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID"
+                    android:value="[ca-app-pub-4852854037076889~8425838362]"/>
+            ]],
+        },
 	},
 
 	--
@@ -34,6 +43,7 @@ settings =
 		{
 			UIStatusBarHidden = false,
 			UILaunchStoryboardName = "LaunchScreen",
+            GADApplicationIdentifier = "ca-app-pub-4852854037076889~8425838362",
 		},
 	},
 
@@ -42,7 +52,26 @@ settings =
 	--
 	plugins =
 	{
-
+        ['plugin.appodeal.beta.base'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.beta.AdColony'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.beta.AmazonAds'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.beta.AppLovin'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.beta.Appnext'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.beta.Chartboost'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.beta.FacebookAudience'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.beta.Flurry'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.beta.GoogleAdMob'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.beta.InMobi'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.beta.IronSource'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.beta.Mobvista'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.beta.MyTarget'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.beta.Ogury'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.beta.StartApp'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.beta.Tapjoy'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.beta.TwitterMoPub'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.beta.Unity'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.beta.Vungle'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.beta.Yandex'] = { publisherId = 'com.coronalabs' },
 	},
 
 	--

@@ -85,7 +85,7 @@ scene:addEventListener("create", function(event)
  
 	local repeatButton = widget.newButton({
 		top = C.pixelSize,
-		left = display.contentWidth - C.menuButtonHeight - 2*C.pixelSize,
+		left = display.contentWidth - C.menuButtonHeight - C.pixelSize * 2,
 		width = C.menuButtonHeight,
 		height = C.menuButtonHeight,
 		defaultFile = "sprites/button/button_repeat.png",
@@ -100,7 +100,7 @@ scene:addEventListener("create", function(event)
 							params = {
 								minigameId = minigameId,
 								levelId = event.params.levelId,
-								randomMode = randomMode,
+								randomMode = event.params.randomMode,
 							}
 						})
 					end,
@@ -109,6 +109,45 @@ scene:addEventListener("create", function(event)
 		end
 	})
 	scene.view:insert(repeatButton)
+ 
+	local skipLevelButton = widget.newButton({
+		top = C.pixelSize,
+		left = display.contentWidth - C.menuButtonHeight - C.settingsButtonWidth - C.pixelSize * 3,
+		width = C.settingsButtonWidth,
+		height = C.menuButtonHeight,
+		defaultFile = "sprites/button/button_ad.png",
+		overFile = "sprites/button/button_ad_pressed.png",
+		onRelease = function()
+			composer.showOverlay("scenes.confirmation_overlay", {
+				isModal = true,
+				params = {
+					backgroundImage = "sprites/background/ad_confirm_screen.png",
+					backgroundWidth = C.winScreenWidth,
+					backgroundHeight = C.winScreenHeight,
+					onConfirm = function()
+						toast.show("Loading ad...")
+						appodeal.afterReward = function()
+							minigame.collectibleCollected = false
+							minigame.win()
+						end
+						appodeal.show("rewardedVideo")
+					end,
+				}
+			})
+		end
+	})
+	scene.view:insert(skipLevelButton)
+
+	if (levelId <= C.levelsAmount[minigameId]) then
+		local digit = (levelId - 1) % 9 + 1
+		local letter = ({"w", "b", "s", "g", "p"})[math.ceil(levelId/9)]
+		local levelIdImage = display.newImageRect(scene.view, "sprites/digits/"..digit..letter..".png", C.menuButtonHeight, C.menuButtonHeight)
+		levelIdImage.x = (skipLevelButton.x + levelSelectButton.x) / 2
+		if digit == 1 or digit == 4 then -- yep, hardcoded digit image width
+			levelIdImage.x = levelIdImage.x + C.pixelSize
+		end
+		levelIdImage.y = repeatButton.y + C.pixelSize
+	end
 
 
 	-- add minigame mechanics
