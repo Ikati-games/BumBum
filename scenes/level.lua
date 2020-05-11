@@ -149,12 +149,19 @@ scene:addEventListener("create", function(event)
 		defaultFile = "sprites/button/button_ad.png",
 		overFile = "sprites/button/button_ad_pressed.png",
 		onRelease = function()
-			toast.show("Loading ad...")
-			appodeal.afterReward = function()
-				minigame.collectibleCollected = false
-				minigame.win()
-			end
-			appodeal.show("rewardedVideo")
+			composer.showOverlay("scenes.confirmation_overlay", {
+				isModal = true,
+				params = {
+					onConfirm = function()
+						toast.show("Loading ad...")
+						appodeal.afterReward = function()
+							minigame.collectibleCollected = false
+							minigame.win()
+						end
+						appodeal.show("rewardedVideo")
+					end,
+				}
+			})
 		end
 	})
 	scene.view:insert(skipLevelButton)
