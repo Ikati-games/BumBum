@@ -152,6 +152,9 @@ scene:addEventListener("create", function(event)
 			composer.showOverlay("scenes.confirmation_overlay", {
 				isModal = true,
 				params = {
+					backgroundImage = "sprites/background/ad_confirm_screen.png",
+					backgroundWidth = C.winScreenWidth,
+					backgroundHeight = C.winScreenHeight,
 					onConfirm = function()
 						toast.show("Loading ad...")
 						appodeal.afterReward = function()
