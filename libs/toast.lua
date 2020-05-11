@@ -6,21 +6,21 @@ local toastFont = native.systemFont
 local toastFontSize = 14
 local duration, objX, objY
 
-local function showToast(label, duration, gravity)
-	local function removeToast()
-		if toast ~= nil then
-			if toast.label ~= nil then
-				toast.label:removeSelf()
-				toast.label = nil
-			end
-
-			toast:removeSelf()
-			toast = nil
+local function removeToast()
+	if toast ~= nil then
+		if toast.label ~= nil then
+			toast.label:removeSelf()
+			toast.label = nil
 		end
+
+		toast:removeSelf()
+		toast = nil
 	end
+end
+
+local function showToast(label, duration, gravity)
 
 	removeToast()
-
 
 	if not duration then
 		duration = 3000
@@ -58,4 +58,4 @@ local function showToast(label, duration, gravity)
 	return true
 end
 
-return {show = showToast}
+return {show = showToast, hide = removeToast}

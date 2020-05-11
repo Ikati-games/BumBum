@@ -135,6 +135,7 @@ scene:addEventListener("create", function(event)
 					onConfirm = function()
 						toast.show("Loading ad...")
 						appodeal.afterReward = function()
+							toast.hide()
 							minigame.collectibleCollected = false
 							minigame.win()
 						end
