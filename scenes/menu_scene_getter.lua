@@ -5,6 +5,7 @@ return function (buttonsGetter, firstButtonY)
 
 		drawBackground(scene.view)
 		drawTopPanel(scene.view)
+		drawCollectiblesAmount(scene.view)
 
 		local menuHeight = #scene.buttons * C.menuButtonHeight + (#scene.buttons - 1) * C.menuButtonInterval
 		local firstButtonY = (display.contentHeight - menuHeight) / 2

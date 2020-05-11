@@ -6,6 +6,7 @@ end)
 scene:addEventListener("show", function(event)
 	drawBackground(scene.view)
 	drawTopPanel(scene.view)
+	drawCollectiblesAmount(scene.view)
 
 	-- allow scrolling
 	scrollView = widget.newScrollView({

@@ -3,6 +3,26 @@
 composer = require("composer")
 widget = require("widget")
 C = require("constants")
+appodeal = require("plugin.appodeal")
+toast = require("libs.toast")
+
+
+
+-- init ad plugin
+
+local function adListener(event)
+	if event.phase == "init" then
+		appodeal.load("rewardedVideo")
+	elseif event.phase == "failed" then
+		toast.show("Sorry, ad is not available right now")
+	elseif event.phase == "closed" then
+		if event.type == "rewardedVideo" and event.data ~= nil and event.data.finished == true then
+			appodeal.afterReward()
+		end
+	end
+end
+
+appodeal.init(adListener, {appKey = "06d42448e1660f48d3a5c5d4d9f7a6395f91d3a59a03fbfa"})
 
 
 
@@ -104,7 +124,36 @@ end)
 
 -- drawing functions
 
-function drawTopPanel(view) 
+function drawCollectiblesAmount(view)
+	local collectibleImage = display.newImageRect(view, C.collectibleCollectedImage, C.menuButtonHeight, C.menuButtonHeight)
+	collectibleImage.x = display.contentWidth - collectibleImage.width / 2
+	collectibleImage.y = C.topPanelHeight / 2
+
+	local amount = system.getPreference("app", "points", "number") or 0
+	local currentX = collectibleImage.x - collectibleImage.width / 2 - C.pixelSize
+
+	if (amount > 0) then
+		while amount > 0 do
+			digit = amount % 10
+			
+			local digitImage = display.newImageRect(view, "sprites/digits/"..digit..".png", C.menuButtonHeight, C.menuButtonHeight)
+			digitImage.x = currentX
+			digitImage.y = collectibleImage.y
+
+			amount = math.floor(amount / 10)
+			currentX = currentX - C.pixelSize * 7
+			if digit == 0 or digit == 4 then -- yep, hardcoded digit image width
+				currentX = currentX - C.pixelSize
+			end
+		end
+	else
+		local digitImage = display.newImageRect(view, "sprites/digits/0.png", C.menuButtonHeight, C.menuButtonHeight)
+		digitImage.x = currentX
+		digitImage.y = collectibleImage.y
+	end
+end
+
+function drawTopPanel(view)
 	local topPanel = display.newImageRect("sprites/background/top_panel.png", C.topPanelImageWidth, C.topPanelImageHeight)
 	topPanel.x = display.contentCenterX
 	topPanel.y = -C.topPanelImageHeight / 2 + C.topPanelHeight
@@ -155,7 +204,6 @@ function getRandomLevel()
 			minigames[#minigames + 1] = minigame
 		end
 	end
-	for _, v in pairs(minigames) do print(v) end
 	if #minigames > 0 then
 		local minigameId = minigames[math.random(#minigames)]
 		local levelId = system.getPreference("app", "lastLevelOpened_"..minigameId, "number") or 1

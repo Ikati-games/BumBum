@@ -36,6 +36,7 @@ local scene = composer.newScene()
 scene:addEventListener("create", function(event)
 	drawBackground(scene.view)
 	drawTopPanel(scene.view)
+	drawCollectiblesAmount(scene.view)
 
 	local menuHeight = #settings * C.menuButtonHeight + (#settings - 1) * C.menuButtonInterval
 	local firstButtonY = (display.contentHeight - menuHeight) / 2
