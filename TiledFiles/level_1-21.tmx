@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="left-up" width="7" height="9" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="7">
+ <editorsettings>
+  <export target="../levels/reach/13.lua" format="lua"/>
+ </editorsettings>
+ <tileset firstgid="1" source="TileCollection.tsx"/>
+ <tileset firstgid="32" source="janitor.tsx"/>
+ <tileset firstgid="34" source="bum.tsx"/>
+ <tileset firstgid="36" source="change.tsx"/>
+ <layer id="1" name="floor" width="7" height="9">
+  <data encoding="csv">
+20,15,18,15,9,8,17,
+7,16,8,11,10,21,19,
+7,17,20,14,13,14,7,
+7,21,8,12,9,20,15,
+17,6,9,6,11,16,17,
+15,7,18,7,20,16,12,
+21,9,8,16,11,18,18,
+9,12,9,19,17,20,20,
+16,14,12,21,12,15,13
+</data>
+ </layer>
+ <layer id="2" name="walls" width="7" height="9">
+  <data encoding="csv">
+2,0,2,0,0,0,0,
+2,0,0,0,0,0,0,
+2,0,0,0,0,0,0,
+0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,
+0,0,2,0,0,2,0,
+2,0,0,0,0,0,2,
+2,0,0,0,0,0,2,
+0,2,2,0,0,2,0
+</data>
+ </layer>
+ <objectgroup id="3" name="objects">
+  <object id="1" name="finish" gid="3" x="16" y="16" width="16" height="16"/>
+  <object id="5" name="collectible" gid="36" x="32" y="80" width="16" height="16"/>
+  <object id="4" name="player" gid="34" x="48" y="128" width="16" height="16"/>
+  <object id="3" type="janitor" gid="32" x="64" y="112" width="16" height="16"/>
+  <object id="2" type="trap" gid="22" x="16" y="48" width="16" height="16">
+   <properties>
+    <property name="isHorizontalAllowed" type="bool" value="false"/>
+    <property name="isVerticalAllowed" type="bool" value="false"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

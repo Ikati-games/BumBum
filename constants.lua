@@ -14,6 +14,7 @@ T.topPanelImageWidth = 100*T.pixelSize
 T.topPanelImageHeight = 150*T.pixelSize
 
 T.winOverlayImage = "sprites/background/win_screen.png"
+T.loseOverlayImage = "sprites/background/lose_screen.png"
 T.winScreenWidth = 54*T.pixelSize
 T.winScreenHeight = 60*T.pixelSize
 
@@ -24,11 +25,13 @@ T.confirmationScreenHeight = 34*T.pixelSize
 T.minSwipeSize = 25
 
 T.levelsAmount = {
-	reach = 20,
+	catch = 6,
+	reach = 42,
 }
 
 T.collectibles = {
-	reach = {5, 9, 13, 19}
+	catch = {},
+	reach = {4, 8, 12, 14, 17, 21, 24, 26, 28, 31, 34, 39}
 }
 T.collectibleCollectedImage = "sprites/change/change_f1.png"
 T.collectibleUncollectedImage = "sprites/change/change_uncollected.png"
@@ -51,6 +54,8 @@ T.sounds = {
 		"sounds/janitor6.wav",
 	},
 	reach_win = "sounds/trash.wav",
+	platePress = "sounds/plate_press.wav",
+	plateRelease = "sounds/plate_unpress.wav",
 }
 
 
