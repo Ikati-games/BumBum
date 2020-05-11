@@ -66,6 +66,14 @@ scene:addEventListener("create", function(event)
 	local package_path = "levels."..minigameId.."."..levelId
 
 
+	-- add minigame mechanics
+
+	local minigame = require("minigames."..minigameId)
+	minigame.collectibleCollected = false
+	minigame.win = function() endGame(true, minigameId, levelId, event.params.randomMode, minigame) end
+	minigame.lose = function() endGame(false, minigameId, levelId, event.params.randomMode) end
+
+
 	-- add top panel
 
 	drawTopPanel(scene.view)
@@ -148,14 +156,6 @@ scene:addEventListener("create", function(event)
 		end
 		levelIdImage.y = repeatButton.y + C.pixelSize
 	end
-
-
-	-- add minigame mechanics
-
-	local minigame = require("minigames."..minigameId)
-	minigame.collectibleCollected = false
-	minigame.win = function() endGame(true, minigameId, levelId, event.params.randomMode, minigame) end
-	minigame.lose = function() endGame(false, minigameId, levelId, event.params.randomMode) end
 
 
 	-- load or generate map
