@@ -4,12 +4,12 @@ return {
   tiledversion = "1.3.4",
   orientation = "orthogonal",
   renderorder = "left-up",
-  width = 4,
-  height = 4,
+  width = 8,
+  height = 7,
   tilewidth = 16,
   tileheight = 16,
   nextlayerid = 4,
-  nextobjectid = 3,
+  nextobjectid = 6,
   properties = {},
   tilesets = {
     {
@@ -254,12 +254,12 @@ return {
   layers = {
     {
       type = "tilelayer",
-      id = 1,
+      id = 2,
       name = "floor",
       x = 0,
       y = 0,
-      width = 4,
-      height = 4,
+      width = 8,
+      height = 7,
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -267,20 +267,23 @@ return {
       properties = {},
       encoding = "lua",
       data = {
-        9, 19, 8, 8,
-        10, 19, 0, 8,
-        13, 20, 13, 6,
-        11, 9, 13, 12
+        6, 18, 11, 6, 17, 16, 13, 10,
+        6, 10, 19, 7, 20, 8, 16, 6,
+        21, 20, 6, 12, 9, 16, 16, 10,
+        15, 11, 12, 6, 15, 14, 9, 12,
+        18, 21, 16, 8, 19, 6, 10, 19,
+        21, 18, 12, 15, 12, 7, 8, 11,
+        19, 10, 17, 12, 20, 18, 9, 6
       }
     },
     {
       type = "tilelayer",
-      id = 2,
+      id = 1,
       name = "walls",
       x = 0,
       y = 0,
-      width = 4,
-      height = 4,
+      width = 8,
+      height = 7,
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -288,10 +291,13 @@ return {
       properties = {},
       encoding = "lua",
       data = {
-        2, 0, 0, 0,
-        2, 0, 2, 0,
-        0, 0, 0, 0,
-        2, 0, 2, 2
+        2, 2, 2, 2, 2, 2, 2, 2,
+        2, 2, 0, 0, 2, 2, 2, 2,
+        0, 0, 0, 0, 0, 0, 0, 2,
+        2, 2, 0, 2, 2, 0, 0, 2,
+        2, 0, 0, 2, 2, 0, 2, 2,
+        2, 0, 0, 0, 0, 0, 0, 0,
+        2, 2, 2, 2, 2, 0, 2, 2
       }
     },
     {
@@ -306,12 +312,26 @@ return {
       properties = {},
       objects = {
         {
+          id = 2,
+          name = "",
+          type = "plate",
+          shape = "rectangle",
+          x = 112,
+          y = 96,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 26,
+          visible = true,
+          properties = {}
+        },
+        {
           id = 1,
           name = "finish",
           type = "",
           shape = "rectangle",
-          x = 16,
-          y = 64,
+          x = 0,
+          y = 48,
           width = 16,
           height = 16,
           rotation = 0,
@@ -320,16 +340,47 @@ return {
           properties = {}
         },
         {
-          id = 2,
+          id = 4,
           name = "player",
           type = "",
           shape = "rectangle",
-          x = 0,
-          y = 48,
+          x = 80,
+          y = 112,
           width = 16,
           height = 16,
           rotation = 0,
           gid = 33,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 3,
+          name = "",
+          type = "gate",
+          shape = "rectangle",
+          x = 16,
+          y = 48,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 28,
+          visible = true,
+          properties = {
+            ["allign"] = "horizontal",
+            ["isOpen"] = false
+          }
+        },
+        {
+          id = 5,
+          name = "",
+          type = "box",
+          shape = "rectangle",
+          x = 80,
+          y = 96,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 32,
           visible = true,
           properties = {}
         }

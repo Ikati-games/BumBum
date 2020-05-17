@@ -4,12 +4,12 @@ return {
   tiledversion = "1.3.4",
   orientation = "orthogonal",
   renderorder = "left-up",
-  width = 4,
-  height = 4,
+  width = 7,
+  height = 7,
   tilewidth = 16,
   tileheight = 16,
   nextlayerid = 4,
-  nextobjectid = 3,
+  nextobjectid = 9,
   properties = {},
   tilesets = {
     {
@@ -211,8 +211,88 @@ return {
       }
     },
     {
-      name = "bum",
+      name = "change",
       firstgid = 33,
+      filename = "../../TiledFiles/change.tsx",
+      tilewidth = 16,
+      tileheight = 16,
+      spacing = 0,
+      margin = 0,
+      columns = 2,
+      image = "../../sprites/change/change.png",
+      imagewidth = 32,
+      imageheight = 16,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 16,
+        height = 16
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 2,
+      tiles = {
+        {
+          id = 0,
+          animation = {
+            {
+              tileid = 0,
+              duration = 250
+            },
+            {
+              tileid = 1,
+              duration = 250
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "janitor",
+      firstgid = 35,
+      filename = "../../TiledFiles/janitor.tsx",
+      tilewidth = 16,
+      tileheight = 16,
+      spacing = 0,
+      margin = 0,
+      columns = 2,
+      image = "../../sprites/janitor/janitor.png",
+      imagewidth = 32,
+      imageheight = 16,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 16,
+        height = 16
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 2,
+      tiles = {
+        {
+          id = 0,
+          animation = {
+            {
+              tileid = 0,
+              duration = 250
+            },
+            {
+              tileid = 1,
+              duration = 250
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "bum",
+      firstgid = 37,
       filename = "../../TiledFiles/bum.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -258,8 +338,8 @@ return {
       name = "floor",
       x = 0,
       y = 0,
-      width = 4,
-      height = 4,
+      width = 7,
+      height = 7,
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -267,10 +347,13 @@ return {
       properties = {},
       encoding = "lua",
       data = {
-        9, 19, 8, 8,
-        10, 19, 0, 8,
-        13, 20, 13, 6,
-        11, 9, 13, 12
+        7, 12, 18, 12, 11, 9, 7,
+        19, 13, 7, 18, 16, 16, 10,
+        12, 18, 19, 14, 9, 18, 13,
+        16, 11, 15, 19, 16, 14, 9,
+        8, 17, 19, 20, 17, 6, 20,
+        11, 12, 9, 8, 12, 14, 13,
+        15, 16, 13, 20, 16, 12, 13
       }
     },
     {
@@ -279,8 +362,8 @@ return {
       name = "walls",
       x = 0,
       y = 0,
-      width = 4,
-      height = 4,
+      width = 7,
+      height = 7,
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -288,10 +371,13 @@ return {
       properties = {},
       encoding = "lua",
       data = {
-        2, 0, 0, 0,
-        2, 0, 2, 0,
-        0, 0, 0, 0,
-        2, 0, 2, 2
+        2, 2, 2, 2, 2, 2, 2,
+        2, 35, 2, 0, 0, 2, 2,
+        2, 2, 2, 0, 0, 2, 2,
+        2, 0, 0, 0, 0, 2, 2,
+        2, 0, 0, 0, 2, 2, 2,
+        2, 0, 0, 0, 0, 0, 2,
+        2, 2, 2, 2, 2, 2, 2
       }
     },
     {
@@ -306,12 +392,28 @@ return {
       properties = {},
       objects = {
         {
+          id = 6,
+          name = "",
+          type = "plate",
+          shape = "rectangle",
+          x = 48,
+          y = 64,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 27,
+          visible = true,
+          properties = {
+            ["isPressed"] = true
+          }
+        },
+        {
           id = 1,
           name = "finish",
           type = "",
           shape = "rectangle",
-          x = 16,
-          y = 64,
+          x = 80,
+          y = 96,
           width = 16,
           height = 16,
           rotation = 0,
@@ -320,18 +422,63 @@ return {
           properties = {}
         },
         {
-          id = 2,
-          name = "player",
+          id = 3,
+          name = "collectible",
           type = "",
           shape = "rectangle",
-          x = 0,
-          y = 48,
+          x = 64,
+          y = 32,
           width = 16,
           height = 16,
           rotation = 0,
           gid = 33,
           visible = true,
           properties = {}
+        },
+        {
+          id = 2,
+          name = "player",
+          type = "",
+          shape = "rectangle",
+          x = 16,
+          y = 80,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 37,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 4,
+          name = "",
+          type = "box",
+          shape = "rectangle",
+          x = 48,
+          y = 64,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 32,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 8,
+          name = "",
+          type = "gate",
+          shape = "rectangle",
+          x = 64,
+          y = 96,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 29,
+          visible = true,
+          properties = {
+            ["allign"] = "horizontal",
+            ["isOpen"] = false
+          }
         }
       }
     }

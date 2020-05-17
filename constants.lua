@@ -27,13 +27,13 @@ T.minSwipeSize = 25
 T.levelsAmount = {
 	catch = 6,
 	reach = 42,
-	boxes = 1,
+	boxes = 9,
 }
 
 T.collectibles = {
 	catch = {},
 	reach = {4, 8, 12, 14, 17, 21, 24, 26, 28, 31, 34, 39},
-	boxes = {},
+	boxes = {5},
 }
 T.collectibleCollectedImage = "sprites/change/change_f1.png"
 T.collectibleUncollectedImage = "sprites/change/change_uncollected.png"
