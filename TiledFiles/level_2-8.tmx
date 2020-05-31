@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="left-up" width="7" height="9" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="8">
+ <tileset firstgid="1" source="TileCollection.tsx"/>
+ <tileset firstgid="33" source="bum.tsx"/>
+ <layer id="2" name="floor" width="7" height="9">
+  <data encoding="csv">
+21,10,9,6,13,8,19,
+18,17,8,15,7,9,19,
+11,7,9,10,20,13,12,
+7,15,15,20,21,21,12,
+11,14,6,8,17,15,10,
+19,6,8,9,10,6,14,
+7,8,14,11,14,9,15,
+13,9,21,18,11,20,6,
+14,6,12,13,16,18,7
+</data>
+ </layer>
+ <layer id="1" name="walls" width="7" height="9">
+  <data encoding="csv">
+0,0,2,2,2,0,0,
+0,0,2,0,2,0,0,
+2,2,2,0,2,2,2,
+2,0,0,0,0,0,2,
+2,0,2,0,2,0,2,
+2,0,0,0,0,0,2,
+2,2,2,0,2,0,2,
+0,0,2,0,0,0,2,
+0,0,2,2,2,2,2
+</data>
+ </layer>
+ <objectgroup id="3" name="objects">
+  <object id="1" name="finish" gid="3" x="48" y="32" width="16" height="16"/>
+  <object id="2" type="gate" gid="30" x="48" y="48" width="16" height="16">
+   <properties>
+    <property name="allign" value="vertical"/>
+   </properties>
+  </object>
+  <object id="3" type="plate" gid="26" x="32" y="64" width="16" height="16"/>
+  <object id="4" type="plate" gid="26" x="80" y="96" width="16" height="16"/>
+  <object id="5" type="box" gid="32" x="48" y="64" width="16" height="16"/>
+  <object id="6" type="box" gid="32" x="48" y="96" width="16" height="16"/>
+  <object id="7" name="player" gid="33" x="16" y="96" width="16" height="16"/>
+ </objectgroup>
+</map>
