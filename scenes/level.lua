@@ -25,7 +25,7 @@ Runtime:addEventListener("key", backButtonEvent)
 
 
 
-local function endGame(isWin, minigameId, levelId, randomMode, minigame)
+local function endGame(isWin, minigameId, levelId, minigame)
 	if (isWin) then
 		-- collectible
 		if (minigame.collectibleCollected and not system.getPreference("app", "collectibleCollected_"..minigameId.."_"..levelId, "boolean")) then
@@ -48,7 +48,6 @@ local function endGame(isWin, minigameId, levelId, randomMode, minigame)
 		params = {
 			minigameId = minigameId,
 			levelId = levelId,
-			randomMode = randomMode,
 		}
 	})
 end
@@ -70,8 +69,8 @@ scene:addEventListener("create", function(event)
 
 	local minigame = require("minigames."..minigameId)
 	minigame.collectibleCollected = false
-	minigame.win = function() endGame(true, minigameId, levelId, event.params.randomMode, minigame) end
-	minigame.lose = function() endGame(false, minigameId, levelId, event.params.randomMode) end
+	minigame.win = function() endGame(true, minigameId, levelId, minigame) end
+	minigame.lose = function() endGame(false, minigameId, levelId) end
 
 
 	-- add top panel
@@ -108,7 +107,6 @@ scene:addEventListener("create", function(event)
 							params = {
 								minigameId = minigameId,
 								levelId = event.params.levelId,
-								randomMode = event.params.randomMode,
 							}
 						})
 					end,

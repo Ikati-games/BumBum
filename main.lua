@@ -195,24 +195,6 @@ end
 
 -- other helper functions
 
-function getRandomLevel()
-	local minigames = {}
-	for minigame in pairs(C.levelsAmount) do
-		local lastLevelOpened = system.getPreference("app", "lastLevelOpened_"..minigame, "number") or 1
-		local data = require("minigames."..minigame)
-		if lastLevelOpened <= C.levelsAmount[minigame] or data.getRandomMapData then
-			minigames[#minigames + 1] = minigame
-		end
-	end
-	if #minigames > 0 then
-		local minigameId = minigames[math.random(#minigames)]
-		local levelId = system.getPreference("app", "lastLevelOpened_"..minigameId, "number") or 1
-		return minigameId, levelId
-	else
-		return false
-	end
-end
-
 function shuffle(list)
 	for i = #list, 2, -1 do
 		local j = math.random(i)
