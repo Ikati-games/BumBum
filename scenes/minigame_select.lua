@@ -19,6 +19,7 @@ local function getMinigames(params)
 		table.insert(minigames, {
 			img = data.img,
 			imgPressed = data.imgPressed,
+			price = C.minigamesPrice[minigame],
 			func = function() gotoLevelSelection(minigame) end,
 		})
 	end
