@@ -21,11 +21,12 @@ local backButtonEvent = function(event)
 	end
 end
 
-Runtime:addEventListener("key", backButtonEvent)
-
 
 
 local function endGame(isWin, minigameId, levelId, minigame)
+	-- disable hardware back button
+	Runtime:removeEventListener("key", backButtonEvent)
+
 	if (isWin) then
 		-- collectible
 		if (minigame.collectibleCollected and not system.getPreference("app", "collectibleCollected_"..minigameId.."_"..levelId, "boolean")) then
@@ -89,6 +90,7 @@ scene:addEventListener("create", function(event)
 		end
 	})
 	scene.view:insert(levelSelectButton)
+	Runtime:addEventListener("key", backButtonEvent)
  
 	local repeatButton = widget.newButton({
 		top = C.pixelSize,
