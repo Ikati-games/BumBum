@@ -157,7 +157,14 @@ function T:makeMove(hex)
 					-- out of bounds, restore path
 					local currentCost = costArray[currentCoords.i][currentCoords.j]
 					if (currentCost == 0) then 
-						-- janitor escaped, game losed
+						-- janitor escaped, move janitor last time and lose game
+						if (T.rotated) then
+							janitor.sprite.x = T.width / 2 + (T.width / 4 * 3 + T.gridSize) * (nextCoords.i - 1)
+							janitor.sprite.y = ((nextCoords.i % 2 == 0) and (T.height + T.gridSize / 2) or (T.height / 2)) + (T.height + T.gridSize) * (nextCoords.j - 1)
+						else
+							janitor.sprite.x = ((nextCoords.i % 2 == 0) and (T.width + T.gridSize / 2) or (T.width / 2)) + (T.width + T.gridSize) * (nextCoords.j - 1)
+							janitor.sprite.y = T.height / 2 + (T.height / 4 * 3 + T.gridSize) * (nextCoords.i - 1)
+						end
 						self:lose()
 						return
 					end

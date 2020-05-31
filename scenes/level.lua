@@ -174,6 +174,7 @@ scene:addEventListener("create", function(event)
 
 	local map = minigame.map
 	scene.view:insert(map)
+	map:toBack()
 	map.xScale = display.contentWidth / map.width
 	map.yScale = math.min(map.xScale, (display.contentHeight - C.topPanelHeight) / map.height)
 	map.xScale = map.yScale
