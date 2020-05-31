@@ -1,7 +1,10 @@
 return function (buttonsGetter, firstButtonY)
 	local scene = composer.newScene()
 	scene:addEventListener("create", function(event)
-		scene.buttons = buttonsGetter(event.params)
+		scene.params = event.params
+	end)
+	scene:addEventListener("show", function(event)
+		scene.buttons = buttonsGetter(scene.params)
 
 		drawBackground(scene.view)
 		drawTopPanel(scene.view)
