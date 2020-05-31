@@ -122,23 +122,24 @@ end)
 
 
 
--- drawing functions
+-- other helper functions
 
-function drawCollectiblesAmount(view)
-	local collectibleImage = display.newImageRect(view, C.collectibleCollectedImage, C.menuButtonHeight, C.menuButtonHeight)
-	collectibleImage.x = display.contentWidth - collectibleImage.width / 2
-	collectibleImage.y = C.topPanelHeight / 2
+function shuffle(list)
+	for i = #list, 2, -1 do
+		local j = math.random(i)
+		list[i], list[j] = list[j], list[i]
+	end
+end
 
-	local amount = system.getPreference("app", "points", "number") or 0
-	local currentX = collectibleImage.x - collectibleImage.width / 2 - C.pixelSize
-
+function drawInt(amount)
+	local group = display.newGroup()
+	local currentX = 0
 	if (amount > 0) then
 		while amount > 0 do
 			digit = amount % 10
 			
-			local digitImage = display.newImageRect(view, "sprites/digits/"..digit..".png", C.menuButtonHeight, C.menuButtonHeight)
+			local digitImage = display.newImageRect(group, "sprites/digits/"..digit..".png", C.menuButtonHeight, C.menuButtonHeight)
 			digitImage.x = currentX
-			digitImage.y = collectibleImage.y
 
 			amount = math.floor(amount / 10)
 			currentX = currentX - C.pixelSize * 7
@@ -147,10 +148,26 @@ function drawCollectiblesAmount(view)
 			end
 		end
 	else
-		local digitImage = display.newImageRect(view, "sprites/digits/0.png", C.menuButtonHeight, C.menuButtonHeight)
+		local digitImage = display.newImageRect(group, "sprites/digits/0.png", C.menuButtonHeight, C.menuButtonHeight)
 		digitImage.x = currentX
-		digitImage.y = collectibleImage.y
 	end
+	return group
+end
+
+
+
+-- drawing functions
+
+function drawCollectiblesAmount(view)
+	local collectibleImage = display.newImageRect(view, C.collectibleCollectedImage, C.menuButtonHeight, C.menuButtonHeight)
+	collectibleImage.x = display.contentWidth - collectibleImage.width / 2
+	collectibleImage.y = C.topPanelHeight / 2
+
+	local amount = system.getPreference("app", "points", "number") or 0
+	local amountGroup = drawInt(amount)
+	amountGroup.x = collectibleImage.x - collectibleImage.width / 2 - C.pixelSize
+	amountGroup.y = collectibleImage.y
+	view:insert(amountGroup)
 end
 
 function drawTopPanel(view)
@@ -189,35 +206,6 @@ function drawBackground(view)
 	)
 	grassTop.y = grassBottom.y - grassBottom.height / 2 - grassTop.height / 2 -- stick to top of grassBottom
 	grassTop:setFillColor(0, 1, 0)
-end
-
-
-
--- other helper functions
-
-function getRandomLevel()
-	local minigames = {}
-	for minigame in pairs(C.levelsAmount) do
-		local lastLevelOpened = system.getPreference("app", "lastLevelOpened_"..minigame, "number") or 1
-		local data = require("minigames."..minigame)
-		if lastLevelOpened <= C.levelsAmount[minigame] or data.getRandomMapData then
-			minigames[#minigames + 1] = minigame
-		end
-	end
-	if #minigames > 0 then
-		local minigameId = minigames[math.random(#minigames)]
-		local levelId = system.getPreference("app", "lastLevelOpened_"..minigameId, "number") or 1
-		return minigameId, levelId
-	else
-		return false
-	end
-end
-
-function shuffle(list)
-	for i = #list, 2, -1 do
-		local j = math.random(i)
-		list[i], list[j] = list[j], list[i]
-	end
 end
 
 

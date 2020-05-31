@@ -102,16 +102,26 @@ scene:addEventListener("show", function(event)
 					})
 				end
 			})
+			button.y = y
+
+			-- last opened level
+			local levelGroup = drawInt(lastLevelOpened)
+			levelGroup.x = display.contentCenterX
+			levelGroup.y = y + C.menuButtonHeight
+			scrollView:insert(levelGroup)
+
+			y = y + 2 * C.menuButtonHeight
 		else
 			-- static image for closed levels
 			button = display.newImageRect(scene.view, "sprites/button/button_infinite_mode.png", C.menuButtonWidth, C.menuButtonHeight)
+			button.y = y
 			button.fill.effect = "filter.desaturate"
 			button.fill.effect.intensity = 0.9
 		end
 		button.x = display.contentCenterX
-		button.y = y
 		scrollView:insert(button)
 	end
+	scrollView:setScrollHeight(y - C.menuButtonHeight)
 end)
 scene.previousScene = "scenes.minigame_select"
 return scene

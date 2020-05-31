@@ -14,11 +14,12 @@ end
 
 local function getMinigames(params)
 	minigames = {}
-	for minigame in pairs(C.levelsAmount) do
+	for _, minigame in pairs(C.minigames) do
 		local data = require("minigames."..minigame)
 		table.insert(minigames, {
 			img = data.img,
 			imgPressed = data.imgPressed,
+			price = C.minigamesPrice[minigame],
 			func = function() gotoLevelSelection(minigame) end,
 		})
 	end

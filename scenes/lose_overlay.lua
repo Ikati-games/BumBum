@@ -9,7 +9,6 @@ scene:addEventListener("create", function(event)
 	-- variables
 	local minigameId = event.params.minigameId
 	local levelId = event.params.levelId
-	local randomMode = event.params.randomMode
 
 	-- repeat button
 	local repeatButton = widget.newButton({
@@ -26,7 +25,6 @@ scene:addEventListener("create", function(event)
 				params = {
 					minigameId = minigameId,
 					levelId = levelId,
-					randomMode = randomMode,
 				}
 			})
 		end

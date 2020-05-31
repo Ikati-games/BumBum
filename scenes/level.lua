@@ -21,11 +21,12 @@ local backButtonEvent = function(event)
 	end
 end
 
-Runtime:addEventListener("key", backButtonEvent)
 
 
+local function endGame(isWin, minigameId, levelId, minigame)
+	-- disable hardware back button
+	Runtime:removeEventListener("key", backButtonEvent)
 
-local function endGame(isWin, minigameId, levelId, randomMode, minigame)
 	if (isWin) then
 		-- collectible
 		if (minigame.collectibleCollected and not system.getPreference("app", "collectibleCollected_"..minigameId.."_"..levelId, "boolean")) then
@@ -48,7 +49,6 @@ local function endGame(isWin, minigameId, levelId, randomMode, minigame)
 		params = {
 			minigameId = minigameId,
 			levelId = levelId,
-			randomMode = randomMode,
 		}
 	})
 end
@@ -70,8 +70,8 @@ scene:addEventListener("create", function(event)
 
 	local minigame = require("minigames."..minigameId)
 	minigame.collectibleCollected = false
-	minigame.win = function() endGame(true, minigameId, levelId, event.params.randomMode, minigame) end
-	minigame.lose = function() endGame(false, minigameId, levelId, event.params.randomMode) end
+	minigame.win = function() endGame(true, minigameId, levelId, minigame) end
+	minigame.lose = function() endGame(false, minigameId, levelId) end
 
 
 	-- add top panel
@@ -90,6 +90,7 @@ scene:addEventListener("create", function(event)
 		end
 	})
 	scene.view:insert(levelSelectButton)
+	Runtime:addEventListener("key", backButtonEvent)
  
 	local repeatButton = widget.newButton({
 		top = C.pixelSize,
@@ -108,7 +109,6 @@ scene:addEventListener("create", function(event)
 							params = {
 								minigameId = minigameId,
 								levelId = event.params.levelId,
-								randomMode = event.params.randomMode,
 							}
 						})
 					end,
@@ -155,6 +155,10 @@ scene:addEventListener("create", function(event)
 		if digit == 1 or digit == 4 then -- yep, hardcoded digit image width
 			levelIdImage.x = levelIdImage.x + C.pixelSize
 		end
+		levelIdImage.y = repeatButton.y + C.pixelSize
+	else
+		local levelIdImage = display.newImageRect(scene.view, "sprites/digits/inf.png", C.menuButtonHeight-C.pixelSize, C.menuButtonHeight-C.pixelSize)
+		levelIdImage.x = (skipLevelButton.x + levelSelectButton.x + C.pixelSize) / 2
 		levelIdImage.y = repeatButton.y + C.pixelSize
 	end
 
