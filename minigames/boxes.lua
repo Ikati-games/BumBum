@@ -80,27 +80,29 @@ function T:move(who, dx, dy, entityKey, entityType)
 	end
 
 	-- check for janitor
-	if who == self.player then
-		for key, janitor in pairs(self.janitors) do
-			if (destX == janitor.tileX and destY == janitor.tileY) then
+	for key, janitor in pairs(self.janitors) do
+		if (destX == janitor.tileX and destY == janitor.tileY) then
+			local res
+			if who == self.player then
 				-- only player can push janitor
 				playSound("janitor")
-				local res = self:move(janitor, dx, dy, key, "janitor")
-
-				if not res then return false end
+				res = self:move(janitor, dx, dy, key, "janitor")
 			end
+
+			if not res then return false end
 		end
 	end
 
 	-- check for box
-	if who == self.player then
-		for key, box in pairs(self.boxes) do
-			if (destX == box.tileX and destY == box.tileY) then
-				-- only player can push janitor
-				local res = self:move(box, dx, dy, key, "box")
-				
-				if not res then return false end
+	for key, box in pairs(self.boxes) do
+		if (destX == box.tileX and destY == box.tileY) then
+			local res
+			if who == self.player then
+				-- only player can push box
+				res = self:move(box, dx, dy, key, "box")
 			end
+			
+			if not res then return false end
 		end
 	end
 
