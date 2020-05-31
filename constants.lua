@@ -24,6 +24,8 @@ T.confirmationScreenHeight = 34*T.pixelSize
 
 T.minSwipeSize = 25
 
+T.minigames = {"reach", "catch", "boxes"}
+
 T.levelsAmount = {
 	catch = 6,
 	reach = 42,
