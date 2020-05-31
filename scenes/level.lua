@@ -156,6 +156,10 @@ scene:addEventListener("create", function(event)
 			levelIdImage.x = levelIdImage.x + C.pixelSize
 		end
 		levelIdImage.y = repeatButton.y + C.pixelSize
+	else
+		local levelIdImage = display.newImageRect(scene.view, "sprites/digits/inf.png", C.menuButtonHeight-C.pixelSize, C.menuButtonHeight-C.pixelSize)
+		levelIdImage.x = (skipLevelButton.x + levelSelectButton.x + C.pixelSize) / 2
+		levelIdImage.y = repeatButton.y + C.pixelSize
 	end
 
 
