@@ -102,6 +102,12 @@ scene:addEventListener("show", function(event)
 					})
 				end
 			})
+
+			-- last opened level
+			local levelGroup = drawInt(lastLevelOpened)
+			levelGroup.x = display.contentCenterX
+			levelGroup.y = y + C.menuButtonHeight
+			scrollView:insert(levelGroup)
 		else
 			-- static image for closed levels
 			button = display.newImageRect(scene.view, "sprites/button/button_infinite_mode.png", C.menuButtonWidth, C.menuButtonHeight)
