@@ -12,7 +12,7 @@ return function (buttonsGetter, firstButtonY)
 		local currentY = C.menuButtonHeight / 2 + firstButtonY
 		for i = 1, #scene.buttons do
 			local button
-			if (not scene.buttons[i].price or scene.buttons[i].price < (system.getPreference("app", "points", "number") or 0)) then
+			if (not scene.buttons[i].price or scene.buttons[i].price <= (system.getPreference("app", "points", "number") or 0)) then
 				-- button available, show button
 				button = widget.newButton({
 					x = display.contentCenterX, 

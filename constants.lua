@@ -32,14 +32,14 @@ T.minigamesPrice = {
 }
 
 T.levelsAmount = {
-	catch = 6,
 	reach = 42,
+	catch = 6,
 	boxes = 9,
 }
 
 T.collectibles = {
-	catch = {},
 	reach = {4, 8, 12, 14, 17, 21, 24, 26, 28, 31, 34, 39},
+	catch = {},
 	boxes = {5},
 }
 T.collectibleCollectedImage = "sprites/change/change_f1.png"

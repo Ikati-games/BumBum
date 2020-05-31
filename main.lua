@@ -133,7 +133,7 @@ end
 
 function drawInt(amount)
 	local group = display.newGroup()
-	local currentX = 0 --TODO
+	local currentX = 0
 	if (amount > 0) then
 		while amount > 0 do
 			digit = amount % 10
