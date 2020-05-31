@@ -157,7 +157,14 @@ function T:makeMove(hex)
 					-- out of bounds, restore path
 					local currentCost = costArray[currentCoords.i][currentCoords.j]
 					if (currentCost == 0) then 
-						-- janitor escaped, game losed
+						-- janitor escaped, move janitor last time and lose game
+						if (T.rotated) then
+							janitor.sprite.x = T.width / 2 + (T.width / 4 * 3 + T.gridSize) * (nextCoords.i - 1)
+							janitor.sprite.y = ((nextCoords.i % 2 == 0) and (T.height + T.gridSize / 2) or (T.height / 2)) + (T.height + T.gridSize) * (nextCoords.j - 1)
+						else
+							janitor.sprite.x = ((nextCoords.i % 2 == 0) and (T.width + T.gridSize / 2) or (T.width / 2)) + (T.width + T.gridSize) * (nextCoords.j - 1)
+							janitor.sprite.y = T.height / 2 + (T.height / 4 * 3 + T.gridSize) * (nextCoords.i - 1)
+						end
 						self:lose()
 						return
 					end
@@ -239,6 +246,19 @@ end
 function T:touch(event, hex)
 	self:recolor(currentlyTouched, false)
 	if (event.phase == "ended" and hex) then
+		local currentTutorialCell = self.tutorialCells[self.currentTutorialNum];
+		if (currentTutorialCell and (hex.i ~= currentTutorialCell.i or hex.j ~= currentTutorialCell.j)) then return end
+
+		if (currentTutorialCell) then
+			self.tutorialSprite:removeSelf()
+			self.tutorialSprite = nil
+			self.currentTutorialNum = self.currentTutorialNum + 1
+
+			if (self.tutorialCells[self.currentTutorialNum]) then
+				self.tutorialSprite = self:addSprite(self.tutorialCells[self.currentTutorialNum], "tutorial")
+			end
+		end
+
 		self:makeMove(hex)
 		currentlyTouched = nil
 	else
@@ -266,29 +286,47 @@ end
 
 
 function T:addSprite(hex, spriteId)
-	self.mapData[hex.i][hex.j] = spriteId
+	if (spriteId == "tutorial" or spriteId >= 100) then
+		self.mapData[hex.i][hex.j] = 0
+	else
+		self.mapData[hex.i][hex.j] = spriteId
+	end
+
 	if (spriteId == 1) then
 		hex:setFillColor(unpassableCellColor)
 	end
 
-	local spritePath = ({
-		[1] = "sprites/bum/bum.png",
-		[2] = "sprites/janitor/janitor.png",
+	local sprite = ({
+		[1] = {
+			path = "sprites/bum/bum.png",
+		},
+		[2] = {
+			path = "sprites/janitor/janitor.png",
+		},
+		["tutorial"] = {
+			path = "sprites/tutorial/tap_tutorial.png",
+			framesNum = 4,
+		},
 	})[spriteId]
-	if (spritePath == nil) then return end
+	if (sprite == nil) then return end
+	local spritePath = sprite.path
+	local spriteWidth = sprite.width or 16
+	local spriteHeight = sprite.height or 16
+	local spriteFramesNum = sprite.framesNum or 2
+	local spriteFrameTime = sprite.frameTime or 250
 
 	local sheet = graphics.newImageSheet(spritePath, {
-		width = 16,
-		height = 16,
-		numFrames = 2,
+		width = spriteWidth,
+		height = spriteHeight,
+		numFrames = spriteFramesNum,
 	})
 
 	local image = display.newSprite(self.map, sheet, {
 	    {
 	        name = "animation",
 	        start = 1,
-	        count = 2,
-	        time = 500,
+	        count = spriteFramesNum,
+	        time = spriteFrameTime * spriteFramesNum,
 	        loopCount = 0
 	    },
 	})
@@ -305,12 +343,16 @@ function T:init(mapData)
 	self.janitors = {}
 	self.hexes = {}
 	self.map = display.newGroup()
+	self.tutorialCells = {}
+	self.currentTutorialNum = 1
+
 	for i, row in ipairs(mapData) do
 		self.mapData[i] = {}
 		self.hexes[i] = {}
 
 		for j, cell in ipairs(row) do
 			local hex
+
 			if (T.rotated) then
 				hex = display.newPolygon(
 					self.map,
@@ -340,24 +382,37 @@ function T:init(mapData)
 					}
 				)
 			end
+
 			hex.i = i
 			hex.j = j
+
 			if cell == 3 then -- 3 is void
 				hex.alpha = 0
-			elseif cell == 1 then
+			elseif cell == 1 then -- 1 is bum
 				hex:setFillColor(unpassableCellColor)
 			else
 				hex:setFillColor(normalCellColor)
 			end
+
 			hex:addEventListener("touch", function(event) self:touch(event, hex) end)
 			hex:toBack()
 			self.hexes[i][j] = hex
 
 			local sprite = self:addSprite(hex, cell)
+
 			if (cell == 2) then -- 2 is janitor
 				self.janitors[#self.janitors + 1] = {i = i, j = j, sprite = sprite}
 			end
+
+			if (cell >= 100) then -- tutorial
+				self.tutorialCells[cell - 100] = hex
+			end
 		end
+	end
+
+	-- turorial
+	if (self.tutorialCells[1]) then
+		self.tutorialSprite = self:addSprite(self.tutorialCells[1], "tutorial")
 	end
 end
 
