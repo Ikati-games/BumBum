@@ -25,18 +25,27 @@ return function (buttonsGetter, firstButtonY)
 						scene.buttons[i].func()
 					end
 				})
+				scene.view:insert(button)
 			else
 				-- button is not available, show static image and price
 
-				button = display.newImageRect(scene.buttons[i].img, C.menuButtonWidth, C.menuButtonHeight)
-				button.x = display.contentCenterX
-				button.y = currentY
-				button.fill.effect = "filter.desaturate"
-				button.fill.effect.intensity = 0.9
+				image = display.newImageRect("sprites/button/button_long_empty.png", C.menuButtonWidth, C.menuButtonHeight)
+				image.x = display.contentCenterX
+				image.y = currentY
+				image.fill.effect = "filter.desaturate"
+				image.fill.effect.intensity = 0.9
+				scene.view:insert(image)
 
-				--TODO: price
+				local collectibleImage = display.newImageRect(scene.view, C.collectibleCollectedImage, C.menuButtonHeight, C.menuButtonHeight)
+				local amountGroup = drawInt(scene.buttons[i].price)
+
+				collectibleImage.x = display.contentCenterX - collectibleImage.width / 2 + amountGroup.width / 2 + C.pixelSize * 3.5
+				collectibleImage.y = currentY
+
+				amountGroup.x = collectibleImage.x - collectibleImage.width / 2 - C.pixelSize
+				amountGroup.y = currentY
+				scene.view:insert(amountGroup)
 			end
-			scene.view:insert(button)
 	    	currentY = currentY + C.menuButtonHeight + C.menuButtonInterval
 	    end
 	end)
