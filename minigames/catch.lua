@@ -312,21 +312,21 @@ function T:addSprite(hex, spriteId)
 	local spritePath = sprite.path
 	local spriteWidth = sprite.width or 16
 	local spriteHeight = sprite.height or 16
-	local spriteFrames = sprite.framesNum or 2
-	local spriteTime = sprite.frameTime or 250
+	local spriteFramesNum = sprite.framesNum or 2
+	local spriteFrameTime = sprite.frameTime or 250
 
 	local sheet = graphics.newImageSheet(spritePath, {
 		width = spriteWidth,
 		height = spriteHeight,
-		numFrames = spriteFrames,
+		numFrames = spriteFramesNum,
 	})
 
 	local image = display.newSprite(self.map, sheet, {
 	    {
 	        name = "animation",
 	        start = 1,
-	        count = spriteFrames,
-	        time = spriteTime * spriteFrames,
+	        count = spriteFramesNum,
+	        time = spriteFrameTime * spriteFramesNum,
 	        loopCount = 0
 	    },
 	})
