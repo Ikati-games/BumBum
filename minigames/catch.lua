@@ -309,11 +309,11 @@ function T:addSprite(hex, spriteId)
 		},
 	})[spriteId]
 	if (sprite == nil) then return end
-	spritePath = sprite.path
-	spriteWidth = sprite.width or 16
-	spriteHeight = sprite.height or 16
-	spriteFrames = sprite.framesNum or 2
-	spriteTime = sprite.frameTime or 250
+	local spritePath = sprite.path
+	local spriteWidth = sprite.width or 16
+	local spriteHeight = sprite.height or 16
+	local spriteFrames = sprite.framesNum or 2
+	local spriteTime = sprite.frameTime or 250
 
 	local sheet = graphics.newImageSheet(spritePath, {
 		width = spriteWidth,
