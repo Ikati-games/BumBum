@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="left-up" width="8" height="7" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="6">
+ <editorsettings>
+  <export target="../levels/boxes/3.lua" format="lua"/>
+ </editorsettings>
+ <tileset firstgid="1" source="TileCollection.tsx"/>
+ <tileset firstgid="33" source="bum.tsx"/>
+ <layer id="2" name="floor" width="8" height="7">
+  <data encoding="csv">
+6,18,11,6,17,16,13,10,
+6,10,19,7,20,8,16,6,
+21,20,6,12,9,16,16,10,
+15,11,12,6,15,14,9,12,
+18,21,16,8,19,6,10,19,
+21,18,12,15,12,7,8,11,
+19,10,17,12,20,18,9,6
+</data>
+ </layer>
+ <layer id="1" name="walls" width="8" height="7">
+  <data encoding="csv">
+2,2,2,2,2,2,2,2,
+2,2,0,0,2,2,2,2,
+0,0,0,0,0,0,0,2,
+2,2,0,2,2,0,0,2,
+2,0,0,2,2,0,2,2,
+2,0,0,0,0,0,0,0,
+2,2,2,2,2,0,2,2
+</data>
+ </layer>
+ <objectgroup id="3" name="objects">
+  <object id="2" type="plate" gid="26" x="112" y="96" width="16" height="16"/>
+  <object id="1" name="finish" gid="3" x="0" y="48" width="16" height="16"/>
+  <object id="4" name="player" gid="33" x="80" y="112" width="16" height="16"/>
+  <object id="3" type="gate" gid="28" x="16" y="48" width="16" height="16">
+   <properties>
+    <property name="allign" value="horizontal"/>
+    <property name="isOpen" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="5" type="box" gid="32" x="80" y="96" width="16" height="16"/>
+ </objectgroup>
+</map>

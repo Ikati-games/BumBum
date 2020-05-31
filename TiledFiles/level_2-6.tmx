@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="left-up" width="10" height="11" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="6">
+ <editorsettings>
+  <export target="../levels/boxes/6.lua" format="lua"/>
+ </editorsettings>
+ <tileset firstgid="1" source="TileCollection.tsx"/>
+ <tileset firstgid="33" source="bum.tsx"/>
+ <layer id="1" name="floor" width="10" height="11">
+  <data encoding="csv">
+7,12,17,7,17,13,17,7,14,18,
+9,21,17,11,18,11,14,10,19,8,
+15,17,16,12,17,15,10,21,6,11,
+18,9,19,20,13,17,17,14,13,13,
+6,16,16,13,11,12,16,12,9,17,
+6,8,12,10,21,11,19,21,11,10,
+14,10,9,13,14,18,11,14,9,20,
+13,18,17,19,7,7,19,19,9,8,
+16,16,9,12,6,19,12,18,6,8,
+21,12,7,9,7,17,7,15,17,6,
+10,11,11,21,16,13,13,6,9,10
+</data>
+ </layer>
+ <layer id="2" name="walls" width="10" height="11">
+  <data encoding="csv">
+2,2,2,2,2,2,2,2,2,2,
+2,0,0,0,0,0,0,0,0,2,
+2,0,0,0,0,0,0,0,2,2,
+2,2,0,0,0,2,2,0,2,2,
+2,0,0,2,0,2,2,0,0,2,
+2,0,0,2,0,2,0,0,0,2,
+2,2,0,2,2,2,2,2,2,2,
+2,0,0,0,0,2,0,0,0,2,
+2,0,0,0,0,0,0,0,0,2,
+2,0,2,0,0,0,0,0,0,2,
+2,2,2,2,2,2,2,2,2,2
+</data>
+ </layer>
+ <objectgroup id="3" name="objects">
+  <object id="2" type="plate" gid="26" x="96" y="96" width="16" height="16"/>
+  <object id="1" name="finish" gid="3" x="64" y="96" width="16" height="16"/>
+  <object id="5" name="player" gid="33" x="96" y="144" width="16" height="16"/>
+  <object id="4" type="box" gid="32" x="112" y="144" width="16" height="16"/>
+  <object id="3" type="gate" gid="30" x="64" y="80" width="16" height="16">
+   <properties>
+    <property name="allign" value="vertical"/>
+    <property name="isOpen" type="bool" value="false"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
