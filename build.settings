@@ -28,7 +28,7 @@ settings =
         {
             [[
                 <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID"
-                    android:value="[ca-app-pub-4852854037076889~8425838362]"/>
+                    android:value="ca-app-pub-4852854037076889~4242819269"/>
             ]],
         },
 	},
@@ -43,7 +43,7 @@ settings =
 		{
 			UIStatusBarHidden = false,
 			UILaunchStoryboardName = "LaunchScreen",
-            GADApplicationIdentifier = "ca-app-pub-4852854037076889~8425838362",
+            GADApplicationIdentifier = "ca-app-pub-4852854037076889~4242819269", --ca-app-pub-4852854037076889~8425838362",
 		},
 	},
 
@@ -66,11 +66,11 @@ settings =
         ['plugin.appodeal.beta.Mobvista'] = { publisherId = 'com.coronalabs' },
         ['plugin.appodeal.beta.MyTarget'] = { publisherId = 'com.coronalabs' },
         ['plugin.appodeal.beta.Ogury'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.beta.StartApp'] = { publisherId = 'com.coronalabs' },
+        --['plugin.appodeal.beta.StartApp'] = { publisherId = 'com.coronalabs' },
         ['plugin.appodeal.beta.Tapjoy'] = { publisherId = 'com.coronalabs' },
         ['plugin.appodeal.beta.TwitterMoPub'] = { publisherId = 'com.coronalabs' },
         ['plugin.appodeal.beta.Unity'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.beta.Vungle'] = { publisherId = 'com.coronalabs' },
+        --['plugin.appodeal.beta.Vungle'] = { publisherId = 'com.coronalabs' },
         ['plugin.appodeal.beta.Yandex'] = { publisherId = 'com.coronalabs' },
 	},
 
