@@ -129,17 +129,10 @@ scene:addEventListener("create", function(event)
 			composer.showOverlay("scenes.confirmation_overlay", {
 				isModal = true,
 				params = {
-					backgroundImage = "sprites/background/ad_confirm_screen.png",
-					backgroundWidth = C.winScreenWidth,
-					backgroundHeight = C.winScreenHeight,
 					onConfirm = function()
-						toast.show("Loading ad...")
-						appodeal.afterReward = function()
-							toast.hide()
-							minigame.collectibleCollected = false
-							minigame.win()
-						end
-						appodeal.show("rewardedVideo")
+						toast.show("Skipping level...")
+						minigame.collectibleCollected = false
+						minigame.win()
 					end,
 				}
 			})

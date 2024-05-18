@@ -3,26 +3,7 @@
 composer = require("composer")
 widget = require("widget")
 C = require("constants")
-appodeal = require("plugin.appodeal")
 toast = require("libs.toast")
-
-
-
--- init ad plugin
-
-local function adListener(event)
-	if event.phase == "init" then
-		appodeal.load("rewardedVideo")
-	elseif event.phase == "failed" then
-		toast.show("Sorry, ad is not available right now")
-	elseif event.phase == "closed" then
-		if event.type == "rewardedVideo" and event.data ~= nil and event.data.finished == true then
-			appodeal.afterReward()
-		end
-	end
-end
-
-appodeal.init(adListener, {appKey = "06d42448e1660f48d3a5c5d4d9f7a6395f91d3a59a03fbfa"})
 
 
 
