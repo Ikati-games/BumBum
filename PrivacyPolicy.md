@@ -1,7 +1,6 @@
 # The World's Greatest Privacy Policy
 
 We don't store your data. Period.
-We don't store your data. Period.
 
 ## Changes to This Privacy Policy
 
